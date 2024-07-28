@@ -27,11 +27,11 @@ const centerScale = 8; // Controls the uniform scale of the center object
 const fallbackColor = '#d6f500';
 
 const meshPaths = [
-    '/glb/glbVape0.glb',
-    '/glb/glbVape3.glb',
-    '/glb/glbVape2.glb',
-    '/glb/glbVape3.glb',
-    '/glb/glbVape4.glb',
+    './glb/glbVape0.glb',
+    './glb/glbVape3.glb',
+    './glb/glbVape2.glb',
+    './glb/glbVape3.glb',
+    './glb/glbVape4.glb',
 ];
 
 const baseColors = [
@@ -42,8 +42,8 @@ const baseColors = [
     theme.colors.secondaryBackground
 ];
 
-const centerMeshGlb = '/glb/glbCenter.glb'; // Path to the center GLB file
-const frontTexturePath = '/tex/texVG.png'; // Path to the front texture
+const centerMeshGlb = './glb/glbCenter.glb'; // Path to the center GLB file
+const frontTexturePath = './tex/texVG.png'; // Path to the front texture
 
 const transitionSpeed = 1; // Controls the speed of the transition
 
@@ -226,8 +226,8 @@ function ThreeDViewer() {
         <ViewerContainer onPointerMove={handlePointerMove}>
             <Canvas camera={{ position: [0, 5, 35], fov: 45 }}>
                 <ambientLight intensity={1} /> {/* Soft light that affects all objects */}
-                <directionalLight position={[-5, 1, 5]} intensity={6} castShadow /> {/* Strong directional light */}
-                <spotLight position={[25, 1, 1]} angle={0.3} penumbra={2} intensity={12} castShadow /> {/* Spot light */}
+                <directionalLight position={[-5, 0, 90]} intensity={6} castShadow /> {/* Strong directional light */}
+                <spotLight position={[0, 0, 1]} angle={0.3} penumbra={2} intensity={12} castShadow /> {/* Spot light */}
                 {Array.from({ length: 5 }, (_, index) => (
                     <FloatingObject
                         key={index}
