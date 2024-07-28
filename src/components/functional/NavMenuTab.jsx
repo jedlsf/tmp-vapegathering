@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { HomeIcon, DateIcon, EventLayoutIcon, PartnerExhibitorKitIcon, AwardsIcon, AboutUsIcon } from '../../icons';
 import MenuTabButton from '../foundations/MenuTabButton';
+import theme from '../../theme';
 
 const MenuContainer = styled.header`
   display: flex;
@@ -52,6 +53,7 @@ function Header() {
                             text="Home"
                             selected={isActive}
                             iconColor="#e25836"
+                            hoverColor={theme.colors.primaryBackground}
                         />
                     )}
                 </NavLinkStyled>
@@ -62,33 +64,41 @@ function Header() {
                             text="About Us"
                             selected={isActive}
                             iconColor="#11acca"
+                            hoverColor={theme.colors.primaryBackground}
+
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled to="/awards">
+                <NavLinkStyled hoverColor="#25a27d" to="/awards">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<AwardsIcon />}
                             text="Awards"
                             selected={isActive}
+                            iconColor="#25a27d"
+                            hoverColor={theme.colors.primaryBackground}
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled to="/event-layout">
+                <NavLinkStyled hoverColor="#e4a723" to="/event-layout">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<EventLayoutIcon />}
                             text="Event Layout"
                             selected={isActive}
+                            iconColor="#e4a723"
+                            hoverColor={theme.colors.primaryBackground}
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled to="/partners">
+                <NavLinkStyled hoverColor="#19321c" to="/partners">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<PartnerExhibitorKitIcon />}
                             text="Partners"
                             selected={isActive}
+                            iconColor="#19321c"
+                            hoverColor={theme.colors.primaryBackground}
                         />
                     )}
                 </NavLinkStyled>

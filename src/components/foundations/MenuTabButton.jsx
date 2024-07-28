@@ -8,6 +8,7 @@ const ButtonContainer = styled.div`
   justify-content: center;
   padding: 15px; /* Adjust padding as needed */
   width: 100%;
+  min-width: 120px;
   height: 50px; /* Fixed height */
   border-bottom: ${({ selected, theme }) => (selected ? `3px solid ${theme.colors.primary}` : 'none')};
   border-top: none;
@@ -17,7 +18,7 @@ const ButtonContainer = styled.div`
   transition: border-bottom 0.1s ease;
 
   &:hover {
-    opacity: 0.8; /* Optional: add a hover effect */
+
   }
 `;
 
@@ -25,20 +26,30 @@ const ButtonContainer = styled.div`
 const IconWrapper = styled.div`
   color: ${({ iconColor }) => iconColor}; 
   margin-right: 15px;
+  transition: color 0.3s ease;
+
+  ${ButtonContainer}:hover & {
+    color: ${({ hoverColor }) => hoverColor};
+  }
 `;
 
 const Text = styled.span`
   color: ${({ theme }) => theme.colors.textPrimary}; 
   padding-bottom: 3px;
+  transition: color 0.3s ease;
+
+  ${ButtonContainer}:hover & {
+    color: ${({ hoverColor }) => hoverColor};
+  }
 `;
 
-const MenuTabButton = ({ icon: IconComponent, iconColor = "black", text, selected }) => {
+const MenuTabButton = ({ icon: IconComponent, iconColor = "black", hoverColor = "black", text, selected }) => {
   return (
     <ButtonContainer selected={selected}>
-      <IconWrapper iconColor={iconColor}>
+      <IconWrapper iconColor={iconColor} hoverColor={hoverColor}>
         {IconComponent}
       </IconWrapper>
-      <Text>{text}</Text>
+      <Text hoverColor={hoverColor}>{text}</Text>
     </ButtonContainer>
   );
 };
