@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CountdownTimer from '../components/functional/CountdownTimer'
-
+import ThreeDViewer from '../components/3d/ThreeDViewer'
 
 
 const Container = styled.div`
@@ -9,7 +9,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
 
@@ -22,6 +22,7 @@ function Home() {
 
     return (
         <Container>
+            <ThreeDViewer />
             <CountdownTimer
                 targetDate={targetDate}
             />

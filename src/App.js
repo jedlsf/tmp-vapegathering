@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from './theme'; // Import your theme
 import styled from 'styled-components';
 
+
 //Import AWS Services
 
 import Home from './pages/Home';
@@ -44,8 +45,10 @@ function App() {
             </RowItem>
             <RowItem align="center">
               <MainContainer>
+          
                 <Routes>
                   <Route path="/" element={<Home />} />
+
                 </Routes>
               </MainContainer>
             </RowItem>
@@ -63,7 +66,7 @@ function App() {
 export default App;
 
 
-/*
+/*    
                   <Route path="/search" element={<Search />} />
                   <Route path="/my-tickets" element={<MyTickets />} />
                   <Route path="/my-wallet" element={<MyWallet />} />
