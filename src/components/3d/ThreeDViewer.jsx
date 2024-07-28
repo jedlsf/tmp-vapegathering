@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { BoxGeometry, Mesh, MeshStandardMaterial } from 'three'; // Use MeshStandardMaterial correctly
+import { Quaternion, Euler } from 'three'; // Use MeshStandardMaterial correctly
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import styled from 'styled-components';
 import * as THREE from 'three';
@@ -13,42 +13,46 @@ const ViewerContainer = styled.div`
   overflow: hidden;
 `;
 
-const floatRadius = 10;
+const floatRadius = 11;
 const sensitivity = 0.7;
 const hoverSensitivity = 0.005;
-const zSensitivity = 0.7;
-const floaterRotationSpeed = 0.01;
+const zSensitivity = 15;
+const floaterRotationSpeed = 0.006;
 const circlePositionOffset = Math.PI / 2;
-const hoverScale = 1.6;
+const hoverScale = 2.3
 const hoverScaleSpeed = 0.2;
+const centerScale = 8; // Controls the uniform scale of the center object
+
 
 const fallbackColor = '#d6f500';
 
 const meshPaths = [
     '/glb/glbVape0.glb',
-    '/glb/glbVape1.glb',
+    '/glb/glbVape3.glb',
     '/glb/glbVape2.glb',
     '/glb/glbVape3.glb',
     '/glb/glbVape4.glb',
 ];
 
 const baseColors = [
-    theme.colors.brand.red, // Red
-    theme.colors.brand.green, // Green
-    theme.colors.brand.blue, // Blue
-    theme.colors.brand.yellow, // Yellow
+    theme.colors.brand.red, // glbVape0.glb
+    theme.colors.brand.green, // glbVape3.glb
+    theme.colors.brand.blue, // glbVape2.glb
+    theme.colors.brand.yellow, // glbVape4
     theme.colors.secondaryBackground
 ];
 
+const centerMeshGlb = '/glb/glbCenter.glb'; // Path to the center GLB file
+const frontTexturePath = '/tex/texVG.png'; // Path to the front texture
+
+const transitionSpeed = 1; // Controls the speed of the transition
+
 function FloatingObject({ position, index, hoveredIndex, setHoveredIndex }) {
     const meshRef = useRef();
-    const isHoveredRef = useRef(false);
-    const lastRotationRef = useRef({ x: 0, y: 0 });
-    const [currentScale, setCurrentScale] = useState([1, 1, 1]);
     const [loadedMesh, setLoadedMesh] = useState(null);
-
-    // Generate a random speed offset for each object
-    const speedOffset = Math.random() * 0.005; // Adjust the range as needed
+    const [isHovered, setIsHovered] = useState(false);
+    const [lastQuaternion, setLastQuaternion] = useState(new Quaternion());
+    const [targetQuaternion, setTargetQuaternion] = useState(new Quaternion().setFromEuler(new Euler(0, 15 * (Math.PI / 180), 0)));
 
     // Load GLB model
     useEffect(() => {
@@ -57,7 +61,11 @@ function FloatingObject({ position, index, hoveredIndex, setHoveredIndex }) {
             new GLTFLoader().load(
                 glbPath,
                 (gltf) => {
-                    console.log(`Successfully loaded GLB model from ${glbPath}`);
+                    gltf.scene.traverse((child) => {
+                        if (child.isMesh) {
+                            child.material = new THREE.MeshStandardMaterial({ color: baseColors[index] || fallbackColor });
+                        }
+                    });
                     setLoadedMesh(gltf.scene);
                 },
                 undefined,
@@ -74,55 +82,53 @@ function FloatingObject({ position, index, hoveredIndex, setHoveredIndex }) {
     useFrame((state, delta) => {
         const floater = meshRef.current;
         if (floater) {
-            if (hoveredIndex !== index && !isHoveredRef.current) {
-                floater.rotation.y += (floaterRotationSpeed + speedOffset);
-                floater.rotation.x += (floaterRotationSpeed * 0.2 + speedOffset);
-                setCurrentScale([1, 1, 1]);
-            } else if (hoveredIndex === index) {
-                floater.rotation.y += (hoverSensitivity + speedOffset);
-                floater.rotation.x += (hoverSensitivity * 0.2 + speedOffset);
-                setCurrentScale([hoverScale, hoverScale, hoverScale]);
-                isHoveredRef.current = true;
-                lastRotationRef.current = {
-                    x: floater.rotation.x,
-                    y: floater.rotation.y,
-                };
-            } else {
-                isHoveredRef.current = false;
-                floater.rotation.x = lastRotationRef.current.x;
-                floater.rotation.y = lastRotationRef.current.y;
-                setCurrentScale([1, 1, 1]);
-            }
+            if (isHovered) {
+                // Set the quaternion to the target rotation
+                floater.quaternion.slerp(targetQuaternion, 0.1);
 
-            floater.scale.lerp(new THREE.Vector3(...currentScale), delta / hoverScaleSpeed);
+                // Smoothly interpolate the scale to hoverScale
+                floater.scale.lerp(new THREE.Vector3(hoverScale, hoverScale, hoverScale), delta / hoverScaleSpeed);
+            } else {
+                // Store the last quaternion
+                setLastQuaternion(floater.quaternion.clone());
+
+                // Update rotation with quaternion
+                const rotationQuaternion = new Quaternion().setFromAxisAngle(new THREE.Vector3(0.5, 0.5, 0.5).normalize(), floaterRotationSpeed);
+                floater.quaternion.multiplyQuaternions(floater.quaternion, rotationQuaternion);
+
+                // Smoothly interpolate the scale to original size
+                floater.scale.lerp(new THREE.Vector3(1, 1, 1), delta / hoverScaleSpeed);
+            }
         }
     });
 
-    const showInfo = () => {
-        console.log("Showing info for object at index", index);
+    const handlePointerOver = () => {
+        setIsHovered(true);
+        setHoveredIndex(index);
+
+        // Store the last known quaternion when hovered
+        if (meshRef.current) {
+            setLastQuaternion(meshRef.current.quaternion.clone());
+        }
     };
 
-    useEffect(() => {
-        if (hoveredIndex === index) {
-            isHoveredRef.current = true;
-            showInfo();
-        } else {
-            isHoveredRef.current = false;
-        }
-    }, [hoveredIndex, index]);
+    const handlePointerOut = () => {
+        setIsHovered(false);
+        setHoveredIndex(null);
+    };
 
     return (
         <mesh
             ref={meshRef}
             position={position}
-            onPointerOver={() => setHoveredIndex(index)}
-            onPointerOut={() => setHoveredIndex(null)}
+            onPointerOver={handlePointerOver}
+            onPointerOut={handlePointerOut}
         >
             {loadedMesh ? (
                 <primitive object={loadedMesh} />
             ) : (
                 <>
-                    <boxGeometry args={[1, 1, 1]} />
+
                     <meshStandardMaterial color={baseColors[index] || fallbackColor} />
                 </>
             )}
@@ -132,12 +138,44 @@ function FloatingObject({ position, index, hoveredIndex, setHoveredIndex }) {
 
 function CentralObject({ centralRef, mousePosition }) {
     const { camera } = useThree();
+    const [loadedMesh, setLoadedMesh] = useState(null);
+
+    // Load GLB model
+    useEffect(() => {
+        if (centerMeshGlb) {
+            new GLTFLoader().load(
+                centerMeshGlb,
+                (gltf) => {
+                    // Assign materials
+                    gltf.scene.traverse((child) => {
+                        if (child.isMesh) {
+                            if (child.material.name === 'FrontVGLogo') {
+                                const texture = new THREE.TextureLoader().load(frontTexturePath);
+                                child.material = new THREE.MeshStandardMaterial({ map: texture });
+                            } else if (child.material.name === 'BackplateVGLogo') {
+                                child.material = new THREE.MeshStandardMaterial({ color: theme.colors.secondaryBackground });
+                            }
+                        }
+                    });
+                    setLoadedMesh(gltf.scene);
+                },
+                undefined,
+                (error) => {
+                    console.error(`Error loading GLB model at ${centerMeshGlb}:`, error);
+                    setLoadedMesh(null);
+                }
+            );
+        } else {
+            setLoadedMesh(null);
+        }
+    }, []);
+
 
     useFrame(() => {
         if (centralRef.current) {
-            centralRef.current.rotation.x = -mousePosition.current.y * sensitivity;
-            centralRef.current.rotation.y = -mousePosition.current.x * sensitivity;
-            centralRef.current.rotation.z = -mousePosition.current.x * zSensitivity;
+            centralRef.current.rotation.x = mousePosition.current.y * sensitivity;
+            centralRef.current.rotation.y = mousePosition.current.x * sensitivity;
+
 
             const centralPosition = centralRef.current.position;
             camera.position.x = centralPosition.x - mousePosition.current.x * zSensitivity;
@@ -147,9 +185,15 @@ function CentralObject({ centralRef, mousePosition }) {
     });
 
     return (
-        <mesh ref={centralRef}>
-            <boxGeometry args={[2, 2, 2]} />
-            <meshBasicMaterial color="blue" />
+        <mesh ref={centralRef} scale={[centerScale, centerScale, centerScale]}>
+            {loadedMesh ? (
+                <primitive object={loadedMesh} />
+            ) : (
+                <>
+                    <boxGeometry args={[2, 2, 2]} />
+                    <meshBasicMaterial color="blue" />
+                </>
+            )}
         </mesh>
     );
 }
@@ -181,10 +225,9 @@ function ThreeDViewer() {
     return (
         <ViewerContainer onPointerMove={handlePointerMove}>
             <Canvas camera={{ position: [0, 5, 35], fov: 45 }}>
-                <ambientLight intensity={0.3} /> {/* Soft light that affects all objects */}
-                <directionalLight position={[10, 10, 5]} intensity={25} castShadow /> {/* Strong directional light */}
-                <spotLight position={[0, 10, 10]} angle={0.2} penumbra={1} intensity={2} castShadow /> {/* Spot light */}
-                <axesHelper args={[5]} />
+                <ambientLight intensity={1} /> {/* Soft light that affects all objects */}
+                <directionalLight position={[-5, 1, 5]} intensity={6} castShadow /> {/* Strong directional light */}
+                <spotLight position={[25, 1, 1]} angle={0.3} penumbra={2} intensity={12} castShadow /> {/* Spot light */}
                 {Array.from({ length: 5 }, (_, index) => (
                     <FloatingObject
                         key={index}
