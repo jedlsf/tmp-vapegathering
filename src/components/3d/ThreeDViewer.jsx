@@ -225,9 +225,9 @@ function ThreeDViewer() {
     return (
         <ViewerContainer onPointerMove={handlePointerMove}>
             <Canvas camera={{ position: [0, 5, 35], fov: 45 }}>
-                <ambientLight intensity={1} /> {/* Soft light that affects all objects */}
-                <directionalLight position={[-5, 0, 90]} intensity={6} castShadow /> {/* Strong directional light */}
-                <spotLight position={[0, 0, 1]} angle={0.3} penumbra={2} intensity={12} castShadow /> {/* Spot light */}
+                <ambientLight intensity={1.6} /> {/* Soft light that affects all objects */}
+                <directionalLight position={[-5, 0, 90]} intensity={4} castShadow /> {/* Strong directional light */}
+                <spotLight position={[0, 0, 1]} angle={0.3} penumbra={2} intensity={9} castShadow /> {/* Spot light */}
                 {Array.from({ length: 5 }, (_, index) => (
                     <FloatingObject
                         key={index}
