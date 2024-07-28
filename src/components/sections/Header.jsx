@@ -2,8 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { logoEmblemReQuest } from '../../assets-imported/assets';
-import { HomeIcon, SearchIcon, TicketsIcon, WalletIcon, ProfileIcon } from '../../icons';
+import { logoVG } from '../../assets-imported/assets';
 import NavMenuTab from '../functional/NavMenuTab';
 
 const HeaderContainer = styled.header`
@@ -26,7 +25,7 @@ const Logo = styled.img`
 function Header() {
   return (
     <HeaderContainer>
-      <Logo src={logoEmblemReQuest} className="App-logo" alt="logo" />
+      <Logo src={logoVG} className="App-logo" alt="logo" />
       <NavMenuTab />
     </HeaderContainer>
   );

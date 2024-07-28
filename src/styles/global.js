@@ -8,7 +8,6 @@ export const AppContainer = styled.div`
   background-color: transparent;
   overflow: hidden;
 
-  
 `;
 
 export const MainContainer = styled.main`
@@ -27,6 +26,7 @@ export const Row = styled.div`
   z-index: 50;
   backdrop-filter: blur(6px); 
   overflow: auto;
+  background-color: ${({ theme }) => theme.colors.primaryBackground};
 `;
 
 export const RowItem = styled.div`

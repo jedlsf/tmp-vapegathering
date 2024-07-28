@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { HomeIcon, SearchIcon, TicketsIcon, WalletIcon, ProfileIcon } from '../../icons';
+import { HomeIcon, DateIcon, EventLayoutIcon, PartnerExhibitorKitIcon, AwardsIcon, AboutUsIcon } from '../../icons';
 import MenuTabButton from '../foundations/MenuTabButton';
 
 const MenuContainer = styled.header`
@@ -35,7 +35,9 @@ const NavLinkStyled = styled(NavLink)`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondaryBackground}; 
+    background-color:  ${({ hoverColor }) => hoverColor}; 
+  
+    
   }
 `;
 
@@ -43,47 +45,49 @@ function Header() {
     return (
         <MenuContainer>
             <Nav>
-                <NavLinkStyled to="/" end>
+                <NavLinkStyled hoverColor="#e25836" to="/" end >
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<HomeIcon />}
                             text="Home"
                             selected={isActive}
+                            iconColor="#e25836"
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled to="/search">
+                <NavLinkStyled hoverColor="#11acca" to="/about">
                     {({ isActive }) => (
                         <MenuTabButton
-                            icon={<SearchIcon />}
-                            text="Search"
+                            icon={<AboutUsIcon />}
+                            text="About Us"
+                            selected={isActive}
+                            iconColor="#11acca"
+                        />
+                    )}
+                </NavLinkStyled>
+                <NavLinkStyled to="/awards">
+                    {({ isActive }) => (
+                        <MenuTabButton
+                            icon={<AwardsIcon />}
+                            text="Awards"
                             selected={isActive}
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled to="/my-tickets">
+                <NavLinkStyled to="/event-layout">
                     {({ isActive }) => (
                         <MenuTabButton
-                            icon={<TicketsIcon />}
-                            text="My Tickets"
+                            icon={<EventLayoutIcon />}
+                            text="Event Layout"
                             selected={isActive}
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled to="/my-wallet">
+                <NavLinkStyled to="/partners">
                     {({ isActive }) => (
                         <MenuTabButton
-                            icon={<WalletIcon />}
-                            text="My Wallet"
-                            selected={isActive}
-                        />
-                    )}
-                </NavLinkStyled>
-                <NavLinkStyled to="/my-profile">
-                    {({ isActive }) => (
-                        <MenuTabButton
-                            icon={<ProfileIcon />}
-                            text="My Profile"
+                            icon={<PartnerExhibitorKitIcon />}
+                            text="Partners"
                             selected={isActive}
                         />
                     )}

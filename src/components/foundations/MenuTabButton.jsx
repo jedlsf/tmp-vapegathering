@@ -23,19 +23,19 @@ const ButtonContainer = styled.div`
 
 
 const IconWrapper = styled.div`
-  color: ${({ theme }) => theme.colors.primary}; /* Icon color */
+  color: ${({ iconColor }) => iconColor}; 
   margin-right: 15px;
 `;
 
 const Text = styled.span`
-  color: ${({ theme }) => theme.colors.textPrimary}; /* Text color */
+  color: ${({ theme }) => theme.colors.textPrimary}; 
   padding-bottom: 3px;
 `;
 
-const MenuTabButton = ({ icon: IconComponent, text, selected }) => {
+const MenuTabButton = ({ icon: IconComponent, iconColor = "black", text, selected }) => {
   return (
     <ButtonContainer selected={selected}>
-      <IconWrapper>
+      <IconWrapper iconColor={iconColor}>
         {IconComponent}
       </IconWrapper>
       <Text>{text}</Text>

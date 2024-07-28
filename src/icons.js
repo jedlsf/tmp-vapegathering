@@ -1,8 +1,5 @@
 import {
     FaHome,
-    FaSearch,
-    FaTicketAlt,
-    FaWallet,
     FaUser,
     FaEye,
     FaEyeSlash,
@@ -10,15 +7,15 @@ import {
     FaBars,
     FaCheckCircle,
     FaMapMarkerAlt,
-    FaCalendarAlt
+    FaCalendarAlt,
+    FaStar,
+    FaInfoCircle,
+    FaTrophy,
+    FaProjectDiagram,
+    FaBriefcase
 } from 'react-icons/fa';
 
-
-
 export const HomeIcon = FaHome;
-export const SearchIcon = FaSearch;
-export const TicketsIcon = FaTicketAlt;
-export const WalletIcon = FaWallet;
 export const ProfileIcon = FaUser;
 export const ShowPasswordIcon = FaEye;
 export const HidePasswordIcon = FaEyeSlash;
@@ -27,3 +24,10 @@ export const MenuIcon = FaBars;
 export const VerifiedBadgeIcon = FaCheckCircle;
 export const LocationIcon = FaMapMarkerAlt;
 export const DateIcon = FaCalendarAlt;
+
+// New icons added here
+export const AboutUsIcon = FaInfoCircle;
+export const AwardsIcon = FaTrophy;
+export const StarIcon = FaStar;
+export const EventLayoutIcon = FaProjectDiagram;
+export const PartnerExhibitorKitIcon = FaBriefcase;

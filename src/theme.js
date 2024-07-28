@@ -46,12 +46,12 @@ const theme = {
         }
     },
     colors: {
-        primary: '#d6f500',
-        error: '#ed3500',
-        textPrimary: '#eaeaea',
+        primary: '#061408',
+        error: '#e25836',
+        textPrimary: '#061408',
         textSecondary: '#95a1ac',
-        primaryBackground: '#151515',
-        secondaryBackground: '#1e2021'
+        primaryBackground: '#edf2d1',
+        secondaryBackground: '#163119'
     },
     spacing: {
         tight: '0.2rem',

@@ -14,7 +14,7 @@ const FooterContainer = styled.footer`
 function Footer() {
     return (
         <FooterContainer>
-            &copy; {new Date().getFullYear()} Request Events and Software Solutions, Inc. |  All rights reserved.
+            &copy; {new Date().getFullYear()} TMP Productions - Vape Gathering |  All rights reserved.
         </FooterContainer>
     );
 }

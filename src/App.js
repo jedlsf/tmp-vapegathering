@@ -2,7 +2,7 @@
 import './App.css';
 import './styles/fonts.css'; // Import fonts.css here
 import './styles/cssGlobal.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes, Switch, NavLink } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme'; // Import your theme
@@ -28,22 +28,8 @@ import { AppContainer, MainContainer, Row, RowItem } from './styles/global';
 
 
 
+
 function App() {
-
-
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (event) => {
-    setPosition({ x: event.clientX, y: event.clientY });
-  };
-
-  useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
 
 
 
@@ -51,10 +37,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <AppContainer>
-          <div
-            className="circle-mask"
-            style={{ left: position.x - 50, top: position.y - 50 }}
-          />
           <Header />
           <Row>
             <RowItem align="left">
