@@ -27,11 +27,11 @@ const centerScale = 8; // Controls the uniform scale of the center object
 const fallbackColor = '#d6f500';
 
 const meshPaths = [
-    '/glb/glbVape0.glb',
-    '/glb/glbVape3.glb',
-    '/glb/glbVape2.glb',
-    '/glb/glbVape3.glb',
-    '/glb/glbVape4.glb',
+    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape0.glb',
+    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape3.glb',
+    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape2.glb',
+    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape3.glb',
+    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape4.glb',
 ];
 
 const baseColors = [
@@ -42,8 +42,8 @@ const baseColors = [
     theme.colors.secondaryBackground
 ];
 
-const centerMeshGlb = '/glb/glbCenter.glb'; // Path to the center GLB file
-const frontTexturePath = '/tex/texVG.png'; // Path to the front texture
+const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter.glb'; // Path to the center GLB file
+const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/texVG.png'; // Path to the front texture
 
 const transitionSpeed = 1; // Controls the speed of the transition
 
