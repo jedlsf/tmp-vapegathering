@@ -16,7 +16,7 @@ const ButtonContainer = styled.div`
   border-right: none;
   cursor: pointer;
   transition: border-bottom 0.1s ease;
-
+  user-select: none;
   &:hover {
 
   }

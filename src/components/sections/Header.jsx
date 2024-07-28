@@ -18,6 +18,7 @@ const HeaderContainer = styled.header`
 const Logo = styled.img`
   height: 25px;
   z-index: 1;
+  user-select: none;
 `;
 
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
+import CountdownTimer from '../components/functional/CountdownTimer'
 
 
 
@@ -15,13 +15,16 @@ const Container = styled.div`
 
 
 `;
+const targetDate = '2024-12-31T23:59:59Z'; // 'Z' denotes UTC time
 
 function Home() {
 
 
     return (
         <Container>
-            test
+            <CountdownTimer
+                targetDate={targetDate}
+            />
         </Container>
     );
 }

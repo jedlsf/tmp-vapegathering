@@ -46,47 +46,46 @@ function Header() {
     return (
         <MenuContainer>
             <Nav>
-                <NavLinkStyled hoverColor="#e25836" to="/" end >
+                <NavLinkStyled hoverColor={theme.colors.brand.red} to="/" end >
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<HomeIcon />}
                             text="Home"
                             selected={isActive}
-                            iconColor="#e25836"
+                            iconColor={theme.colors.brand.red}
                             hoverColor={theme.colors.primaryBackground}
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled hoverColor="#11acca" to="/about">
+                <NavLinkStyled hoverColor={theme.colors.brand.blue} to="/about">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<AboutUsIcon />}
                             text="About Us"
                             selected={isActive}
-                            iconColor="#11acca"
+                            iconColor={theme.colors.brand.blue}
                             hoverColor={theme.colors.primaryBackground}
-
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled hoverColor="#25a27d" to="/awards">
+                <NavLinkStyled hoverColor={theme.colors.brand.green} to="/awards">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<AwardsIcon />}
                             text="Awards"
                             selected={isActive}
-                            iconColor="#25a27d"
+                            iconColor={theme.colors.brand.green}
                             hoverColor={theme.colors.primaryBackground}
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled hoverColor="#e4a723" to="/event-layout">
+                <NavLinkStyled hoverColor={theme.colors.brand.yellow} to="/event-layout">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<EventLayoutIcon />}
                             text="Event Layout"
                             selected={isActive}
-                            iconColor="#e4a723"
+                            iconColor={theme.colors.brand.yellow}
                             hoverColor={theme.colors.primaryBackground}
                         />
                     )}

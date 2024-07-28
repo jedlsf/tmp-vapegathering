@@ -27,7 +27,8 @@ const theme = {
             title: '1.5em',
             helper: '0.7em',
             hint: "0.75em",
-            subject: '1em'
+            subject: '1em',
+            mini: "0.45em",
         },
         weights: {
             header: 700,
@@ -51,7 +52,14 @@ const theme = {
         textPrimary: '#061408',
         textSecondary: '#95a1ac',
         primaryBackground: '#edf2d1',
-        secondaryBackground: '#163119'
+        secondaryBackground: '#163119',
+        brand: {
+            red: '#e25836',
+            blue: '#11acca',
+            green: '#25a27d',
+            yellow: '#e4a723'
+
+        }
     },
     spacing: {
         tight: '0.2rem',
