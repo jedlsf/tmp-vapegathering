@@ -6,8 +6,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Arial', sans-serif;
-  font-size: 2rem;
+  font-size: 1.3rem;
 `;
 
 const SegmentContainer = styled.div`

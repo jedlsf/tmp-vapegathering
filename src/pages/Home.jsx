@@ -2,27 +2,73 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CountdownTimer from '../components/functional/CountdownTimer'
 import ThreeDViewer from '../components/3d/ThreeDViewer'
-
+import VFXCircleMask from '../components/vfx/VFXCircleMask'
+import theme from '../theme.js';
 
 const Container = styled.div`
-  max-width: 1200px;
+  width: 100vw;
   margin: 0 auto;
-  padding: 20px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
 
-
+  background-color: ${({ bgColor }) => bgColor}; // Apply the dynamic background color
+  transition: background-color 0.5s ease-in-out; // Smooth transition for background color changes
 `;
+
+
+
 const targetDate = '2024-12-31T23:59:59Z'; // 'Z' denotes UTC time
 
 function Home() {
 
+    const [hovered, setHovered] = useState(false);
+    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 100 });
+    const [backgroundColor, setBackgroundColor] = useState(theme.colors.primaryBackground); // Default background color
+
+    const handleHovered = (index) => {
+        console.log('Hovered', index);
+        setHovered(true);
+        if (index === 0) {
+            changeBackgroundColor(theme.colors.brand.red);
+        } else if (index === 1) {
+            changeBackgroundColor(theme.colors.brand.green);
+        } else if (index === 2) {
+            changeBackgroundColor(theme.colors.brand.blue);
+        } else if (index === 3) {
+            changeBackgroundColor(theme.colors.brand.yellow);
+
+        } else {
+            changeBackgroundColor(theme.colors.primaryBackground);
+        }
+
+    };
+
+    const handleHoverEnd = (index) => {
+        console.log('Hovered Out', index);
+        setHovered(false);
+        changeBackgroundColor(theme.colors.primaryBackground); // Example color on hover
+    };
+
+    const handleMouseMove = (event) => {
+        setCursorPosition({
+            x: event.clientX,
+            y: event.clientY,
+        });
+    };
+
+    const changeBackgroundColor = (color) => {
+        setBackgroundColor(color);
+    };
 
     return (
-        <Container>
-            <ThreeDViewer />
+        <Container onMouseMove={handleMouseMove} bgColor={backgroundColor}>
+            <VFXCircleMask isVisible={hovered} cursorPosition={cursorPosition} />
+            <ThreeDViewer
+                isHovered={handleHovered}
+                isHoverEnd={handleHoverEnd} // Corrected the prop name
+            />
             <CountdownTimer
                 targetDate={targetDate}
             />

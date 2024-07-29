@@ -7,6 +7,7 @@ export const AppContainer = styled.div`
   height: 100vh;
   background-color: transparent;
   overflow: hidden;
+  width: 100vw;
 
 `;
 
@@ -16,26 +17,12 @@ export const MainContainer = styled.main`
   justify-content: center;
   align-items: left;
   border-radius: ${({ theme }) => theme.borders?.radius?.medium || '8px'};
-  z-index: 50;
-`;
-
-export const Row = styled.div`
-  display: flex;
-  flex-grow: 1;
-  align-items: left;
-  z-index: 50;
-  backdrop-filter: blur(6px); 
-  overflow: auto;
+  z-index: 15;
+  width: 100vw;
+  height: 100vh;
   background-color: ${({ theme }) => theme.colors.primaryBackground};
 `;
 
-export const RowItem = styled.div`
-  flex: ${({ align }) => (align === 'center' ? 3 : 1)};
-  display: flex;
-  justify-content: ${({ align }) => (align === 'center' ? 'center' : 'flex-start')};
-  align-items: flex-start;
-  align: left;
-`;
 
 
 // Styled component for Proceed button

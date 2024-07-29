@@ -25,8 +25,7 @@ import Footer from './components/sections/Footer';
 import Sidebar from './components/sections/Sidebar';
 
 
-import { AppContainer, MainContainer, Row, RowItem } from './styles/global';
-
+import { AppContainer, MainContainer } from './styles/global';
 
 
 
@@ -39,23 +38,13 @@ function App() {
       <Router>
         <AppContainer>
           <Header />
-          <Row>
-            <RowItem align="left">
-              {/*  */}
-            </RowItem>
-            <RowItem align="center">
-              <MainContainer>
-          
-                <Routes>
-                  <Route path="/" element={<Home />} />
+          <MainContainer>
 
-                </Routes>
-              </MainContainer>
-            </RowItem>
-            <RowItem align="right">
-              {/* Optional additional content */}
-            </RowItem>
-          </Row>
+            <Routes>
+              <Route path="/" element={<Home />} />
+
+            </Routes>
+          </MainContainer>
           <Footer />
         </AppContainer>
       </Router>

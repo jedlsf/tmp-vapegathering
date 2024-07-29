@@ -13,6 +13,7 @@ const HeaderContainer = styled.header`
   padding: 10px 20px;
   background-color: ${({ theme }) => theme.colors.primaryBackground};
   color: white;
+  z-index: 150;
 `;
 
 const Logo = styled.img`

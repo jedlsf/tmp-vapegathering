@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Quaternion, Euler } from 'three'; // Use MeshStandardMaterial correctly
+import { Quaternion, Euler } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import styled from 'styled-components';
 import * as THREE from 'three';
@@ -8,9 +9,11 @@ import theme from '../../theme';
 
 const ViewerContainer = styled.div`
   width: 100vw;
-  height: 68vh;
+  height: 80vh;
   position: relative;
   overflow: hidden;
+  z-index: 4;
+  backdrop-filter: blur(25px);
 `;
 
 const floatRadius = 11;
@@ -19,10 +22,9 @@ const hoverSensitivity = 0.005;
 const zSensitivity = 15;
 const floaterRotationSpeed = 0.006;
 const circlePositionOffset = Math.PI / 2;
-const hoverScale = 2.3
+const hoverScale = 2.3;
 const hoverScaleSpeed = 0.2;
-const centerScale = 8; // Controls the uniform scale of the center object
-
+const centerScale = 8;
 
 const fallbackColor = '#d6f500';
 
@@ -35,26 +37,25 @@ const meshPaths = [
 ];
 
 const baseColors = [
-    theme.colors.brand.red, // glbVape0.glb
-    theme.colors.brand.green, // glbVape3.glb
-    theme.colors.brand.blue, // glbVape2.glb
-    theme.colors.brand.yellow, // glbVape4
+    theme.colors.brand.red,
+    theme.colors.brand.green,
+    theme.colors.brand.blue,
+    theme.colors.brand.yellow,
     theme.colors.secondaryBackground
 ];
 
-const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter.glb'; // Path to the center GLB file
-const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/texVG.png'; // Path to the front texture
+const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter.glb';
+const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/texVG.png';
 
-const transitionSpeed = 1; // Controls the speed of the transition
+const transitionSpeed = 1;
 
-function FloatingObject({ position, index, hoveredIndex, setHoveredIndex }) {
+const FloatingObject = React.memo(({ position, index, hoveredIndex, setHoveredIndex, onHover, onHoverEnd }) => {
     const meshRef = useRef();
     const [loadedMesh, setLoadedMesh] = useState(null);
     const [isHovered, setIsHovered] = useState(false);
     const [lastQuaternion, setLastQuaternion] = useState(new Quaternion());
-    const [targetQuaternion, setTargetQuaternion] = useState(new Quaternion().setFromEuler(new Euler(0, 15 * (Math.PI / 180), 0)));
+    const [targetQuaternion] = useState(() => new Quaternion().setFromEuler(new Euler(0, 15 * (Math.PI / 180), 0)));
 
-    // Load GLB model
     useEffect(() => {
         const glbPath = meshPaths[index] || '';
         if (glbPath) {
@@ -83,20 +84,12 @@ function FloatingObject({ position, index, hoveredIndex, setHoveredIndex }) {
         const floater = meshRef.current;
         if (floater) {
             if (isHovered) {
-                // Set the quaternion to the target rotation
                 floater.quaternion.slerp(targetQuaternion, 0.1);
-
-                // Smoothly interpolate the scale to hoverScale
                 floater.scale.lerp(new THREE.Vector3(hoverScale, hoverScale, hoverScale), delta / hoverScaleSpeed);
             } else {
-                // Store the last quaternion
                 setLastQuaternion(floater.quaternion.clone());
-
-                // Update rotation with quaternion
                 const rotationQuaternion = new Quaternion().setFromAxisAngle(new THREE.Vector3(0.5, 0.5, 0.5).normalize(), floaterRotationSpeed);
                 floater.quaternion.multiplyQuaternions(floater.quaternion, rotationQuaternion);
-
-                // Smoothly interpolate the scale to original size
                 floater.scale.lerp(new THREE.Vector3(1, 1, 1), delta / hoverScaleSpeed);
             }
         }
@@ -105,8 +98,7 @@ function FloatingObject({ position, index, hoveredIndex, setHoveredIndex }) {
     const handlePointerOver = () => {
         setIsHovered(true);
         setHoveredIndex(index);
-
-        // Store the last known quaternion when hovered
+        onHover(index);
         if (meshRef.current) {
             setLastQuaternion(meshRef.current.quaternion.clone());
         }
@@ -115,6 +107,7 @@ function FloatingObject({ position, index, hoveredIndex, setHoveredIndex }) {
     const handlePointerOut = () => {
         setIsHovered(false);
         setHoveredIndex(null);
+        onHoverEnd(index);
     };
 
     return (
@@ -134,19 +127,17 @@ function FloatingObject({ position, index, hoveredIndex, setHoveredIndex }) {
             )}
         </mesh>
     );
-}
+});
 
-function CentralObject({ centralRef, mousePosition }) {
+const CentralObject = React.memo(({ centralRef, mousePosition }) => {
     const { camera } = useThree();
     const [loadedMesh, setLoadedMesh] = useState(null);
 
-    // Load GLB model
     useEffect(() => {
         if (centerMeshGlb) {
             new GLTFLoader().load(
                 centerMeshGlb,
                 (gltf) => {
-                    // Assign materials
                     gltf.scene.traverse((child) => {
                         if (child.isMesh) {
                             if (child.material.name === 'FrontVGLogo') {
@@ -170,13 +161,10 @@ function CentralObject({ centralRef, mousePosition }) {
         }
     }, []);
 
-
     useFrame(() => {
         if (centralRef.current) {
             centralRef.current.rotation.x = mousePosition.current.y * sensitivity;
             centralRef.current.rotation.y = mousePosition.current.x * sensitivity;
-
-
             const centralPosition = centralRef.current.position;
             camera.position.x = centralPosition.x - mousePosition.current.x * zSensitivity;
             camera.position.y = centralPosition.y + mousePosition.current.y * zSensitivity;
@@ -196,26 +184,24 @@ function CentralObject({ centralRef, mousePosition }) {
             )}
         </mesh>
     );
-}
+});
 
-function ThreeDViewer() {
+function ThreeDViewer({ isHovered, isHoverEnd }) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const centralRef = useRef();
     const mousePosition = useRef({ x: 0, y: 0 });
 
-    const generatePositions = (radius, count) => {
+    const generatePositions = useMemo(() => {
         const positions = [];
-        const angleStep = (2 * Math.PI) / count;
-        for (let i = 0; i < count; i++) {
+        const angleStep = (2 * Math.PI) / 5;
+        for (let i = 0; i < 5; i++) {
             const angle = i * angleStep + circlePositionOffset;
-            const x = radius * Math.cos(angle);
-            const y = radius * Math.sin(angle);
+            const x = floatRadius * Math.cos(angle);
+            const y = floatRadius * Math.sin(angle);
             positions.push([x, y, 0]);
         }
         return positions;
-    };
-
-    const positions = generatePositions(floatRadius, 5);
+    }, []);
 
     const handlePointerMove = (event) => {
         mousePosition.current.x = (event.clientX / window.innerWidth - 0.5) * 2;
@@ -225,16 +211,18 @@ function ThreeDViewer() {
     return (
         <ViewerContainer onPointerMove={handlePointerMove}>
             <Canvas camera={{ position: [0, 5, 35], fov: 45 }}>
-                <ambientLight intensity={1.6} /> {/* Soft light that affects all objects */}
-                <directionalLight position={[-5, 0, 90]} intensity={4} castShadow /> {/* Strong directional light */}
-                <spotLight position={[0, 0, 1]} angle={0.3} penumbra={2} intensity={9} castShadow /> {/* Spot light */}
-                {Array.from({ length: 5 }, (_, index) => (
+                <ambientLight intensity={1.2} />
+                <directionalLight position={[-5, 0, 90]} intensity={4} castShadow />
+
+                {generatePositions.map((position, index) => (
                     <FloatingObject
                         key={index}
-                        position={positions[index]}
+                        position={position}
                         index={index}
                         hoveredIndex={hoveredIndex}
                         setHoveredIndex={setHoveredIndex}
+                        onHover={isHovered}
+                        onHoverEnd={isHoverEnd}
                     />
                 ))}
                 <CentralObject centralRef={centralRef} mousePosition={mousePosition} />
@@ -242,5 +230,10 @@ function ThreeDViewer() {
         </ViewerContainer>
     );
 }
+
+ThreeDViewer.propTypes = {
+    isHovered: PropTypes.func.isRequired,
+    isHoverEnd: PropTypes.func.isRequired,
+};
 
 export default ThreeDViewer;
