@@ -12,6 +12,7 @@ import styled from 'styled-components';
 //Import AWS Services
 
 import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
 //import Search from './pages/Search';
 //import MyTickets from './pages/MyTickets';
 //import MyWallet from './pages/MyWallet';
@@ -42,6 +43,7 @@ function App() {
 
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about-us" element={<AboutUs />} />
 
             </Routes>
           </MainContainer>

@@ -21,10 +21,11 @@ const Overlay = styled.div`
   height: 100%;
   background: ${({ theme }) => theme.colors.secondaryBackground};
   clip-path: ${({ isVisible, cursorPosition }) =>
-        isVisible ? `circle(140px at ${cursorPosition.x}px ${cursorPosition.y}px)` : `circle(0px at ${cursorPosition.x}px ${cursorPosition.y}px)`};
+    isVisible ? `circle(140px at ${cursorPosition.x}px ${cursorPosition.y}px)` : `circle(0px at ${cursorPosition.x}px ${cursorPosition.y}px)`};
   transition: clip-path 0.15s ease-in, transform 0.3s ease-in;
   transform: ${({ isVisible }) => (isVisible ? 'scale(1)' : 'scale(0)')};
   transform-origin: ${({ cursorPosition }) => cursorPosition ? `${cursorPosition.x}px ${cursorPosition.y}px` : 'center center'};
+  opacity: 0.45;
   
   &::before {
     content: '';
@@ -35,7 +36,7 @@ const Overlay = styled.div`
     height: 100%;
     background: ${({ theme }) => theme.colors.secondaryBackground};
     clip-path: ${({ isVisible, cursorPosition }) =>
-        isVisible ? `circle(120px at ${cursorPosition.x}px ${cursorPosition.y}px)` : `circle(0px at ${cursorPosition.x}px ${cursorPosition.y}px)`};
+    isVisible ? `circle(120px at ${cursorPosition.x}px ${cursorPosition.y}px)` : `circle(0px at ${cursorPosition.x}px ${cursorPosition.y}px)`};
     filter: blur(20px);
     transition: clip-path 0.5s ease-in, transform 0.5s ease-in;
     transform: ${({ isVisible }) => (isVisible ? 'scale(1)' : 'scale(0)')};
@@ -45,11 +46,11 @@ const Overlay = styled.div`
 `;
 
 const VFXCircleMask = ({ isVisible, cursorPosition }) => {
-    return (
-        <OverlayContainer isVisible={isVisible}>
-            <Overlay isVisible={isVisible} cursorPosition={cursorPosition} />
-        </OverlayContainer>
-    );
+  return (
+    <OverlayContainer isVisible={isVisible}>
+      <Overlay isVisible={isVisible} cursorPosition={cursorPosition} />
+    </OverlayContainer>
+  );
 };
 
 export default VFXCircleMask;

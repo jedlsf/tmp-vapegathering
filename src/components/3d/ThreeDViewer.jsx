@@ -17,9 +17,9 @@ const ViewerContainer = styled.div`
 `;
 
 const floatRadius = 11;
-const sensitivity = 0.7;
+const sensitivity = 0.5;
 const hoverSensitivity = 0.005;
-const zSensitivity = 15;
+const zSensitivity = 10;
 const floaterRotationSpeed = 0.006;
 const circlePositionOffset = Math.PI / 2;
 const hoverScale = 2.3;
@@ -41,7 +41,7 @@ const baseColors = [
     theme.colors.brand.green,
     theme.colors.brand.blue,
     theme.colors.brand.yellow,
-    theme.colors.secondaryBackground
+    theme.colors.primaryBackground
 ];
 
 const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter.glb';

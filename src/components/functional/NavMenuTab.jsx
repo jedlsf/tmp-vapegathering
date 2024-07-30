@@ -57,7 +57,7 @@ function Header() {
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled hoverColor={theme.colors.brand.blue} to="/about">
+                <NavLinkStyled hoverColor={theme.colors.brand.blue} to="/about-us">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<AboutUsIcon />}
