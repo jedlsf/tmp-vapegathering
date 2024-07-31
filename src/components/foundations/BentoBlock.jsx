@@ -3,26 +3,28 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   max-width: ${(props) => props.mWidth}px;
-  max-height: ${(props) => props.mHeight}px;
-  min-width: 250px;
-  min-height: 120px;
   width: 100%;
-  height: 100%;
+  max-height: 100%;
+  height: ${(props) => props.mHeight}px;
   padding: 20px;
   background-color: ${(props) => props.fillColor};
   overflow: hidden;
   position: relative;
   transition: transform 0.3s ease;
   border-radius: 20px;
-  margin: 15px;
   box-sizing: border-box;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   &:hover img {
     opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    height: 200px;
   }
 `;
 
@@ -31,10 +33,9 @@ const Text = styled.div`
   position: absolute;
   bottom: 15px;
   left: 15px;
-  color: white;
   z-index: 2;
   font-size: ${({ theme }) => theme.typography.sizes.header};
-  font-weight: ${({ theme }) => theme.typography.weights.subject};: ${({ theme }) => theme.typography.sizes.mini};
+  font-weight: ${({ theme }) => theme.typography.weights.subject};
   color: ${({ theme }) => theme.colors.primaryBackground};
   -webkit-background-clip: text;
   background-clip: text;
@@ -52,12 +53,12 @@ const Image = styled.img`
 `;
 
 const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight }) => {
-    return (
-        <Container fillColor={fillColor} mWidth={mWidth} mHeight={mHeight}>
-            <Text>{textTitle}</Text>
-            <Image src={rImage} alt="Reveal Image" />
-        </Container>
-    );
+  return (
+    <Container fillColor={fillColor} mWidth={mWidth} mHeight={mHeight}>
+      <Text>{textTitle}</Text>
+      <Image src={rImage} alt="Reveal Image" />
+    </Container>
+  );
 };
 
 export default BentoBlock;

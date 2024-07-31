@@ -9,11 +9,12 @@ import theme from '../../theme';
 
 const ViewerContainer = styled.div`
   width: 100vw;
-  height: 80vh;
+  height: 75vh;
   position: relative;
   overflow: hidden;
   z-index: 4;
   backdrop-filter: blur(25px);
+  margin-bottom: 10px;
 `;
 
 const floatRadius = 11;
