@@ -8,6 +8,7 @@ export const AppContainer = styled.div`
   background-color: transparent;
   overflow: hidden;
   width: 100vw;
+  font-family: 'Poppins', sans-serif;
 
 `;
 
@@ -27,7 +28,7 @@ export const MainContainer = styled.main`
 
 // Styled component for Proceed button
 export const ProceedButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.brand.green};
   color: ${({ theme }) => theme.colors.primaryBackground};
   border: 1px solid;
   padding: 10px 20px;
@@ -38,7 +39,7 @@ export const ProceedButton = styled.button`
   font-weight: ${({ theme }) => theme.typography.weights.title};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondaryBackground};
+    background-color: ${({ theme }) => theme.colors.primaryBackground};
      color: ${({ theme }) => theme.colors.primary};
      border-color: ${({ theme }) => theme.colors.primary};
      border: 1px solid;

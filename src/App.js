@@ -27,11 +27,36 @@ import Sidebar from './components/sections/Sidebar';
 
 
 import { AppContainer, MainContainer } from './styles/global';
-
+import AgeVerification from './components/functional/AgeVerification';
 
 
 function App() {
 
+  const [isAbove18, setIsAbove18] = useState(null);
+
+  useEffect(() => {
+    const remembered = localStorage.getItem('isAbove18');
+    if (remembered) {
+      setIsAbove18(true);
+    }
+  }, []);
+
+  const handleVerify = (isAbove18) => {
+    if (isAbove18) {
+      setIsAbove18(true);
+    } else {
+      // Handle the case where the user is not above 18
+      // For example, you might redirect them to another page
+    }
+  };
+
+  if (isAbove18 === null) {
+    return (
+      <ThemeProvider theme={theme}>
+        <AgeVerification onVerify={handleVerify} />
+      </ThemeProvider>
+    );
+  }
 
 
   return (
@@ -56,11 +81,4 @@ function App() {
 
 export default App;
 
-
-/*    
-                  <Route path="/search" element={<Search />} />
-                  <Route path="/my-tickets" element={<MyTickets />} />
-                  <Route path="/my-wallet" element={<MyWallet />} />
-                  <Route path="/my-profile" element={<MyProfile />} />
-                  */
 

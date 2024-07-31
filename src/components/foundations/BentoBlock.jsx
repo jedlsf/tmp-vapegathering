@@ -18,7 +18,8 @@ const Container = styled.div`
     transform: scale(1.03);
   }
 
-  &:hover img {
+  &:hover img,
+  &:hover .reveal-component {
     opacity: 1;
   }
 
@@ -52,11 +53,30 @@ const Image = styled.img`
   transition: opacity 0.3s ease;
 `;
 
-const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight }) => {
+const RevealComponent = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+`;
+
+const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight, rType = "image", children }) => {
   return (
     <Container fillColor={fillColor} mWidth={mWidth} mHeight={mHeight}>
       <Text>{textTitle}</Text>
-      <Image src={rImage} alt="Reveal Image" />
+      {rType === "image" ? (
+        <Image src={rImage} alt="Reveal Image" />
+      ) : (
+        <RevealComponent className="reveal-component">
+          {children}
+        </RevealComponent>
+      )}
     </Container>
   );
 };

@@ -24,10 +24,10 @@ const BodyContainer = styled.div`
   align-items: center;
   box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.3);
   background-color: ${({ theme }) => theme.colors.primaryBackground};
-  gap: 25px;
+  gap: 15px;
   box-sizing: border-box;
   height: auto; /* Allow height to adjust based on content */
-  border-radius: 10px;
+  border-radius: 15px;
 `;
 
 const DynaContainer = styled.div`
@@ -48,7 +48,7 @@ const ColumnContainer = styled.div`
   width: 100%;
   max-height: ${({ mHeight }) => mHeight}px;
   display: flex;
-  gap: 10px;
+  gap: 15px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -61,6 +61,9 @@ const ColumnContainer = styled.div`
 const FullWidthBentoBlock = styled(BentoBlock)`
   width: 100%;  /* Ensure it takes the full width */
 `;
+
+
+
 
 function AboutUs() {
   return (
@@ -103,11 +106,13 @@ function AboutUs() {
           </ColumnContainer>
           <BentoBlock
             textTitle="Past Events"
-            fillColor={theme.colors.brand.green}
-            rImage="path/to/your/another_image.jpg"
+            fillColor={theme.colors.secondaryBackground}
+            rType="component"
             mWidth={500}
             mHeight={550}
-          />
+          >
+
+          </BentoBlock>
         </DynaContainer>
       </BodyContainer>
     </MainContainer>
