@@ -13,7 +13,7 @@ import styled from 'styled-components';
 
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
-//import Search from './pages/Search';
+import EventLayout from './pages/EventLayout';
 //import MyTickets from './pages/MyTickets';
 //import MyWallet from './pages/MyWallet';
 //import MyProfile from './pages/MyProfile';
@@ -69,6 +69,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/layout" element={<EventLayout />} />
 
             </Routes>
           </MainContainer>

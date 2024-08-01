@@ -79,7 +79,7 @@ function Header() {
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled hoverColor={theme.colors.brand.yellow} to="/event-layout">
+                <NavLinkStyled hoverColor={theme.colors.brand.yellow} to="/layout">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<EventLayoutIcon />}

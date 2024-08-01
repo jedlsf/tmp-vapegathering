@@ -8,17 +8,17 @@ import * as THREE from 'three';
 import theme from '../../theme';
 
 const ViewerContainer = styled.div`
-  width: 100vw;
-  height: 70vh;
+  width: 100%;
+  height: 80vh;
   position: relative;
   overflow: hidden;
   z-index: 4;
-  backdrop-filter: blur(25px);
   margin-bottom: 10px;
+
 `;
 
 const floatRadius = 11;
-const sensitivity = 0.5;
+const sensitivity = 1;
 const hoverSensitivity = 0.005;
 const zSensitivity = 10;
 const floaterRotationSpeed = 0.006;
@@ -48,91 +48,7 @@ const baseColors = [
 const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter.glb';
 const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/texVG.png';
 
-const transitionSpeed = 1;
 
-const FloatingObject = React.memo(({ position, index, hoveredIndex, setHoveredIndex, onHover, onHoverEnd }) => {
-    const meshRef = useRef();
-    const [loadedMesh, setLoadedMesh] = useState(null);
-    const [isHovered, setIsHovered] = useState(false);
-    const [lastQuaternion, setLastQuaternion] = useState(new Quaternion());
-    const [targetQuaternion] = useState(() => new Quaternion().setFromEuler(new Euler(0, 15 * (Math.PI / 180), 0)));
-
-    useEffect(() => {
-        const glbPath = meshPaths[index] || '';
-        if (glbPath) {
-            new GLTFLoader().load(
-                glbPath,
-                (gltf) => {
-                    gltf.scene.traverse((child) => {
-                        if (child.isMesh) {
-                            child.material = new THREE.MeshStandardMaterial({
-                                color: baseColors[index] || fallbackColor,
-                                emissive: baseColors[index],
-                                emissiveIntensity: 1.2
-                            });
-                        }
-                    });
-                    setLoadedMesh(gltf.scene);
-                },
-                undefined,
-                (error) => {
-                    console.error(`Error loading GLB model at ${glbPath}:`, error);
-                    setLoadedMesh(null);
-                }
-            );
-        } else {
-            setLoadedMesh(null);
-        }
-    }, [index]);
-
-    useFrame((state, delta) => {
-        const floater = meshRef.current;
-        if (floater) {
-            if (isHovered) {
-                floater.quaternion.slerp(targetQuaternion, 0.1);
-                floater.scale.lerp(new THREE.Vector3(hoverScale, hoverScale, hoverScale), delta / hoverScaleSpeed);
-            } else {
-                setLastQuaternion(floater.quaternion.clone());
-                const rotationQuaternion = new Quaternion().setFromAxisAngle(new THREE.Vector3(0.5, 0.5, 0.5).normalize(), floaterRotationSpeed);
-                floater.quaternion.multiplyQuaternions(floater.quaternion, rotationQuaternion);
-                floater.scale.lerp(new THREE.Vector3(1, 1, 1), delta / hoverScaleSpeed);
-            }
-        }
-    });
-
-    const handlePointerOver = () => {
-        setIsHovered(true);
-        setHoveredIndex(index);
-        onHover(index);
-        if (meshRef.current) {
-            setLastQuaternion(meshRef.current.quaternion.clone());
-        }
-    };
-
-    const handlePointerOut = () => {
-        setIsHovered(false);
-        setHoveredIndex(null);
-        onHoverEnd(index);
-    };
-
-    return (
-        <mesh
-            ref={meshRef}
-            position={position}
-            onPointerOver={handlePointerOver}
-            onPointerOut={handlePointerOut}
-        >
-            {loadedMesh ? (
-                <primitive object={loadedMesh} />
-            ) : (
-                <>
-                    <boxGeometry args={[0, 0, 0]} />
-                    <meshStandardMaterial color={baseColors[index] || fallbackColor} />
-                </>
-            )}
-        </mesh>
-    );
-});
 
 const CentralObject = React.memo(({ centralRef, mousePosition }) => {
     const { camera } = useThree();
@@ -191,7 +107,7 @@ const CentralObject = React.memo(({ centralRef, mousePosition }) => {
     );
 });
 
-function ThreeDViewer({ isHovered, isHoverEnd }) {
+function EventMapLayout({ isHovered, isHoverEnd }) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const centralRef = useRef();
     const mousePosition = useRef({ x: 0, y: 0 });
@@ -218,27 +134,15 @@ function ThreeDViewer({ isHovered, isHoverEnd }) {
             <Canvas camera={{ position: [0, 5, 35], fov: 45 }}>
                 <ambientLight intensity={1.2} />
                 <directionalLight position={[-5, 0, 90]} intensity={4} castShadow />
-
-                {generatePositions.map((position, index) => (
-                    <FloatingObject
-                        key={index}
-                        position={position}
-                        index={index}
-                        hoveredIndex={hoveredIndex}
-                        setHoveredIndex={setHoveredIndex}
-                        onHover={isHovered}
-                        onHoverEnd={isHoverEnd}
-                    />
-                ))}
                 <CentralObject centralRef={centralRef} mousePosition={mousePosition} />
             </Canvas>
         </ViewerContainer>
     );
 }
 
-ThreeDViewer.propTypes = {
+EventMapLayout.propTypes = {
     isHovered: PropTypes.func.isRequired,
     isHoverEnd: PropTypes.func.isRequired,
 };
 
-export default ThreeDViewer;
+export default EventMapLayout;
