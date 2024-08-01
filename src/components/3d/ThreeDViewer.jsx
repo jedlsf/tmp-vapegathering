@@ -15,15 +15,16 @@ const ViewerContainer = styled.div`
   z-index: 4;
   backdrop-filter: blur(25px);
   margin-bottom: 10px;
+  
 `;
 
-const floatRadius = 11;
+const floatRadius = 14;
 const sensitivity = 0.5;
 const hoverSensitivity = 0.005;
 const zSensitivity = 10;
-const floaterRotationSpeed = 0.006;
+const floaterRotationSpeed = 0.004;
 const circlePositionOffset = Math.PI / 2;
-const hoverScale = 2.3;
+const hoverScale = 2.6;
 const hoverScaleSpeed = 0.2;
 const centerScale = 8;
 
@@ -42,11 +43,11 @@ const baseColors = [
     theme.colors.brand.yellow,
     theme.colors.brand.blue,
     theme.colors.brand.green,
-    theme.colors.brand.blue
+    theme.colors.brand.purple
 ];
 
-const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter.glb';
-const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/texVG.png';
+const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter2.glb';
+const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/TVGLogoNew.jpg';
 
 const transitionSpeed = 1;
 
@@ -68,7 +69,7 @@ const FloatingObject = React.memo(({ position, index, hoveredIndex, setHoveredIn
                             child.material = new THREE.MeshStandardMaterial({
                                 color: baseColors[index] || fallbackColor,
                                 emissive: baseColors[index],
-                                emissiveIntensity: 1.2
+                                emissiveIntensity: 0.3
                             });
                         }
                     });
@@ -145,10 +146,10 @@ const CentralObject = React.memo(({ centralRef, mousePosition }) => {
                 (gltf) => {
                     gltf.scene.traverse((child) => {
                         if (child.isMesh) {
-                            if (child.material.name === 'FrontVGLogo') {
+                            if (child.material.name === 'Face') {
                                 const texture = new THREE.TextureLoader().load(frontTexturePath);
                                 child.material = new THREE.MeshStandardMaterial({ map: texture });
-                            } else if (child.material.name === 'BackplateVGLogo') {
+                            } else if (child.material.name === 'Body') {
                                 child.material = new THREE.MeshStandardMaterial({ color: theme.colors.secondaryBackground });
                             }
                         }
@@ -215,7 +216,7 @@ function ThreeDViewer({ isHovered, isHoverEnd }) {
 
     return (
         <ViewerContainer onPointerMove={handlePointerMove}>
-            <Canvas camera={{ position: [0, 5, 35], fov: 45 }}>
+            <Canvas camera={{ position: [0, 5, 42], fov: 45 }}>
                 <ambientLight intensity={1.2} />
                 <directionalLight position={[-5, 0, 90]} intensity={4} castShadow />
 

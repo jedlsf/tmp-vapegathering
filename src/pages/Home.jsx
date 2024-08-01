@@ -15,10 +15,11 @@ const Container = styled.div`
 
   background-color: ${({ bgColor }) => bgColor}; // Apply the dynamic background color
   transition: background-color 0.5s ease-in-out; // Smooth transition for background color changes
+  
 `;
 
 
-const targetDate = '2024-12-31T23:59:59Z'; // 'Z' denotes UTC time
+const targetDate = '2024-09-28T00:00:00Z';
 
 function Home() {
 

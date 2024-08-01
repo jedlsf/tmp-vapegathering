@@ -8,6 +8,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.3rem;
+  @media (max-width: 768px) {
+    transform: scale(0.6);
+  }
+ 
 `;
 
 const SegmentContainer = styled.div`
@@ -25,7 +29,7 @@ const Segment = styled.div`
 
 const Character = styled.div`
   background-color: ${({ theme }) => theme.colors.secondaryBackground};
-  color: ${({ theme }) => theme.colors.primaryBackground};
+  color: ${({ theme }) => theme.colors.textPrimary};
   border-radius: 5px;
   padding: 10px;
   margin: 0 2px;
@@ -43,7 +47,7 @@ const Label = styled.div`
   margin-top: 5px;
   font-size: ${({ theme }) => theme.typography.sizes.mini};
   font-weight: ${({ theme }) => theme.typography.weights.subject};: ${({ theme }) => theme.typography.sizes.mini};
-  color: ${({ theme }) => theme.colors.secondaryBackground};
+  color: ${({ theme }) => theme.colors.textSecondary};
   user-select: none;
 `;
 
@@ -67,7 +71,7 @@ const CountdownTimer = ({ targetDate }) => {
         days: theme.colors.brand.blue,
         hours: theme.colors.brand.green,
         minutes: theme.colors.brand.yellow,
-        seconds: theme.colors.secondaryBackground,
+        seconds: theme.colors.brand.purple,
     };
 
     const labels = {

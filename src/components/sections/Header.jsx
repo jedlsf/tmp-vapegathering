@@ -14,12 +14,19 @@ const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.colors.primaryBackground};
   color: white;
   z-index: 150;
+ 
+  @media (max-width: 768px) {
+     padding: 0px;
+  }
 `;
 
 const Logo = styled.img`
   height: 25px;
   z-index: 1;
   user-select: none;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 

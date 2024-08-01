@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { HomeIcon, DateIcon, EventLayoutIcon, PartnerExhibitorKitIcon, AwardsIcon, AboutUsIcon } from '../../icons';
+import { HomeIcon, AboutUsIcon, AwardsIcon, EventLayoutIcon, PartnerExhibitorKitIcon } from '../../icons';
 import MenuTabButton from '../foundations/MenuTabButton';
 import theme from '../../theme';
 
@@ -12,12 +12,21 @@ const MenuContainer = styled.header`
   padding: 10px 20px;
   background-color: ${({ theme }) => theme.colors.primaryBackground};
   color: white;
+ 
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 20px;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 const NavLinkStyled = styled(NavLink)`
@@ -28,7 +37,7 @@ const NavLinkStyled = styled(NavLink)`
   padding: 10px;
   border-radius: 5px;
   z-index: 100;
-  max-height: 20px;
+  max-height: 50px;
   transition: background-color 0.3s ease;
 
   &.active {
@@ -37,16 +46,18 @@ const NavLinkStyled = styled(NavLink)`
 
   &:hover {
     background-color:  ${({ hoverColor }) => hoverColor}; 
-  
-    
+  }
+
+  @media (max-width: 768px) {
+    padding: 5px;
   }
 `;
 
-function Header() {
+function NavMenuTab() {
     return (
         <MenuContainer>
             <Nav>
-                <NavLinkStyled hoverColor={theme.colors.brand.red} to="/" end >
+                <NavLinkStyled hoverColor={theme.colors.brand.red} to="/" end>
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<HomeIcon />}
@@ -96,7 +107,7 @@ function Header() {
                             icon={<PartnerExhibitorKitIcon />}
                             text="Partners"
                             selected={isActive}
-                            iconColor="#19321c"
+                            iconColor={theme.colors.brand.orange}
                             hoverColor={theme.colors.primaryBackground}
                         />
                     )}
@@ -106,4 +117,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default NavMenuTab;

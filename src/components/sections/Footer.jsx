@@ -4,14 +4,18 @@ import { logoVG } from '../../assets-imported/assets';
 
 const FooterContainer = styled.footer`
   width: 100%;
+
   padding: 15px;
   background-color: ${({ theme }) => theme.colors.secondaryBackground};
-  color: ${({ theme }) => theme.colors.primaryBackground};
+  color: ${({ theme }) => theme.colors.textSecondary};
   font-size: ${({ theme }) => theme.typography.sizes.hint}; // Set hint font size
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 80;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Logo = styled.img`

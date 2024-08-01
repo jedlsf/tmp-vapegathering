@@ -10,7 +10,7 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primaryBackground};
+  background-color: transparent;
   box-sizing: border-box;
   overflow: auto;
 `;
@@ -28,6 +28,7 @@ const BodyContainer = styled.div`
   box-sizing: border-box;
   height: auto; /* Allow height to adjust based on content */
   border-radius: 15px;
+  opacity: 0.9;
 `;
 
 const DynaContainer = styled.div`
@@ -106,7 +107,7 @@ function AboutUs() {
           </ColumnContainer>
           <BentoBlock
             textTitle="Past Events"
-            fillColor={theme.colors.secondaryBackground}
+            fillColor={theme.colors.brand.orange}
             rType="component"
             mWidth={500}
             mHeight={550}
