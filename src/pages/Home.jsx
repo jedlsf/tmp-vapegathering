@@ -18,7 +18,6 @@ const Container = styled.div`
 `;
 
 
-
 const targetDate = '2024-12-31T23:59:59Z'; // 'Z' denotes UTC time
 
 function Home() {
@@ -33,11 +32,11 @@ function Home() {
         if (index === 0) {
             changeBackgroundColor(theme.colors.brand.red);
         } else if (index === 1) {
-            changeBackgroundColor(theme.colors.brand.green);
+            changeBackgroundColor(theme.colors.brand.yellow);
         } else if (index === 2) {
             changeBackgroundColor(theme.colors.brand.blue);
         } else if (index === 3) {
-            changeBackgroundColor(theme.colors.brand.yellow);
+            changeBackgroundColor(theme.colors.brand.green);
 
         } else {
             changeBackgroundColor(theme.colors.primaryBackground);

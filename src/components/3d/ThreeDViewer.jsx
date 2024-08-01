@@ -31,17 +31,17 @@ const fallbackColor = '#d6f500';
 
 const meshPaths = [
     'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape0.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape3.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape2.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape3.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape4.glb',
+    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCalendar.glb',
+    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbTicket.glb',
+    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbWorld.glb',
+    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbQMark.glb',
 ];
 
 const baseColors = [
     theme.colors.brand.red,
-    theme.colors.brand.green,
-    theme.colors.brand.blue,
     theme.colors.brand.yellow,
+    theme.colors.brand.blue,
+    theme.colors.brand.green,
     theme.colors.primaryBackground
 ];
 
