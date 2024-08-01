@@ -42,7 +42,7 @@ const baseColors = [
     theme.colors.brand.yellow,
     theme.colors.brand.blue,
     theme.colors.brand.green,
-    theme.colors.primaryBackground
+    theme.colors.brand.blue
 ];
 
 const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter.glb';

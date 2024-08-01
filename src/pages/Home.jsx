@@ -39,7 +39,7 @@ function Home() {
             changeBackgroundColor(theme.colors.brand.green);
 
         } else {
-            changeBackgroundColor(theme.colors.primaryBackground);
+            changeBackgroundColor(theme.colors.brand.blue);
         }
 
     };
