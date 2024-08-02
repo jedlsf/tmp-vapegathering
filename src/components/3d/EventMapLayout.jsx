@@ -45,7 +45,7 @@ const baseColors = [
     theme.colors.brand.blue
 ];
 
-const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter.glb';
+const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter3.glb';
 const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/texVG.png';
 
 
@@ -61,10 +61,18 @@ const CentralObject = React.memo(({ centralRef, mousePosition }) => {
                 (gltf) => {
                     gltf.scene.traverse((child) => {
                         if (child.isMesh) {
-                            if (child.material.name === 'FrontVGLogo') {
+                            if (child.material.name === 'Face') {
                                 const texture = new THREE.TextureLoader().load(frontTexturePath);
                                 child.material = new THREE.MeshStandardMaterial({ map: texture });
-                            } else if (child.material.name === 'BackplateVGLogo') {
+                            } else if (child.material.name === 'CRed') {
+                                child.material = new THREE.MeshStandardMaterial({ color: theme.colors.brand.red });
+                            } else if (child.material.name === 'CGreen') {
+                                child.material = new THREE.MeshStandardMaterial({ color: theme.colors.brand.green });
+                            } else if (child.material.name === 'CYellow') {
+                                child.material = new THREE.MeshStandardMaterial({ color: theme.colors.brand.yellow });
+                            } else if (child.material.name === 'CBlue') {
+                                child.material = new THREE.MeshStandardMaterial({ color: theme.colors.brand.blue });
+                            } else if (child.material.name === 'Body') {
                                 child.material = new THREE.MeshStandardMaterial({ color: theme.colors.secondaryBackground });
                             }
                         }
@@ -132,8 +140,8 @@ function EventMapLayout({ isHovered, isHoverEnd }) {
     return (
         <ViewerContainer onPointerMove={handlePointerMove}>
             <Canvas camera={{ position: [0, 5, 35], fov: 45 }}>
-                <ambientLight intensity={1.2} />
-                <directionalLight position={[-5, 0, 90]} intensity={4} castShadow />
+                <ambientLight intensity={2.4} />
+                <directionalLight position={[-5, 0, 90]} intensity={2} castShadow />
                 <CentralObject centralRef={centralRef} mousePosition={mousePosition} />
             </Canvas>
         </ViewerContainer>

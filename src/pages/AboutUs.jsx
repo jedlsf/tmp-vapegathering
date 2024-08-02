@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BentoBlock from '../components/foundations/BentoBlock';
 import theme from '../theme.js';
+import { imageVenue } from '../assets-imported/assets.js';
 
 const MainContainer = styled.div`
   padding: 20px;
@@ -75,10 +76,13 @@ function AboutUs() {
             <BentoBlock
               textTitle="The Venue"
               fillColor={theme.colors.brand.red}
-              rImage="path/to/your/another_image.jpg"
+              rImage={imageVenue}
               mWidth={1190}
               mHeight={500}
+              hoverText="The Tent - Las Pinas, Metro Manila"
+              clickPath="https://maps.app.goo.gl/66CogTtAU41upNsG6"
             />
+
             <DynaContainer>
               <FullWidthBentoBlock
                 textTitle="Our Team"
@@ -94,6 +98,7 @@ function AboutUs() {
                   rImage="path/to/your/another_image.jpg"
                   mWidth={400}
                   mHeight={150}
+                  hoverText=" "
                 />
                 <BentoBlock
                   textTitle="Vision"
@@ -101,6 +106,7 @@ function AboutUs() {
                   rImage="path/to/your/another_image.jpg"
                   mWidth={400}
                   mHeight={150}
+                  hoverText=" "
                 />
               </ColumnContainer>
             </DynaContainer>

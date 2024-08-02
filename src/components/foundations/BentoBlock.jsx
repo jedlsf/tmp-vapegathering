@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -13,6 +13,7 @@ const Container = styled.div`
   transition: transform 0.3s ease;
   border-radius: 20px;
   box-sizing: border-box;
+  cursor: ${(props) => (props.clickable ? 'pointer' : 'default')};
 
   &:hover {
     transform: scale(1.03);
@@ -20,7 +21,7 @@ const Container = styled.div`
 
   &:hover img,
   &:hover .reveal-component {
-    opacity: 1;
+    opacity: 0.8;
   }
 
   @media (max-width: 768px) {
@@ -37,7 +38,7 @@ const Text = styled.div`
   z-index: 2;
   font-size: ${({ theme }) => theme.typography.sizes.header};
   font-weight: ${({ theme }) => theme.typography.weights.subject};
-  color: ${({ theme }) => theme.colors.primaryBackground};
+  color: ${({ theme }) => theme.colors.textPrimary};
   -webkit-background-clip: text;
   background-clip: text;
 `;
@@ -66,10 +67,38 @@ const RevealComponent = styled.div`
   transition: opacity 0.3s ease;
 `;
 
-const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight, rType = "image", children }) => {
+const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight, rType = "image", children, hoverText, clickPath }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleClick = () => {
+    if (clickPath) {
+      window.location.href = clickPath;
+    }
+  };
+
+  const defaultHoverText = hoverText || textTitle;
+
   return (
-    <Container fillColor={fillColor} mWidth={mWidth} mHeight={mHeight}>
-      <Text>{textTitle}</Text>
+    <Container
+      fillColor={fillColor}
+      mWidth={mWidth}
+      mHeight={mHeight}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
+      clickable={Boolean(clickPath)}
+    >
+      <Text>
+        {isHovered && rType === "image" && hoverText ? defaultHoverText : textTitle}
+      </Text>
       {rType === "image" ? (
         <Image src={rImage} alt="Reveal Image" />
       ) : (

@@ -29,7 +29,6 @@ export const MainContainer = styled.main`
   display: flex;
   justify-content: center;
   align-items: left;
-  border-radius: ${({ theme }) => theme.borders?.radius?.medium || '8px'};
   z-index: 15;
   width: 100vw;
   height: 100vh;

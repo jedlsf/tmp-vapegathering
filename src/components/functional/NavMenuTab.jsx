@@ -101,7 +101,7 @@ function NavMenuTab() {
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled hoverColor="#19321c" to="/partners">
+                <NavLinkStyled hoverColor={theme.colors.brand.orange} to="/partners">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<PartnerExhibitorKitIcon />}

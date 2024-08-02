@@ -46,7 +46,7 @@ const baseColors = [
     theme.colors.brand.purple
 ];
 
-const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter2.glb';
+const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter3.glb';
 const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/TVGLogoNew.jpg';
 
 const transitionSpeed = 1;
@@ -59,17 +59,18 @@ const FloatingObject = React.memo(({ position, index, hoveredIndex, setHoveredIn
     const [targetQuaternion] = useState(() => new Quaternion().setFromEuler(new Euler(0, 15 * (Math.PI / 180), 0)));
 
     useEffect(() => {
-        const glbPath = meshPaths[index] || '';
+        const glbPath = meshPaths[index];
+        let gltf;
         if (glbPath) {
-            new GLTFLoader().load(
+            const loader = new GLTFLoader();
+            loader.load(
                 glbPath,
-                (gltf) => {
+                (loadedGltf) => {
+                    gltf = loadedGltf;
                     gltf.scene.traverse((child) => {
                         if (child.isMesh) {
                             child.material = new THREE.MeshStandardMaterial({
-                                color: baseColors[index] || fallbackColor,
-                                emissive: baseColors[index],
-                                emissiveIntensity: 0.3
+                                color: baseColors[index] || fallbackColor
                             });
                         }
                     });
@@ -81,9 +82,22 @@ const FloatingObject = React.memo(({ position, index, hoveredIndex, setHoveredIn
                     setLoadedMesh(null);
                 }
             );
-        } else {
-            setLoadedMesh(null);
         }
+
+        return () => {
+            if (gltf) {
+                gltf.scene.traverse((child) => {
+                    if (child.isMesh) {
+                        if (child.geometry) child.geometry.dispose();
+                        if (child.material) {
+                            if (child.material.map) child.material.map.dispose();
+                            child.material.dispose();
+                        }
+                    }
+                });
+            }
+            setLoadedMesh(null);
+        };
     }, [index]);
 
     useFrame((state, delta) => {
@@ -140,15 +154,26 @@ const CentralObject = React.memo(({ centralRef, mousePosition }) => {
     const [loadedMesh, setLoadedMesh] = useState(null);
 
     useEffect(() => {
+        let gltf;
         if (centerMeshGlb) {
-            new GLTFLoader().load(
+            const loader = new GLTFLoader();
+            loader.load(
                 centerMeshGlb,
-                (gltf) => {
+                (loadedGltf) => {
+                    gltf = loadedGltf;
                     gltf.scene.traverse((child) => {
                         if (child.isMesh) {
                             if (child.material.name === 'Face') {
                                 const texture = new THREE.TextureLoader().load(frontTexturePath);
                                 child.material = new THREE.MeshStandardMaterial({ map: texture });
+                            } else if (child.material.name.includes('C')) {
+                                const colorMap = {
+                                    CRed: theme.colors.brand.red,
+                                    CGreen: theme.colors.brand.green,
+                                    CYellow: theme.colors.brand.yellow,
+                                    CBlue: theme.colors.brand.blue
+                                };
+                                child.material = new THREE.MeshStandardMaterial({ color: colorMap[child.material.name] });
                             } else if (child.material.name === 'Body') {
                                 child.material = new THREE.MeshStandardMaterial({ color: theme.colors.secondaryBackground });
                             }
@@ -162,10 +187,24 @@ const CentralObject = React.memo(({ centralRef, mousePosition }) => {
                     setLoadedMesh(null);
                 }
             );
-        } else {
-            setLoadedMesh(null);
         }
+
+        return () => {
+            if (gltf) {
+                gltf.scene.traverse((child) => {
+                    if (child.isMesh) {
+                        if (child.geometry) child.geometry.dispose();
+                        if (child.material) {
+                            if (child.material.map) child.material.map.dispose();
+                            child.material.dispose();
+                        }
+                    }
+                });
+            }
+            setLoadedMesh(null);
+        };
     }, []);
+
 
     useFrame(() => {
         if (centralRef.current) {
@@ -209,6 +248,7 @@ function ThreeDViewer({ isHovered, isHoverEnd }) {
         return positions;
     }, []);
 
+
     const handlePointerMove = (event) => {
         mousePosition.current.x = (event.clientX / window.innerWidth - 0.5) * 2;
         mousePosition.current.y = (event.clientY / window.innerHeight - 0.5) * 2;
@@ -217,8 +257,8 @@ function ThreeDViewer({ isHovered, isHoverEnd }) {
     return (
         <ViewerContainer onPointerMove={handlePointerMove}>
             <Canvas camera={{ position: [0, 5, 42], fov: 45 }}>
-                <ambientLight intensity={1.2} />
-                <directionalLight position={[-5, 0, 90]} intensity={4} castShadow />
+                <ambientLight intensity={2} />
+                <directionalLight position={[-5, 0, 90]} intensity={2} castShadow />
 
                 {generatePositions.map((position, index) => (
                     <FloatingObject

@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { logoVG } from '../../assets-imported/assets';
 import NavMenuTab from '../functional/NavMenuTab';
@@ -21,7 +20,7 @@ const HeaderContainer = styled.header`
 `;
 
 const Logo = styled.img`
-  height: 25px;
+  height: 70px;
   z-index: 1;
   user-select: none;
   @media (max-width: 768px) {

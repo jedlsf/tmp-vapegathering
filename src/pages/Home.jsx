@@ -24,7 +24,7 @@ const targetDate = '2024-09-28T00:00:00Z';
 function Home() {
 
     const [hovered, setHovered] = useState(false);
-    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 100 });
+    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 50 });
     const [backgroundColor, setBackgroundColor] = useState(theme.colors.primaryBackground); // Default background color
 
     const handleHovered = (index) => {
