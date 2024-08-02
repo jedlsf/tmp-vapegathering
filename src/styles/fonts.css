@@ -1,98 +1,167 @@
-/* src/fonts.css */
 @font-face {
     font-family: 'Akkordeon Six';
-    src: url('../fonts/Akkordeon/Akkordeon-Six.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Six.eot');
+    src: local('Akkordeon Six'), local('Akkordeon-Six'),
+        url('../fonts/Akkordeon/Akkordeon-Six.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Six.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Six.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Six.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Five';
-    src: url('../fonts/Akkordeon/Akkordeon-Five.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Five.eot');
+    src: local('Akkordeon Five'), local('Akkordeon-Five'),
+        url('../fonts/Akkordeon/Akkordeon-Five.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Five.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Five.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Five.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Eleven';
-    src: url('../fonts/Akkordeon/Akkordeon-Eleven.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Eleven.eot');
+    src: local('Akkordeon Eleven'), local('Akkordeon-Eleven'),
+        url('../fonts/Akkordeon/Akkordeon-Eleven.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Eleven.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Eleven.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Eleven.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Three';
-    src: url('../fonts/Akkordeon/Akkordeon-Three.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Three.eot');
+    src: local('Akkordeon Three'), local('Akkordeon-Three'),
+        url('../fonts/Akkordeon/Akkordeon-Three.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Three.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Three.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Three.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Ten';
-    src: url('../fonts/Akkordeon/Akkordeon-Ten.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Ten.eot');
+    src: local('Akkordeon Ten'), local('Akkordeon-Ten'),
+        url('../fonts/Akkordeon/Akkordeon-Ten.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Ten.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Ten.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Ten.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Nine';
-    src: url('../fonts/Akkordeon/Akkordeon-Nine.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Nine.eot');
+    src: local('Akkordeon Nine'), local('Akkordeon-Nine'),
+        url('../fonts/Akkordeon/Akkordeon-Nine.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Nine.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Nine.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Nine.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Four';
-    src: url('../fonts/Akkordeon/Akkordeon-Four.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Four.eot');
+    src: local('Akkordeon Four'), local('Akkordeon-Four'),
+        url('../fonts/Akkordeon/Akkordeon-Four.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Four.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Four.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Four.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Two';
-    src: url('../fonts/Akkordeon/Akkordeon-Two.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Two.eot');
+    src: local('Akkordeon Two'), local('Akkordeon-Two'),
+        url('../fonts/Akkordeon/Akkordeon-Two.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Two.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Two.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Two.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Fourteen';
-    src: url('../fonts/Akkordeon/Akkordeon-Fourteen.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Fourteen.eot');
+    src: local('Akkordeon Fourteen'), local('Akkordeon-Fourteen'),
+        url('../fonts/Akkordeon/Akkordeon-Fourteen.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Fourteen.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Fourteen.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Fourteen.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Eight';
-    src: url('../fonts/Akkordeon/Akkordeon-Eight.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Eight.eot');
+    src: local('Akkordeon Eight'), local('Akkordeon-Eight'),
+        url('../fonts/Akkordeon/Akkordeon-Eight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Eight.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Eight.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Eight.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Twelve';
-    src: url('../fonts/Akkordeon/Akkordeon-Twelve.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Twelve.eot');
+    src: local('Akkordeon Twelve'), local('Akkordeon-Twelve'),
+        url('../fonts/Akkordeon/Akkordeon-Twelve.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Twelve.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Twelve.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Twelve.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Seven';
-    src: url('../fonts/Akkordeon/Akkordeon-Seven.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Seven.eot');
+    src: local('Akkordeon Seven'), local('Akkordeon-Seven'),
+        url('../fonts/Akkordeon/Akkordeon-Seven.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Seven.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Seven.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Seven.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon One';
-    src: url('../fonts/Akkordeon/Akkordeon-One.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-One.eot');
+    src: local('Akkordeon One'), local('Akkordeon-One'),
+        url('../fonts/Akkordeon/Akkordeon-One.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-One.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-One.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-One.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkordeon Thirteen';
-    src: url('../fonts/Akkordeon/Akkordeon-Thirteen.woff2') format('woff2');
+    src: url('../fonts/Akkordeon/Akkordeon-Thirteen.eot');
+    src: local('Akkordeon Thirteen'), local('Akkordeon-Thirteen'),
+        url('../fonts/Akkordeon/Akkordeon-Thirteen.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Akkordeon/Akkordeon-Thirteen.woff2') format('woff2'),
+        url('../fonts/Akkordeon/Akkordeon-Thirteen.woff') format('woff'),
+        url('../fonts/Akkordeon/Akkordeon-Thirteen.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
