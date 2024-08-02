@@ -24,23 +24,23 @@ const targetDate = '2024-09-28T00:00:00Z';
 function Home() {
 
     const [hovered, setHovered] = useState(false);
-    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 50 });
+    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 150 });
     const [backgroundColor, setBackgroundColor] = useState(theme.colors.primaryBackground); // Default background color
 
     const handleHovered = (index) => {
         console.log('Hovered', index);
         setHovered(true);
         if (index === 0) {
-            changeBackgroundColor(theme.colors.brand.red);
-        } else if (index === 1) {
             changeBackgroundColor(theme.colors.brand.yellow);
+        } else if (index === 1) {
+            changeBackgroundColor(theme.colors.brand.orange);
         } else if (index === 2) {
-            changeBackgroundColor(theme.colors.brand.blue);
-        } else if (index === 3) {
             changeBackgroundColor(theme.colors.brand.green);
+        } else if (index === 3) {
+            changeBackgroundColor(theme.colors.brand.blue);
 
         } else {
-            changeBackgroundColor(theme.colors.brand.blue);
+            changeBackgroundColor(theme.colors.brand.red);
         }
 
     };
@@ -54,7 +54,7 @@ function Home() {
     const handleMouseMove = (event) => {
         setCursorPosition({
             x: event.clientX,
-            y: event.clientY,
+            y: event.clientY - 100,
         });
     };
 

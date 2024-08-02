@@ -18,10 +18,15 @@ const FooterContainer = styled.footer`
 
 const Logo = styled.img`
 padding: 10px;
+margin-left: 20px;
+margin-right: 20px;
+margin-top: 5px;
   height: 45px; // Adjust the size as needed
+   user-select: none;
 `;
 
 const TextContainer = styled.div`
+ user-select: none;
   text-align: center;
     padding-top: 10px;
      padding-bottom: 10px;

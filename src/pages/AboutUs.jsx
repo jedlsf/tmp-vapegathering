@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import BentoBlock from '../components/foundations/BentoBlock';
+import ImageSliderScroll from '../components/functional/ImageSliderScroll';
 import theme from '../theme.js';
-import { imageVenue } from '../assets-imported/assets.js';
+import { imageVenue, listSlidePastEvents } from '../assets-imported/assets.js';
 
 const MainContainer = styled.div`
   padding: 20px;
@@ -66,7 +67,6 @@ const FullWidthBentoBlock = styled(BentoBlock)`
 
 
 
-
 function AboutUs() {
   return (
     <MainContainer>
@@ -118,7 +118,9 @@ function AboutUs() {
             mWidth={500}
             mHeight={550}
           >
-
+            <ImageSliderScroll
+              listImages={listSlidePastEvents}
+            />
           </BentoBlock>
         </DynaContainer>
       </BodyContainer>

@@ -20,9 +20,8 @@ const ViewerContainer = styled.div`
 
 const floatRadius = 14;
 const sensitivity = 0.5;
-const hoverSensitivity = 0.005;
 const zSensitivity = 10;
-const floaterRotationSpeed = 0.004;
+const floaterRotationSpeed = 0.0025;
 const circlePositionOffset = Math.PI / 2;
 const hoverScale = 2.6;
 const hoverScaleSpeed = 0.2;
@@ -49,7 +48,6 @@ const baseColors = [
 const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter3.glb';
 const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/TVGLogoNew.jpg';
 
-const transitionSpeed = 1;
 
 const FloatingObject = React.memo(({ position, index, hoveredIndex, setHoveredIndex, onHover, onHoverEnd }) => {
     const meshRef = useRef();
@@ -168,7 +166,7 @@ const CentralObject = React.memo(({ centralRef, mousePosition }) => {
                                 child.material = new THREE.MeshStandardMaterial({ map: texture });
                             } else if (child.material.name.includes('C')) {
                                 const colorMap = {
-                                    CRed: theme.colors.brand.red,
+                                    CRed: theme.colors.brand.orange,
                                     CGreen: theme.colors.brand.green,
                                     CYellow: theme.colors.brand.yellow,
                                     CBlue: theme.colors.brand.blue
@@ -257,8 +255,8 @@ function ThreeDViewer({ isHovered, isHoverEnd }) {
     return (
         <ViewerContainer onPointerMove={handlePointerMove}>
             <Canvas camera={{ position: [0, 5, 42], fov: 45 }}>
-                <ambientLight intensity={2} />
-                <directionalLight position={[-5, 0, 90]} intensity={2} castShadow />
+                <ambientLight intensity={2.2} />
+                <directionalLight position={[-5, 0, 90]} intensity={2.3} castShadow />
 
                 {generatePositions.map((position, index) => (
                     <FloatingObject

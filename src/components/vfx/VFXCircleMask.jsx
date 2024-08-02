@@ -10,7 +10,7 @@ const OverlayContainer = styled.div`
   pointer-events: none; // Prevent interaction with the overlay
   transition: opacity 0.3s ease-in;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  z-index: 3;
+  z-index: 1;
 `;
 
 const Overlay = styled.div`
@@ -25,7 +25,7 @@ const Overlay = styled.div`
   transition: clip-path 0.15s ease-in, transform 0.3s ease-in;
   transform: ${({ isVisible }) => (isVisible ? 'scale(1)' : 'scale(0)')};
   transform-origin: ${({ cursorPosition }) => cursorPosition ? `${cursorPosition.x}px ${cursorPosition.y}px` : 'center center'};
-  opacity: 0.45;
+  opacity: 0.35;
   
   &::before {
     content: '';
