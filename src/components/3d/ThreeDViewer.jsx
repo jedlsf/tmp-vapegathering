@@ -45,7 +45,7 @@ const baseColors = [
     theme.colors.brand.purple
 ];
 
-const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter3.glb';
+const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter4.glb';
 const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/TVGLogoNew.jpg';
 
 
