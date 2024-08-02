@@ -45,7 +45,7 @@ const baseColors = [
     theme.colors.brand.blue
 ];
 
-const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter3.glb';
+const centerMeshGlb = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCenter4.glb';
 const frontTexturePath = 'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/tex/texVG.png';
 
 
@@ -140,7 +140,7 @@ function EventMapLayout({ isHovered, isHoverEnd }) {
     return (
         <ViewerContainer onPointerMove={handlePointerMove}>
             <Canvas camera={{ position: [0, 5, 35], fov: 45 }}>
-                <ambientLight intensity={2.4} />
+                <ambientLight intensity={2} />
                 <directionalLight position={[-5, 0, 90]} intensity={2} castShadow />
                 <CentralObject centralRef={centralRef} mousePosition={mousePosition} />
             </Canvas>
