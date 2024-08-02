@@ -6,8 +6,10 @@ const FooterContainer = styled.footer`
   width: 100vw;
   background-color: ${({ theme }) => theme.colors.brand.blue};
   color: ${({ theme }) => theme.colors.textSecondary};
-  font-size: ${({ theme }) => theme.typography.sizes.hint}; // Set hint font size
   display: flex;
+  font-family: 'Akkordeon Four', sans-serif;
+  font-size: ${({ theme }) => theme.typography.sizes.subject};
+  letter-spacing: 0.1em; 
   align-items: center;
   justify-content: space-between;
   z-index: 80;

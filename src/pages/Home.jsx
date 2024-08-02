@@ -26,6 +26,7 @@ function Home() {
     const [hovered, setHovered] = useState(false);
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 150 });
     const [backgroundColor, setBackgroundColor] = useState(theme.colors.primaryBackground); // Default background color
+    const [revealedComponent, setRevealedComponent] = useState(null);
 
     const handleHovered = (index) => {
         console.log('Hovered', index);
@@ -60,6 +61,10 @@ function Home() {
 
     const changeBackgroundColor = (color) => {
         setBackgroundColor(color);
+    };
+
+    const revealComponent = (component) => {
+        setRevealedComponent(component);
     };
 
     return (

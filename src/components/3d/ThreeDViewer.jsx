@@ -9,7 +9,7 @@ import theme from '../../theme';
 
 const ViewerContainer = styled.div`
   width: 100vw;
-  height: 70vh;
+  height: 65vh;
   position: relative;
   overflow: hidden;
   z-index: 4;

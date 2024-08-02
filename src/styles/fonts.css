@@ -1,100 +1,98 @@
-/* src/styles/fonts.css */
+/* src/fonts.css */
 @font-face {
-    font-family: 'Poppins-Regular';
-    src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-family: 'Akkordeon Six';
+    src: url('../fonts/Akkordeon/Akkordeon-Six.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins-Bold';
-    src: url('../fonts/Poppins/Poppins-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Poppins-Light';
-    src: url('../fonts/Poppins/Poppins-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Poppins-Medium';
-    src: url('../fonts/Poppins/Poppins-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Poppins-SemiBold';
-    src: url('../fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Poppins-ExtraBold';
-    src: url('../fonts/Poppins/Poppins-ExtraBold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Poppins-Black';
-    src: url('../fonts/Poppins/Poppins-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-}
-
-/* Italic variants */
-
-@font-face {
-    font-family: 'Poppins-Regular-Italic';
-    src: url('../fonts/Poppins/Poppins-Italic.ttf') format('truetype');
+    font-family: 'Akkordeon Five';
+    src: url('../fonts/Akkordeon/Akkordeon-Five.woff2') format('woff2');
     font-weight: normal;
-    font-style: italic;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins-Bold-Italic';
-    src: url('../fonts/Poppins/Poppins-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
+    font-family: 'Akkordeon Eleven';
+    src: url('../fonts/Akkordeon/Akkordeon-Eleven.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins-Light-Italic';
-    src: url('../fonts/Poppins/Poppins-LightItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
+    font-family: 'Akkordeon Three';
+    src: url('../fonts/Akkordeon/Akkordeon-Three.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins-Medium-Italic';
-    src: url('../fonts/Poppins/Poppins-MediumItalic.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
+    font-family: 'Akkordeon Ten';
+    src: url('../fonts/Akkordeon/Akkordeon-Ten.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins-SemiBold-Italic';
-    src: url('../fonts/Poppins/Poppins-SemiBoldItalic.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
+    font-family: 'Akkordeon Nine';
+    src: url('../fonts/Akkordeon/Akkordeon-Nine.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins-ExtraBold-Italic';
-    src: url('../fonts/Poppins/Poppins-ExtraBoldItalic.ttf') format('truetype');
-    font-weight: 800;
-    font-style: italic;
+    font-family: 'Akkordeon Four';
+    src: url('../fonts/Akkordeon/Akkordeon-Four.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins-Black-Italic';
-    src: url('../fonts/Poppins/Poppins-BlackItalic.ttf') format('truetype');
-    font-weight: 900;
-    font-style: italic;
+    font-family: 'Akkordeon Two';
+    src: url('../fonts/Akkordeon/Akkordeon-Two.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akkordeon Fourteen';
+    src: url('../fonts/Akkordeon/Akkordeon-Fourteen.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akkordeon Eight';
+    src: url('../fonts/Akkordeon/Akkordeon-Eight.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akkordeon Twelve';
+    src: url('../fonts/Akkordeon/Akkordeon-Twelve.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akkordeon Seven';
+    src: url('../fonts/Akkordeon/Akkordeon-Seven.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akkordeon One';
+    src: url('../fonts/Akkordeon/Akkordeon-One.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akkordeon Thirteen';
+    src: url('../fonts/Akkordeon/Akkordeon-Thirteen.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }

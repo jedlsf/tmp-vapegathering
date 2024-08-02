@@ -8,8 +8,8 @@ export const AppContainer = styled.div`
   background-color: transparent;
   overflow: hidden;
   width: 100vw;
-  font-family: 'Poppins', sans-serif;
-
+  font-family: 'Akkordeon Two', sans-serif;
+letter-spacing: 0.1em; /* Adjust the value as needed */
 `;
 
 const gradientAnimation = keyframes`
