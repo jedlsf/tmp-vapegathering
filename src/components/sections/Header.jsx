@@ -34,9 +34,11 @@ function Header() {
   return (
     <HeaderContainer>
       <Logo src={logoVG} className="App-logo" alt="logo" />
-      <NavMenuTab />
+
     </HeaderContainer>
   );
 }
 
 export default Header;
+
+//    <NavMenuTab />
