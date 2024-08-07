@@ -36,7 +36,8 @@ function Header() {
 
   useEffect(() => {
     const currentDomain = window.location.hostname;
-    if (currentDomain !== 'vapegathering.com') {
+    console.log("Domain: ", currentDomain);
+    if (currentDomain !== 'vapegathering.com' && currentDomain !== 'www.vapegathering.com') {
       setShowNavMenu(true);
     }
   }, []);
