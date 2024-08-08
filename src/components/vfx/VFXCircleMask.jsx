@@ -21,11 +21,11 @@ const Overlay = styled.div`
   height: 100%;
   background: ${({ theme }) => theme.colors.secondaryBackground};
   clip-path: ${({ isVisible, cursorPosition }) =>
-    isVisible ? `circle(140px at ${cursorPosition.x}px ${cursorPosition.y}px)` : `circle(0px at ${cursorPosition.x}px ${cursorPosition.y}px)`};
+    isVisible ? `circle(120px at ${cursorPosition.x}px ${cursorPosition.y}px)` : `circle(0px at ${cursorPosition.x}px ${cursorPosition.y}px)`};
   transition: clip-path 0.15s ease-in, transform 0.3s ease-in;
   transform: ${({ isVisible }) => (isVisible ? 'scale(1)' : 'scale(0)')};
   transform-origin: ${({ cursorPosition }) => cursorPosition ? `${cursorPosition.x}px ${cursorPosition.y}px` : 'center center'};
-  opacity: 0.35;
+  opacity: 0.07;
   
   &::before {
     content: '';
@@ -37,11 +37,13 @@ const Overlay = styled.div`
     background: ${({ theme }) => theme.colors.secondaryBackground};
     clip-path: ${({ isVisible, cursorPosition }) =>
     isVisible ? `circle(120px at ${cursorPosition.x}px ${cursorPosition.y}px)` : `circle(0px at ${cursorPosition.x}px ${cursorPosition.y}px)`};
-    filter: blur(20px);
+    filter: blur(100px);
     transition: clip-path 0.5s ease-in, transform 0.5s ease-in;
     transform: ${({ isVisible }) => (isVisible ? 'scale(1)' : 'scale(0)')};
     transform-origin: ${({ cursorPosition }) => cursorPosition ? `${cursorPosition.x}px ${cursorPosition.y}px` : 'center center'};
     z-index: -1;
+    border-radius: 30%; // Ensures the before element is circular
+    box-shadow: 0 0 150px rgba(0, 0, 0, 0.3); // Adds a soft shadow around the circle
   }
 `;
 

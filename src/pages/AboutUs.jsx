@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BentoBlock from '../components/foundations/BentoBlock';
 import ImageSliderScroll from '../components/functional/ImageSliderScroll';
+import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
 import { imageVenue, listSlidePastEvents } from '../assets-imported/assets.js';
 
@@ -65,65 +66,101 @@ const FullWidthBentoBlock = styled(BentoBlock)`
   width: 100%;  /* Ensure it takes the full width */
 `;
 
+const BgOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+`;
 
 
+const ContentContainer = styled.div`
+  position: relative;
+  z-index: 10;
+   width: 100%;
+  max-width: 1400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+`;
+
+const path1 = 'M 0 0 Q 600 100 250 200 Q 0 250 150 550 Q 400 850 850 700 Q 1300 500 1200 300 Q 1000 50 1550 50 Q 1900 50 1700 650 Q 1500 1050 1050 1050 ';
+const path2 = 'M 0 600 Q 500 1100 1250 850 C 1800 550 650 300 1900 0 ';
 function AboutUs() {
   return (
     <MainContainer>
-      <BodyContainer>
-        <DynaContainer>
-          <ColumnContainer mHeight={550}>
-            <BentoBlock
-              textTitle="The Venue"
-              fillColor={theme.colors.brand.red}
-              rImage={imageVenue}
-              mWidth={1190}
-              mHeight={500}
-              hoverText="The Tent - Las Pinas, Metro Manila"
-              clickPath="https://maps.app.goo.gl/66CogTtAU41upNsG6"
-            />
-
-            <DynaContainer>
-              <FullWidthBentoBlock
-                textTitle="Our Team"
-                fillColor={theme.colors.brand.yellow}
-                rImage="path/to/your/another_image.jpg"
-                mWidth={50000}
-                mHeight={310}
+      <BgOverlay>
+        <AnimatedSplinePath
+          path={path2}
+          lineColor={theme.colors.brand.yellow}
+          sWidth={155}
+          speed={15}
+          gColor1={theme.colors.brand.red}
+          gColor2={theme.colors.brand.orange}
+          gColor3={theme.colors.brand.yellow}
+        />
+      </BgOverlay>
+      <ContentContainer>
+        <BodyContainer>
+          <DynaContainer>
+            <ColumnContainer mHeight={550}>
+              <BentoBlock
+                textTitle="The Venue"
+                fillColor={theme.colors.brand.red}
+                rImage={imageVenue}
+                mWidth={1190}
+                mHeight={500}
+                hoverText="The Tent - Las Pinas, Metro Manila"
+                clickPath="https://maps.app.goo.gl/66CogTtAU41upNsG6"
               />
-              <ColumnContainer mHeight={460}>
-                <BentoBlock
-                  textTitle="Mission"
-                  fillColor={theme.colors.brand.blue}
+
+              <DynaContainer>
+                <FullWidthBentoBlock
+                  textTitle="Our Team"
+                  fillColor={theme.colors.brand.yellow}
                   rImage="path/to/your/another_image.jpg"
-                  mWidth={400}
-                  mHeight={150}
-                  hoverText=" "
+                  mWidth={50000}
+                  mHeight={310}
                 />
-                <BentoBlock
-                  textTitle="Vision"
-                  fillColor={theme.colors.brand.green}
-                  rImage="path/to/your/another_image.jpg"
-                  mWidth={400}
-                  mHeight={150}
-                  hoverText=" "
-                />
-              </ColumnContainer>
-            </DynaContainer>
-          </ColumnContainer>
-          <BentoBlock
-            textTitle="Past Events"
-            fillColor={theme.colors.brand.orange}
-            rType="component"
-            mWidth={500}
-            mHeight={550}
-          >
-            <ImageSliderScroll
-              listImages={listSlidePastEvents}
-            />
-          </BentoBlock>
-        </DynaContainer>
-      </BodyContainer>
+                <ColumnContainer mHeight={460}>
+                  <BentoBlock
+                    textTitle="Mission"
+                    fillColor={theme.colors.brand.blue}
+                    rImage="path/to/your/another_image.jpg"
+                    mWidth={400}
+                    mHeight={150}
+                    hoverText=" "
+                  />
+                  <BentoBlock
+                    textTitle="Vision"
+                    fillColor={theme.colors.brand.green}
+                    rImage="path/to/your/another_image.jpg"
+                    mWidth={400}
+                    mHeight={150}
+                    hoverText=" "
+                  />
+                </ColumnContainer>
+              </DynaContainer>
+            </ColumnContainer>
+            <BentoBlock
+              textTitle="Past Events"
+              fillColor={theme.colors.brand.orange}
+              rType="component"
+              mWidth={500}
+              mHeight={550}
+            >
+              <ImageSliderScroll
+                listImages={listSlidePastEvents}
+              />
+            </BentoBlock>
+          </DynaContainer>
+        </BodyContainer>
+      </ContentContainer>
     </MainContainer>
   );
 }

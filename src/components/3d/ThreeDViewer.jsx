@@ -13,7 +13,6 @@ const ViewerContainer = styled.div`
   position: relative;
   overflow: hidden;
   z-index: 4;
-  backdrop-filter: blur(25px);
   margin-bottom: 10px;
   
 `;
