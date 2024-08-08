@@ -31,7 +31,7 @@ const RevealedComponentContainer = styled.div`
 const path1 = 'M 0 0 Q 600 100 250 200 Q 0 250 150 550 Q 400 850 850 700 Q 1300 500 1200 300 Q 1000 50 1550 50 Q 1900 50 1700 650 Q 1500 1050 1050 1050 ';
 const path2 = 'M 0 600 Q 500 1100 1250 850 C 1800 550 650 300 1900 0 ';
 const path3 = "M 300 0 Q 500 1100 1000 950 C 1900 400 0 200 1900 250 ";
-const targetDate = '2024-09-28T00:00:00Z';
+const targetDate = '2024-09-16T00:00:00Z';
 
 function Home() {
     const [hovered, setHovered] = useState(false);
