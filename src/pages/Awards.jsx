@@ -38,7 +38,7 @@ const BodyContainer = styled.div`
   box-sizing: border-box;
   height: auto; /* Allow height to adjust based on content */
   border-radius: 15px;
-  opacity: 0.9;
+  opacity: 0.97;
 `;
 
 const DynaContainer = styled.div`
