@@ -87,6 +87,7 @@ const TextContent = styled.div`
 const path1 = 'M 0 0 Q 600 100 250 200 Q 0 250 150 550 Q 400 850 850 700 Q 1300 500 1200 300 Q 1000 50 1550 50 Q 1900 50 1700 650 Q 1500 1050 1050 1050 ';
 const path2 = 'M 0 600 Q 500 1100 1250 850 C 1800 550 650 300 1900 0 ';
 const path3 = "M 300 0 Q 500 1100 1000 950 C 1900 400 0 200 1900 250 ";
+const path4 = "M 0 50 Q 0 500 200 300 Q 450 0 550 350 C 700 800 500 1100 1000 950 C 1650 450 600 400 1150 100 A 50 50 0 1 1 1750 1050 ";
 const targetDate = '2024-09-16T00:00:00Z';
 
 const textContentArray = [
@@ -141,7 +142,7 @@ function Home() {
             />);
         } else if (index === 3) {
             revealComponent(<AnimatedSplinePath
-                path={path1}
+                path={path4}
                 gColor1={theme.colors.brand.green}
                 gColor3="#0063bc"
                 gColor2={theme.colors.brand.blue}
