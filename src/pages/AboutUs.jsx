@@ -89,14 +89,13 @@ const ContentContainer = styled.div`
   border-radius: 10px;
 `;
 
-const path1 = 'M 0 0 Q 600 100 250 200 Q 0 250 150 550 Q 400 850 850 700 Q 1300 500 1200 300 Q 1000 50 1550 50 Q 1900 50 1700 650 Q 1500 1050 1050 1050 ';
-const path2 = 'M 0 600 Q 500 1100 1250 850 C 1800 550 650 300 1900 0 ';
+const path5 = "M 350 1050 Q 0 500 200 300 Q 450 0 600 300 C 1050 1050 1900 150 1900 1000 A 50 50 0 1 1 1300 0 ";
 function AboutUs() {
   return (
     <MainContainer>
       <BgOverlay>
         <AnimatedSplinePath
-          path={path2}
+          path={path5}
           lineColor={theme.colors.brand.yellow}
           sWidth={155}
           speed={15}
