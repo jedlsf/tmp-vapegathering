@@ -4,6 +4,8 @@ import pceiaPng from './LogoPCEIA.png';
 import age18pPng from './Logo18p.png';
 import venueImage from './imgTheTent.jpg';
 
+
+//Import images for Past Events slider
 import slidePastEventsImg1 from "./slidePastEvents/img1.jpg";
 import slidePastEventsImg2 from "./slidePastEvents/img2.jpg";
 import slidePastEventsImg3 from "./slidePastEvents/img3.jpg";
@@ -34,6 +36,23 @@ import slidePastEventsImg27 from "./slidePastEvents/img27.jpg";
 import slidePastEventsImg28 from "./slidePastEvents/img28.jpg";
 import slidePastEventsImg29 from "./slidePastEvents/img29.jpg";
 import slidePastEventsImg30 from "./slidePastEvents/img30.jpg";
+
+//Import Brand Logo images
+import bLogo_RELX from "./logoBrands/bLogo_1_relx.jpg";
+import bLogo_IQOS from "./logoBrands/bLogo_2_iqos.png";
+import bLogo_Shift from "./logoBrands/bLogo_3_shift.png";
+import bLogo_CholoBlend from "./logoBrands/bLogo_4_choloblend.jpg";
+import bLogo_PuffMaster from "./logoBrands/bLogo_5_puffmaster.png";
+import bLogo_Flabar from "./logoBrands/bLogo_6_flabar.jpg";
+
+
+
+export const brandLogo_1_RELX = bLogo_RELX;
+export const brandLogo_2_IQOS = bLogo_IQOS;
+export const brandLogo_3_Shift = bLogo_Shift;
+export const brandLogo_4_CholoBlend = bLogo_CholoBlend;
+export const brandLogo_5_PuffMaster = bLogo_PuffMaster;
+export const brandLogo_6_Flabar = bLogo_Flabar;
 
 
 

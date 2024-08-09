@@ -14,9 +14,7 @@ import styled from 'styled-components';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import EventLayout from './pages/EventLayout';
-//import MyTickets from './pages/MyTickets';
-//import MyWallet from './pages/MyWallet';
-//import MyProfile from './pages/MyProfile';
+import Awards from './pages/Awards';
 
 
 
@@ -69,7 +67,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/awards" element={<Awards />} />
               <Route path="/layout" element={<EventLayout />} />
+
 
             </Routes>
           </MainContainer>

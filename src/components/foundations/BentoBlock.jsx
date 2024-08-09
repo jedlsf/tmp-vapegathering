@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import theme from '../../theme.js';
 
 const Container = styled.div`
   max-width: ${(props) => props.mWidth}px;
@@ -38,9 +39,10 @@ const Text = styled.div`
   z-index: 2;
   font-size: ${({ theme }) => theme.typography.sizes.header};
   font-weight: ${({ theme }) => theme.typography.weights.subject};
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${(props) => props.textColor};
   -webkit-background-clip: text;
   background-clip: text;
+ text-shadow: 2px 2px 4px #000000;
 `;
 
 const Image = styled.img`
@@ -67,7 +69,7 @@ const RevealComponent = styled.div`
   transition: opacity 0.3s ease;
 `;
 
-const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight, rType = "image", children, hoverText, clickPath }) => {
+const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight, rType = "image", children, hoverText, clickPath, textColor = theme.colors.textPrimary }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -96,7 +98,7 @@ const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight, rType = "im
       onClick={handleClick}
       clickable={Boolean(clickPath)}
     >
-      <Text>
+      <Text textColor={textColor} >
         {isHovered && rType === "image" && hoverText ? defaultHoverText : textTitle}
       </Text>
       {rType === "image" ? (
