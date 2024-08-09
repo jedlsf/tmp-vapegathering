@@ -183,7 +183,80 @@ function Awards() {
                                 clickPath="https://relxnow.ph"
                             />
                         </DynaContainer>
-
+                        <DynaContainer>
+                            <BentoBlock
+                                textTitle="Best Tobacco Flavor"
+                                fillColor={theme.colors.primaryBackground}
+                                rImage={brandLogo_6_Flabar}
+                                mWidth={145}
+                                mHeight={145}
+                                hoverText="Liquido"
+                                clickPath="https://relxnow.ph"
+                            />
+                            <BentoBlock
+                                textTitle="Best Fruity Flavor"
+                                fillColor={theme.colors.primaryBackground}
+                                rImage={brandLogo_6_Flabar}
+                                mWidth={145}
+                                mHeight={145}
+                                hoverText="Nevoks"
+                                clickPath="https://relxnow.ph"
+                            />
+                            <BentoBlock
+                                textTitle="Best Pastry Flavor"
+                                fillColor={theme.colors.primaryBackground}
+                                rImage={brandLogo_6_Flabar}
+                                mWidth={145}
+                                mHeight={145}
+                                hoverText="Pastry Vapors"
+                                clickPath="https://relxnow.ph"
+                            />
+                            <BentoBlock
+                                textTitle="Best Menthol Flavor"
+                                fillColor={theme.colors.primaryBackground}
+                                rImage={brandLogo_6_Flabar}
+                                mWidth={145}
+                                mHeight={145}
+                                hoverText="Boss"
+                                clickPath="https://relxnow.ph"
+                            />
+                            <BentoBlock
+                                textTitle="Best Free Base Juice"
+                                fillColor={theme.colors.primaryBackground}
+                                rImage={brandLogo_6_Flabar}
+                                mWidth={145}
+                                mHeight={145}
+                                hoverText="MO Flavor"
+                                clickPath="https://relxnow.ph"
+                            />
+                            <BentoBlock
+                                textTitle="Best Closed Pod"
+                                fillColor={theme.colors.primaryBackground}
+                                rImage={brandLogo_6_Flabar}
+                                mWidth={145}
+                                mHeight={145}
+                                hoverText="UZOQ"
+                                clickPath="https://relxnow.ph"
+                            />
+                            <BentoBlock
+                                textTitle="Best Disposable"
+                                fillColor={theme.colors.primaryBackground}
+                                rImage={brandLogo_6_Flabar}
+                                mWidth={145}
+                                mHeight={145}
+                                hoverText="Aerogin"
+                                clickPath="https://relxnow.ph"
+                            />
+                            <BentoBlock
+                                textTitle="Best Branding and Marketing"
+                                fillColor={theme.colors.primaryBackground}
+                                rImage={brandLogo_6_Flabar}
+                                mWidth={145}
+                                mHeight={145}
+                                hoverText="ELF BAR"
+                                clickPath="https://relxnow.ph"
+                            />
+                        </DynaContainer>
                     </ColumnContainer>
                 </BodyContainer>
             </ContentContainer>

@@ -35,6 +35,7 @@ const Text = styled.div`
   user-select: none;
   position: absolute;
   bottom: 15px;
+  padding: 10px;
   left: 15px;
   z-index: 2;
   font-size: ${({ theme }) => theme.typography.sizes.header};
@@ -42,7 +43,7 @@ const Text = styled.div`
   color: ${(props) => props.textColor};
   -webkit-background-clip: text;
   background-clip: text;
- text-shadow: 2px 2px 4px #000000;
+ text-shadow: 2px 2px 6px #000000;
 `;
 
 const Image = styled.img`
