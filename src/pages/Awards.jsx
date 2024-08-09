@@ -144,7 +144,7 @@ function Awards() {
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="Shift"
-                                clickPath="https://relxnow.ph"
+                                clickPath="https://web.facebook.com/shftinternational"
                             />
                             <BentoBlock
                                 textTitle="Outstanding Contributor to the Vaping Industry"
@@ -162,7 +162,7 @@ function Awards() {
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="Cholo's Blend"
-                                clickPath="https://relxnow.ph"
+                                clickPath="https://web.facebook.com/CholosBlendOfficial"
                             />
                             <BentoBlock
                                 textTitle="Rookie of the Year"
@@ -171,7 +171,6 @@ function Awards() {
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="IQ Puff Master"
-                                clickPath="https://relxnow.ph"
                             />
                             <BentoBlock
                                 textTitle="Best in Flavor"
@@ -180,7 +179,7 @@ function Awards() {
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="FLABAR"
-                                clickPath="https://relxnow.ph"
+                                clickPath="https://www.flabarlab.com"
                             />
                         </DynaContainer>
                         <DynaContainer>
@@ -191,7 +190,6 @@ function Awards() {
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Liquido"
-                                clickPath="https://relxnow.ph"
                             />
                             <BentoBlock
                                 textTitle="Best Fruity Flavor"
@@ -200,7 +198,6 @@ function Awards() {
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Nevoks"
-                                clickPath="https://relxnow.ph"
                             />
                             <BentoBlock
                                 textTitle="Best Pastry Flavor"
@@ -209,7 +206,6 @@ function Awards() {
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Pastry Vapors"
-                                clickPath="https://relxnow.ph"
                             />
                             <BentoBlock
                                 textTitle="Best Menthol Flavor"
@@ -218,7 +214,6 @@ function Awards() {
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Boss"
-                                clickPath="https://relxnow.ph"
                             />
                             <BentoBlock
                                 textTitle="Best Free Base Juice"
@@ -227,7 +222,6 @@ function Awards() {
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="MO Flavor"
-                                clickPath="https://relxnow.ph"
                             />
                             <BentoBlock
                                 textTitle="Best Closed Pod"
@@ -236,7 +230,6 @@ function Awards() {
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="UZOQ"
-                                clickPath="https://relxnow.ph"
                             />
                             <BentoBlock
                                 textTitle="Best Disposable"
@@ -245,7 +238,6 @@ function Awards() {
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Aerogin"
-                                clickPath="https://relxnow.ph"
                             />
                             <BentoBlock
                                 textTitle="Best Branding and Marketing"
@@ -254,7 +246,6 @@ function Awards() {
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="ELF BAR"
-                                clickPath="https://relxnow.ph"
                             />
                         </DynaContainer>
                     </ColumnContainer>
