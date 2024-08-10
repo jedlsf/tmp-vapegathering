@@ -98,7 +98,7 @@ function AboutUs() {
           path={path5}
           lineColor={theme.colors.brand.yellow}
           sWidth={155}
-          speed={1}
+          speed={15}
           gColor1={theme.colors.brand.red}
           gColor2={theme.colors.brand.orange}
           gColor3={theme.colors.brand.yellow}
