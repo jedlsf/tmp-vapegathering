@@ -39,21 +39,45 @@ import slidePastEventsImg29 from "./slidePastEvents/img29.jpg";
 import slidePastEventsImg30 from "./slidePastEvents/img30.jpg";
 
 //Import Brand Logo images
-import bLogo_RELX from "./logoBrands/bLogo_1_relx.jpg";
-import bLogo_IQOS from "./logoBrands/bLogo_2_iqos.png";
-import bLogo_Shift from "./logoBrands/bLogo_3_shift.png";
-import bLogo_CholoBlend from "./logoBrands/bLogo_4_choloblend.jpg";
-import bLogo_PuffMaster from "./logoBrands/bLogo_5_puffmaster.png";
-import bLogo_Flabar from "./logoBrands/bLogo_6_flabar.jpg";
+
+import bLogo_Aerogin from "./logoBrands/bLogo1_AEROGIN.jpg";
+import bLogo_Boss from "./logoBrands/bLogo2_Boss.jpg";
+import bLogo_CholoBlend from "./logoBrands/bLogo3_Cholos Blend.jpg";
+import bLogo_Elfbar from "./logoBrands/bLogo4_Elfbar.jpg";
+import bLogo_Flabar from "./logoBrands/bLogo5_Flabar.jpg";
+import bLogo_PuffMaster from "./logoBrands/bLogo6_IQ.jpg";
+import bLogo_IQOS from "./logoBrands/bLogo7_Iqos.jpg";
+import bLogo_Liquido from "./logoBrands/bLogo8_Liquido.jpg";
+import bLogo_MOFlavors from "./logoBrands/bLogo9_MO Flavors.jpg";
+import bLogo_Nevoks from "./logoBrands/bLogo10_nevoks.jpg";
+import bLogo_PastryVapors from "./logoBrands/bLogo11_Pastry Vapors.jpg";
+import bLogo_RELX from "./logoBrands/bLogo12_Relx.jpg";
+import bLogo_Shift from "./logoBrands/bLogo13_Shift.jpg";
+import bLogo_UZOQ from "./logoBrands/bLogo14_UZOQ.jpg";
+import bLogo_VaporNerds from "./logoBrands/bLogo15_Vapor Nerds.jpg";
+import bLogo_Placeholder1 from "./logoBrands/bLogo16_VG sample 1.jpg";
+import bLogo_Placeholder2 from "./logoBrands/bLogo17_VG sample 2.jpg";
 
 
-
-export const brandLogo_1_RELX = bLogo_RELX;
-export const brandLogo_2_IQOS = bLogo_IQOS;
-export const brandLogo_3_Shift = bLogo_Shift;
-export const brandLogo_4_CholoBlend = bLogo_CholoBlend;
-export const brandLogo_5_PuffMaster = bLogo_PuffMaster;
-export const brandLogo_6_Flabar = bLogo_Flabar;
+export const brandLogos = [
+    bLogo_Aerogin,
+    bLogo_Boss,
+    bLogo_CholoBlend,
+    bLogo_Elfbar,
+    bLogo_Flabar,
+    bLogo_PuffMaster,
+    bLogo_IQOS,
+    bLogo_Liquido,
+    bLogo_MOFlavors,
+    bLogo_Nevoks,
+    bLogo_PastryVapors,
+    bLogo_RELX,
+    bLogo_Shift,
+    bLogo_UZOQ,
+    bLogo_VaporNerds,
+    bLogo_Placeholder1,
+    bLogo_Placeholder2
+];
 
 
 

@@ -4,14 +4,7 @@ import BentoBlock from '../components/foundations/BentoBlock';
 import ImageSliderScroll from '../components/functional/ImageSliderScroll';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
-import {
-    brandLogo_1_RELX,
-    brandLogo_2_IQOS,
-    brandLogo_3_Shift,
-    brandLogo_4_CholoBlend,
-    brandLogo_5_PuffMaster,
-    brandLogo_6_Flabar
-} from '../assets-imported/assets.js';
+import { brandLogos } from '../assets-imported/assets.js';
 
 const MainContainer = styled.div`
   padding: 20px;
@@ -121,7 +114,7 @@ function Awards() {
                             textTitle="Brand of the Year"
                             fillColor={theme.colors.primaryBackground}
                             textColor={theme.colors.textPrimary}
-                            rImage={brandLogo_1_RELX}
+                            rImage={brandLogos[11]}
                             mWidth={1280}
                             mHeight={200}
                             hoverText="RELX"
@@ -131,8 +124,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Advocate"
                                 fillColor={theme.colors.brand.blue}
-
-                                rImage={brandLogo_2_IQOS}
+                                rImage={brandLogos[6]}
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="IQOS"
@@ -141,7 +133,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Influencer"
                                 fillColor={theme.colors.brand.yellow}
-                                rImage={brandLogo_3_Shift}
+                                rImage={brandLogos[12]}
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="Shift"
@@ -150,7 +142,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Outstanding Contributor to the Vaping Industry"
                                 fillColor={theme.colors.brand.green}
-                                rImage={brandLogo_1_RELX}
+                                rImage={brandLogos[11]}
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="RELX"
@@ -159,7 +151,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Booth Activation"
                                 fillColor={theme.colors.brand.pink}
-                                rImage={brandLogo_4_CholoBlend}
+                                rImage={brandLogos[2]}
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="Cholo's Blend"
@@ -168,7 +160,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Rookie of the Year"
                                 fillColor={theme.colors.brand.red}
-                                rImage={brandLogo_5_PuffMaster}
+                                rImage={brandLogos[2]}
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="IQ Puff Master"
@@ -176,7 +168,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best in Flavor"
                                 fillColor={theme.colors.brand.orange}
-                                rImage={brandLogo_6_Flabar}
+                                rImage={brandLogos[4]}
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="FLABAR"
@@ -187,7 +179,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Tobacco Flavor"
                                 fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogo_6_Flabar}
+                                rImage={brandLogos[7]}
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Liquido"
@@ -195,7 +187,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Fruity Flavor"
                                 fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogo_6_Flabar}
+                                rImage={brandLogos[9]}
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Nevoks"
@@ -203,7 +195,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Pastry Flavor"
                                 fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogo_6_Flabar}
+                                rImage={brandLogos[10]}
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Pastry Vapors"
@@ -211,7 +203,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Menthol Flavor"
                                 fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogo_6_Flabar}
+                                rImage={brandLogos[1]}
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Boss"
@@ -219,7 +211,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Free Base Juice"
                                 fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogo_6_Flabar}
+                                rImage={brandLogos[8]}
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="MO Flavor"
@@ -227,7 +219,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Closed Pod"
                                 fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogo_6_Flabar}
+                                rImage={brandLogos[13]}
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="UZOQ"
@@ -235,7 +227,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Disposable"
                                 fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogo_6_Flabar}
+                                rImage={brandLogos[0]}
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="Aerogin"
@@ -243,7 +235,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Best Branding and Marketing"
                                 fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogo_6_Flabar}
+                                rImage={brandLogos[3]}
                                 mWidth={145}
                                 mHeight={145}
                                 hoverText="ELF BAR"
