@@ -1,25 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import BentoBlock from '../components/foundations/BentoBlock';
-import ImageSliderScroll from '../components/functional/ImageSliderScroll';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
 import { eLayoutImage } from '../assets-imported/assets.js';
+import Zoom from 'react-medium-image-zoom';
 
 const MainContainer = styled.div`
   padding: 20px;
-  width: 100vw;
-  height: 80vh;
+  width: auto;
+  height: auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: transparent;
   box-sizing: border-box;
   overflow: auto;
+  
 `;
 
 const BodyContainer = styled.div`
-  width: 100%;
+  width: auto;
   max-width: 1400px;
   padding: 20px;
   display: flex;
@@ -32,39 +33,10 @@ const BodyContainer = styled.div`
   height: auto; /* Allow height to adjust based on content */
   border-radius: 15px;
   opacity: 0.97;
+  
 `;
 
-const DynaContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  box-sizing: border-box;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const ColumnContainer = styled.div`
-  width: 100%;
-  max-height: ${({ mHeight }) => mHeight}px;
-  display: flex;
-  gap: 15px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: 768px) {
-    max-height: 100%;
-  }
-`;
-
-const FullWidthBentoBlock = styled(BentoBlock)`
-  width: 100%;  /* Ensure it takes the full width */
-`;
 
 const BgOverlay = styled.div`
   position: absolute;
@@ -87,17 +59,22 @@ const ContentContainer = styled.div`
   align-items: center;
   box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+  height: auto;
+
 `;
 
 const PlaceholderImage = styled.img`
 width: 100%;
-height: 100%;
+height: auto;
+  max-height: 65vh;
+  object-fit: contain;
+  border-radius: 15px;
 
 `;
 
 const path3 = "M 300 0 Q 500 1100 1000 950 C 1900 400 0 200 1900 250 ";
 
-function Awards() {
+function EventLayout() {
   return (
     <MainContainer>
       <BgOverlay>
@@ -113,15 +90,13 @@ function Awards() {
       </BgOverlay>
       <ContentContainer>
         <BodyContainer>
-          <PlaceholderImage
-            src={eLayoutImage}
-          />
-
-
+          <Zoom>
+            <PlaceholderImage src={eLayoutImage} alt="Event Layout" />
+          </Zoom>
         </BodyContainer>
       </ContentContainer>
     </MainContainer>
   );
 }
 
-export default Awards;
+export default EventLayout;
