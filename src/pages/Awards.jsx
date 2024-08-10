@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import BentoBlock from '../components/foundations/BentoBlock';
-import ImageSliderScroll from '../components/functional/ImageSliderScroll';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
 import { brandLogos } from '../assets-imported/assets.js';
@@ -160,7 +159,7 @@ function Awards() {
                             <BentoBlock
                                 textTitle="Rookie of the Year"
                                 fillColor={theme.colors.brand.red}
-                                rImage={brandLogos[2]}
+                                rImage={brandLogos[5]}
                                 mWidth={200}
                                 mHeight={200}
                                 hoverText="IQ Puff Master"
