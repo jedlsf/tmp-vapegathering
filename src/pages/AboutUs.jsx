@@ -89,7 +89,7 @@ const ContentContainer = styled.div`
   border-radius: 10px;
 `;
 
-const path5 = "M 350 1050 Q 0 500 200 300 Q 450 0 600 300 C 1050 1050 1900 150 1900 1000 A 50 50 0 1 1 1300 0 ";
+const path5 = "M 350 1050 Q 0 500 200 300 Q 450 0 600 300 C 1050 1050 1900 150 1900 1000 A 50 50 0 1 1 1350 200 Q 1600 0 1800 400 Q 1850 700 1550 800 Q 550 1050 0 0 ";
 function AboutUs() {
   return (
     <MainContainer>
@@ -98,7 +98,7 @@ function AboutUs() {
           path={path5}
           lineColor={theme.colors.brand.yellow}
           sWidth={155}
-          speed={15}
+          speed={1}
           gColor1={theme.colors.brand.red}
           gColor2={theme.colors.brand.orange}
           gColor3={theme.colors.brand.yellow}
