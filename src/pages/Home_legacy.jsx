@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import CountdownTimer from '../components/functional/CountdownTimer';
-import Block3D from '../components/3d/Block3D';
+import ThreeDViewer from '../components/3d/ThreeDViewer';
 import VFXCircleMask from '../components/vfx/VFXCircleMask';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme';
@@ -99,14 +99,6 @@ const textContentArray = [
     'The Vape Gathering is where the vape community meets and has fun; a social gathering and forum where we recognize the legitimacy of the vape industry. Here, the community can see new products, meet the brands, get exclusive insights, and connect with people who share the same enthusiasm towards vaping.',
 ];
 
-const meshPaths = [
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape0.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCalendar.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbTicket.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbWorld.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbQMark.glb',
-];
-
 function Home() {
     const [hovered, setHovered] = useState(false);
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 150 });
@@ -179,6 +171,15 @@ function Home() {
         setRevealedComponent(null);
     };
 
+    const handleMouseMove = (event) => {
+
+        setCursorPosition({
+            x: event.clientX,
+            y: event.clientY - 100,
+        });
+
+    };
+
 
 
 
@@ -193,19 +194,20 @@ function Home() {
     };
 
     return (
-        <Container bgColor={backgroundColor}>
+        <Container onMouseMove={handleMouseMove} bgColor={backgroundColor}>
             <RevealedComponentContainer isVisible={hovered}>
                 {revealedComponent}
             </RevealedComponentContainer>
 
-            <Block3D
-                onHovered={handleHovered}
-                file={meshPaths[0]}
-                speed={0.2}
-                index={0}
+            <VFXCircleMask isVisible={hovered} cursorPosition={cursorPosition} />
+            <ThreeDViewer
+                isHovered={handleHovered}
+                isHoverEnd={handleHoverEnd}
             />
+            <CenteredRevealedComponent isVisible={centeredComponentVisible}>
 
-
+                <TextContent>{centeredText}</TextContent>
+            </CenteredRevealedComponent>
             <CountdownTimer targetDate={targetDate} />
         </Container>
     );

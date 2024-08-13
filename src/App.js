@@ -69,7 +69,7 @@ function App() {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/awards" element={<Awards />} />
               <Route path="/layout" element={<EventLayout />} />
-              test
+          
 
             </Routes>
           </MainContainer>
