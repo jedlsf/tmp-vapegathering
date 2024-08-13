@@ -38,6 +38,11 @@ import slidePastEventsImg28 from "./slidePastEvents/img28.jpg";
 import slidePastEventsImg29 from "./slidePastEvents/img29.jpg";
 import slidePastEventsImg30 from "./slidePastEvents/img30.jpg";
 
+
+//Import home assets
+import homeScroller from "./home/homescroll.png";
+import homeBanner from "./home/homeBanner.jpg";
+
 //Import Brand Logo images
 
 import bLogo_Aerogin from "./logoBrands/bLogo1_AEROGIN.jpg";
@@ -57,6 +62,10 @@ import bLogo_UZOQ from "./logoBrands/bLogo14_UZOQ.jpg";
 import bLogo_VaporNerds from "./logoBrands/bLogo15_Vapor Nerds.jpg";
 import bLogo_Placeholder1 from "./logoBrands/bLogo16_VG sample 1.jpg";
 import bLogo_Placeholder2 from "./logoBrands/bLogo17_VG sample 2.jpg";
+
+
+export const imageHomeBanner = homeBanner;
+export const imageHomeScroller = homeScroller;
 
 
 export const brandLogos = [

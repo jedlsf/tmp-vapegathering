@@ -11,6 +11,7 @@ const Container = styled.div`
   @media (max-width: 768px) {
     transform: scale(0.6);
   }
+    z-index: 5000;
  
 `;
 

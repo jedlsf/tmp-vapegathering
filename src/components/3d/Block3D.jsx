@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useRef, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import styled from 'styled-components';
@@ -21,9 +21,12 @@ const Container = styled.div`
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+   background-color: ${({ color }) => color};
+   border-radius: ${({ theme }) => theme.borders.radius.large};
+   box-shadow: inset 1px 3px 7px rgba(0, 0, 0, 0.6);
 
   @media (max-width: 768px) {
-    width: 100vw;
+    width: 100%;
   }
 `;
 
@@ -34,18 +37,22 @@ const StyledCanvas = styled(Canvas)`
   cursor: pointer;
 `;
 
-const RotatingModel = ({ model, speed, clamp }) => {
-    const [hovered, setHovered] = useState(false);
+const RotatingModel = ({ model, speed, clamp, hovered }) => {
     const [angle, setAngle] = useState(0);
     const [direction, setDirection] = useState(1); // 1 for right, -1 for left
+    const [targetRotation, setTargetRotation] = useState(0);
+
+    useEffect(() => {
+        setTargetRotation(hovered ? -10 * (Math.PI / 180) : 0);
+    }, [hovered]);
 
     useFrame((state, delta) => {
         if (model) {
-            if (hovered) {
-                // Smoothly rotate to -10 degrees when hovered
-                model.rotation.y = THREE.MathUtils.lerp(model.rotation.y, -10 * (Math.PI / 180), 0.1);
-            } else {
-                // Back-and-forth rotation
+            // Smoothly interpolate the rotation based on the targetRotation
+            model.rotation.y = THREE.MathUtils.lerp(model.rotation.y, targetRotation, 0.1);
+
+            if (!hovered) {
+                // Back-and-forth rotation when not hovered
                 setAngle((prevAngle) => {
                     const newAngle = prevAngle + (speed * direction * delta);
                     if (Math.abs(newAngle) > clamp * (Math.PI / 180)) {
@@ -54,23 +61,21 @@ const RotatingModel = ({ model, speed, clamp }) => {
                     }
                     return newAngle;
                 });
-                model.rotation.y = angle;
+                model.rotation.y = THREE.MathUtils.lerp(model.rotation.y, angle, 0.1);
             }
         }
     });
 
     return (
-        <group
-            onPointerOver={() => setHovered(true)}
-            onPointerOut={() => setHovered(false)}
-        >
+        <group>
             <primitive object={model} />
         </group>
     );
 };
 
-const Block3D = ({ file, speed = 2, clamp = 15, onHovered }) => {
+const Block3D = ({ file, speed = 2, clamp = 15, onHovered, onHoverOut, color, index = 0 }) => {
     const [model, setModel] = useState(null);
+    const [hovered, setHovered] = useState(false);
     const loader = useMemo(() => new GLTFLoader(), []);
 
     useEffect(() => {
@@ -81,28 +86,33 @@ const Block3D = ({ file, speed = 2, clamp = 15, onHovered }) => {
             // Apply materials based on baseColors
             loadedModel.traverse((child) => {
                 if (child.isMesh) {
-                    const index = Math.floor(Math.random() * baseColors.length); // Randomly pick a color
                     child.material = new THREE.MeshStandardMaterial({
-                        color: baseColors[index] || theme.colors.brand.grey, // Use fallbackColor if necessary
+                        color: color, // Use fallbackColor if necessary
                     });
                 }
             });
         });
     }, [file, loader]);
 
-    const handlePointerOver = () => {
-        if (onHovered) onHovered();
-    };
-
     return (
-        <Container>
+        <Container color={color}
+            onPointerOver={() => {
+                setHovered(true);
+                if (onHovered) onHovered(index);
+            }}
+            onPointerOut={() => {
+                setHovered(false);
+                if (onHoverOut) onHoverOut(index);
+            }}
+
+
+        >
             <StyledCanvas
                 camera={{ position: [0, 0, 5], fov: 60 }}
-                onPointerOver={handlePointerOver}
             >
                 <ambientLight intensity={2.2} />
                 <directionalLight position={[-5, 0, 90]} intensity={2.3} castShadow />
-                {model && <RotatingModel model={model} speed={speed} clamp={clamp} />}
+                {model && <RotatingModel model={model} speed={speed} clamp={clamp} hovered={hovered} />}
             </StyledCanvas>
         </Container>
     );
