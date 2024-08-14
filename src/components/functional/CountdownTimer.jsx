@@ -50,11 +50,11 @@ const Character = styled.div`
 
 const Label = styled.div`
   margin-top: 5px;
-  font-family: 'Akkordeon One', sans-serif;
+  font-family: 'Akkordeon Three', sans-serif;
   letter-spacing: 0.2em; 
   font-size: ${({ theme }) => theme.typography.sizes.body};
   font-weight: ${({ theme }) => theme.typography.weights.subject};: ${({ theme }) => theme.typography.sizes.mini};
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.primaryBackground};
   user-select: none;
 `;
 
