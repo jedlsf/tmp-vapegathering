@@ -61,15 +61,16 @@ const DynaContainer = styled.div`
 
 const ColumnContainer = styled.div`
   width: 100%;
-  max-height: ${({ mHeight }) => mHeight}px;
+  max-height: ${({ mHeight }) => mHeight}vh; /* Use vh for responsiveness */
   display: flex;
   gap: 30px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
 
+
   @media (max-width: 768px) {
-    max-height: 100%;
+    max-height: 100%; /* Adjust height for smaller screens */
   }
 `;
 
@@ -116,15 +117,15 @@ function AboutUs() {
       <ContentContainer>
         <BodyContainer>
           <DynaContainer>
-            <ColumnContainer mHeight={640}>
+            <ColumnContainer mHeight={70}>
               <BentoBlock
                 textTitle="The Venue"
                 fillColor={theme.colors.brand.red}
                 rImage={imageAboutVenueHovered}
                 defaultImage={imageAboutVenueUnhovered}
-                mWidth={1080}
+                mWidth={50}
+                mHeight={35}
                 offsetY={25}
-                mHeight={335}
                 hoverText="The Tent - Las Pinas, Metro Manila"
                 clickPath="https://maps.app.goo.gl/66CogTtAU41upNsG6"
               />
@@ -135,8 +136,8 @@ function AboutUs() {
                 fillColor={theme.colors.brand.yellow}
                 rImage={imageAboutOurTeamHovered}
                 defaultImage={imageAboutOurTeamUnhovered}
-                mWidth={1080}
-                mHeight={335}
+                mWidth={50}
+                mHeight={35}
               />
 
 
@@ -146,8 +147,8 @@ function AboutUs() {
               fillColor={theme.colors.brand.green}
               rImage={imageAboutPastEventsHovered}
               defaultImage={imageAboutPastEventsUnhovered}
-              mWidth={800}
-              mHeight={640}
+              mWidth={50}
+              mHeight={70}
               hoverText="Gallery"
             />
           </DynaContainer>

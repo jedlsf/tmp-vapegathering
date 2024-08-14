@@ -17,7 +17,7 @@ const ButtonContainer = styled.div`
   cursor: pointer;
   transition: border-bottom 0.1s ease;
   user-select: none;
-  font-family: 'Akkordeon Five', sans-serif;
+  font-family: 'Akkordeon Ten', sans-serif;
   font-size: ${({ theme }) => theme.typography.sizes.title};
   letter-spacing: 0.045em; 
 

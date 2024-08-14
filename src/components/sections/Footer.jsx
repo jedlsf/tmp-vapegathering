@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { logoPCEIA, logo18p } from '../../assets-imported/assets';
 
 const FooterContainer = styled.footer`
+font-family: 'Poppins-SemiBold';
   width: 100vw;
   background-color: ${({ theme }) => theme.colors.brand.blue};
   color: ${({ theme }) => theme.colors.textSecondary};
   display: flex;
-  font-family: 'Akkordeon Four', sans-serif;
-  font-size: ${({ theme }) => theme.typography.sizes.subject};
+  font-size: ${({ theme }) => theme.typography.sizes.helper};
   letter-spacing: 0.1em; 
   align-items: center;
   justify-content: space-between;

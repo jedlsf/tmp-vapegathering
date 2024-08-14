@@ -3,19 +3,18 @@ import styled from 'styled-components';
 import theme from '../../theme.js';
 
 const Container = styled.div`
-  max-width: ${(props) => props.mWidth}px;
+  max-width: ${(props) => props.mWidth}vw;
   width: 100%;
   max-height: 100%;
-  height: ${(props) => props.mHeight}px;
+  height: ${(props) => props.mHeight}vh;
   padding: 20px;
-  background-color: ${(props) => (props.defaultImage ? 'transparent' : props.fillColor)};
+  background-color: ${(props) => (props.isImageLoaded ? 'transparent' : props.fillColor)};
   overflow: hidden;
   position: relative;
   transition: transform 0.3s ease;
   border-radius: 20px;
   box-sizing: border-box;
   cursor: ${(props) => (props.clickable ? 'pointer' : 'default')};
-
   &:hover {
     transform: scale(1.03);
   }
@@ -62,9 +61,9 @@ const DefaultImage = styled.img`
   height: calc(100% + ${(props) => Math.abs(props.offsetY * 2)}%);
   object-fit: cover;
   transform: translate(-${(props) => props.offsetX}%, -${(props) => props.offsetY}%);
-  opacity: ${(props) => (props.isHovered ? '0' : '1')};
+  opacity: ${(props) => (props.isImageLoaded ? '1' : '0')};
   transition: opacity 0.3s ease;
-  z-index: 0;
+  z-index: 1;
 `;
 
 const RevealComponent = styled.div`
@@ -94,9 +93,10 @@ const BentoBlock = ({
   textColor = theme.colors.textPrimary,
   defaultImage = null,
   offsetX = 0,
-  offsetY = 0
+  offsetY = 0,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -104,6 +104,10 @@ const BentoBlock = ({
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+  };
+
+  const handleImageLoad = () => {
+    setIsImageLoaded(true); // Set to true once the defaultImage is fully loaded
   };
 
   const handleClick = () => {
@@ -123,30 +127,29 @@ const BentoBlock = ({
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       clickable={Boolean(clickPath)}
-      defaultImage={defaultImage}
+      isImageLoaded={isImageLoaded}
     >
       <Text textColor={textColor}>
         {isHovered && rType === "image" && hoverText ? defaultHoverText : textTitle}
       </Text>
+      {defaultImage && (
+        <DefaultImage
+          src={defaultImage}
+          alt="Default Image"
+          isImageLoaded={isImageLoaded}
+          offsetX={offsetX}
+          offsetY={offsetY}
+          onLoad={handleImageLoad}
+        />
+      )}
       {rType === "image" && (
-        <>
-          {defaultImage && (
-            <DefaultImage
-              src={defaultImage}
-              alt="Default Image"
-              isHovered={isHovered}
-              offsetX={offsetX}
-              offsetY={offsetY}
-            />
-          )}
-          <Image
-            src={rImage}
-            alt="Reveal Image"
-            isHovered={isHovered}
-            offsetX={offsetX}
-            offsetY={offsetY}
-          />
-        </>
+        <Image
+          src={rImage}
+          alt="Reveal Image"
+          isHovered={isHovered}
+          offsetX={offsetX}
+          offsetY={offsetY}
+        />
       )}
       {rType !== "image" && (
         <RevealComponent className="reveal-component" isHovered={isHovered}>

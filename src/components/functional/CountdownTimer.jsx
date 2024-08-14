@@ -42,7 +42,7 @@ const Character = styled.div`
   width: 30px;
   transition: transform 0.3s ease, background-color 0.3s ease;
 
-  font-family: 'Akkordeon Seven', sans-serif;
+font-family: 'Poppins-SemiBold';
   font-size: ${({ theme }) => theme.typography.sizes.title};
 
   ${({ hoverColor }) => css`
@@ -55,10 +55,10 @@ const Character = styled.div`
 
 const Label = styled.div`
   margin-top: 5px;
-  font-family: 'Akkordeon Three', sans-serif;
+font-family: 'Poppins-SemiBold';
   letter-spacing: 0.2em; 
-  font-size: ${({ theme }) => theme.typography.sizes.subject};
-  font-weight: ${({ theme }) => theme.typography.weights.subject};: ${({ theme }) => theme.typography.sizes.mini};
+  font-size: ${({ theme }) => theme.typography.sizes.helper};
+  font-weight: ${({ theme }) => theme.typography.weights.body};: ${({ theme }) => theme.typography.sizes.mini};
   color: ${({ theme }) => theme.colors.primaryBackground};
   user-select: none;
 `;
