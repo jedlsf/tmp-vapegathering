@@ -123,52 +123,32 @@ function AboutUs() {
                 rImage={imageAboutVenueHovered}
                 defaultImage={imageAboutVenueUnhovered}
                 mWidth={1080}
-                mHeight={300}
+                mHeight={335}
                 hoverText="The Tent - Las Pinas, Metro Manila"
                 clickPath="https://maps.app.goo.gl/66CogTtAU41upNsG6"
               />
 
-              <DynaContainer>
-                <FullWidthBentoBlock
-                  textTitle="Our Team"
-                  fillColor={theme.colors.brand.yellow}
-                  rImage={imageAboutOurTeamHovered}
-                  defaultImage={imageAboutOurTeamUnhovered}
-                  mWidth={600}
-                  mHeight={370}
-                />
-                <ColumnContainer mHeight={600}>
-                  <BentoBlock
-                    textTitle="Video Highlight"
-                    fillColor={theme.colors.brand.blue}
-                    rImage="path/to/your/another_image.jpg"
-                    mWidth={500}
-                    mHeight={175}
-                    hoverText=" "
-                  />
-                  <BentoBlock
-                    textTitle="Past Events"
-                    fillColor={theme.colors.brand.green}
-                    rImage={imageAboutPastEventsHovered}
-                    defaultImage={imageAboutPastEventsUnhovered}
-                    mWidth={500}
-                    mHeight={175}
-                    hoverText=" "
-                  />
-                </ColumnContainer>
-              </DynaContainer>
+
+              <FullWidthBentoBlock
+                textTitle="Our Team"
+                fillColor={theme.colors.brand.yellow}
+                rImage={imageAboutOurTeamHovered}
+                defaultImage={imageAboutOurTeamUnhovered}
+                mWidth={1080}
+                mHeight={335}
+              />
+
+
             </ColumnContainer>
             <BentoBlock
-              textTitle="Photo Gallery"
-              fillColor={theme.colors.brand.orange}
-              rType="component"
+              textTitle="Past Events"
+              fillColor={theme.colors.brand.green}
+              rImage={imageAboutPastEventsHovered}
+              defaultImage={imageAboutPastEventsUnhovered}
               mWidth={800}
               mHeight={640}
-            >
-              <ImageSliderScroll
-                listImages={listSlidePastEvents}
-              />
-            </BentoBlock>
+              hoverText="Gallery"
+            />
           </DynaContainer>
         </BodyContainer>
       </ContentContainer>
