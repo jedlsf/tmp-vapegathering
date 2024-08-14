@@ -54,9 +54,14 @@ import aboutPastEventsUnhovered from "./about/pastevents/aboutPastEventsUnhovere
 import aboutOurTeamHovered from "./about/ourteam/aboutOurTeamHovered.jpg";
 import aboutOurTeamUnhovered from "./about/ourteam/aboutOurTeamUnhovered.jpg";
 
+//Import awards placeholder
+
+import awardsUnhovered1 from "./awards/awardsUnhovered1.jpg";
+import awardsUnhovered2 from "./awards/awardsUnhovered2.jpg";
+import awardsBanner from "./awards/awardsBanner.jpg";
 
 
-//Import Brand Logo images
+//Import Brand Logo images for Awards
 
 import bLogo_Aerogin from "./logoBrands/bLogo1_AEROGIN.jpg";
 import bLogo_Boss from "./logoBrands/bLogo2_Boss.jpg";
@@ -89,6 +94,10 @@ export const imageAboutPastEventsUnhovered = aboutPastEventsUnhovered;
 
 export const imageAboutOurTeamHovered = aboutOurTeamHovered;
 export const imageAboutOurTeamUnhovered = aboutOurTeamUnhovered;
+
+export const imageAwardsUnhovered1 = awardsUnhovered1;
+export const imageAwardsUnhovered2 = awardsUnhovered2;
+export const imageAwardsBanner = awardsBanner;
 
 
 export const brandLogos = [

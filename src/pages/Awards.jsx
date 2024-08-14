@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import BentoBlock from '../components/foundations/BentoBlock';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
-import { brandLogos } from '../assets-imported/assets.js';
+import { brandLogos, imageAwardsBanner, imageAwardsUnhovered1, imageAwardsUnhovered2 } from '../assets-imported/assets.js';
 
 const MainContainer = styled.div`
   padding: 20px;
@@ -17,20 +17,15 @@ const MainContainer = styled.div`
   overflow: auto;
 `;
 
-const BodyContainer = styled.div`
+
+const TopBanner = styled.img`
   width: 100%;
-  max-width: 1400px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.3);
-  background-color: ${({ theme }) => theme.colors.secondaryBackground};
-  gap: 15px;
-  box-sizing: border-box;
-  height: auto; /* Allow height to adjust based on content */
-  border-radius: 15px;
-  opacity: 1;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+   @media (max-width: 768px) {
+  height: 200px;
+  }
 `;
 
 const DynaContainer = styled.div`
@@ -39,19 +34,19 @@ const DynaContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 95px;
   box-sizing: border-box;
 
   @media (max-width: 768px) {
     flex-direction: column;
+      gap: 45px;
   }
 `;
 
 const ColumnContainer = styled.div`
   width: 100%;
-  max-height: ${({ mHeight }) => mHeight}px;
   display: flex;
-  gap: 15px;
+  gap: 45px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -98,150 +93,175 @@ function Awards() {
             <BgOverlay>
                 <AnimatedSplinePath
                     path={path4}
-                    lineColor={theme.colors.brand.yellow}
+                    lineColor={theme.colors.brand.orange}
                     sWidth={155}
                     speed={15}
-                    gColor1={theme.colors.brand.red}
-                    gColor2={theme.colors.brand.orange}
+                    gColor1={theme.colors.brand.purple}
+                    gColor2={theme.colors.brand.blue}
                     gColor3={theme.colors.brand.yellow}
                 />
             </BgOverlay>
             <ContentContainer>
-                <BodyContainer>
-                    <ColumnContainer>
+                <ColumnContainer>
+                    <TopBanner
+                        src={imageAwardsBanner}
+                    />
+                    <DynaContainer>
                         <BentoBlock
                             textTitle="Brand of the Year"
-                            fillColor={theme.colors.primaryBackground}
-                            textColor={theme.colors.textPrimary}
+                            fillColor={theme.colors.brand.blue}
                             rImage={brandLogos[11]}
-                            mWidth={1280}
-                            mHeight={200}
+                            defaultImage={imageAwardsUnhovered1}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="RELX"
+                            clickPath="https://relxnow.ph"
+
+                        />
+                        <BentoBlock
+                            textTitle="Best Advocate"
+                            fillColor={theme.colors.brand.blue}
+                            rImage={brandLogos[6]}
+                            defaultImage={imageAwardsUnhovered1}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="IQOS"
+                            clickPath="https://www.iqos.com/ph/en/home.html"
+                        />
+                        <BentoBlock
+                            textTitle="Best Influencer"
+                            fillColor={theme.colors.brand.yellow}
+                            rImage={brandLogos[12]}
+                            defaultImage={imageAwardsUnhovered1}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="Shift"
+                            clickPath="https://web.facebook.com/shftinternational"
+                        />
+                    </DynaContainer>
+                    <DynaContainer>
+                        <BentoBlock
+                            textTitle="Outstanding Contributor to the Vaping Industry"
+                            fillColor={theme.colors.brand.green}
+                            rImage={brandLogos[11]}
+                            defaultImage={imageAwardsUnhovered1}
+                            mWidth={400}
+                            mHeight={400}
                             hoverText="RELX"
                             clickPath="https://relxnow.ph"
                         />
-                        <DynaContainer>
-                            <BentoBlock
-                                textTitle="Best Advocate"
-                                fillColor={theme.colors.brand.blue}
-                                rImage={brandLogos[6]}
-                                mWidth={200}
-                                mHeight={200}
-                                hoverText="IQOS"
-                                clickPath="https://www.iqos.com/ph/en/home.html"
-                            />
-                            <BentoBlock
-                                textTitle="Best Influencer"
-                                fillColor={theme.colors.brand.yellow}
-                                rImage={brandLogos[12]}
-                                mWidth={200}
-                                mHeight={200}
-                                hoverText="Shift"
-                                clickPath="https://web.facebook.com/shftinternational"
-                            />
-                            <BentoBlock
-                                textTitle="Outstanding Contributor to the Vaping Industry"
-                                fillColor={theme.colors.brand.green}
-                                rImage={brandLogos[11]}
-                                mWidth={200}
-                                mHeight={200}
-                                hoverText="RELX"
-                                clickPath="https://relxnow.ph"
-                            />
-                            <BentoBlock
-                                textTitle="Best Booth Activation"
-                                fillColor={theme.colors.brand.pink}
-                                rImage={brandLogos[2]}
-                                mWidth={200}
-                                mHeight={200}
-                                hoverText="Cholo's Blend"
-                                clickPath="https://web.facebook.com/CholosBlendOfficial"
-                            />
-                            <BentoBlock
-                                textTitle="Rookie of the Year"
-                                fillColor={theme.colors.brand.red}
-                                rImage={brandLogos[5]}
-                                mWidth={200}
-                                mHeight={200}
-                                hoverText="IQ Puff Master"
-                            />
-                            <BentoBlock
-                                textTitle="Best in Flavor"
-                                fillColor={theme.colors.brand.orange}
-                                rImage={brandLogos[4]}
-                                mWidth={200}
-                                mHeight={200}
-                                hoverText="FLABAR"
-                                clickPath="https://www.flabarlab.com"
-                            />
-                        </DynaContainer>
-                        <DynaContainer>
-                            <BentoBlock
-                                textTitle="Best Tobacco Flavor"
-                                fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogos[7]}
-                                mWidth={145}
-                                mHeight={145}
-                                hoverText="Liquido"
-                            />
-                            <BentoBlock
-                                textTitle="Best Fruity Flavor"
-                                fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogos[9]}
-                                mWidth={145}
-                                mHeight={145}
-                                hoverText="Nevoks"
-                            />
-                            <BentoBlock
-                                textTitle="Best Pastry Flavor"
-                                fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogos[10]}
-                                mWidth={145}
-                                mHeight={145}
-                                hoverText="Pastry Vapors"
-                            />
-                            <BentoBlock
-                                textTitle="Best Menthol Flavor"
-                                fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogos[1]}
-                                mWidth={145}
-                                mHeight={145}
-                                hoverText="Boss"
-                            />
-                            <BentoBlock
-                                textTitle="Best Free Base Juice"
-                                fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogos[8]}
-                                mWidth={145}
-                                mHeight={145}
-                                hoverText="MO Flavor"
-                            />
-                            <BentoBlock
-                                textTitle="Best Closed Pod"
-                                fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogos[13]}
-                                mWidth={145}
-                                mHeight={145}
-                                hoverText="UZOQ"
-                            />
-                            <BentoBlock
-                                textTitle="Best Disposable"
-                                fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogos[0]}
-                                mWidth={145}
-                                mHeight={145}
-                                hoverText="Aerogin"
-                            />
-                            <BentoBlock
-                                textTitle="Best Branding and Marketing"
-                                fillColor={theme.colors.primaryBackground}
-                                rImage={brandLogos[3]}
-                                mWidth={145}
-                                mHeight={145}
-                                hoverText="ELF BAR"
-                            />
-                        </DynaContainer>
-                    </ColumnContainer>
-                </BodyContainer>
+                        <BentoBlock
+                            textTitle="Best Booth Activation"
+                            fillColor={theme.colors.brand.pink}
+                            rImage={brandLogos[2]}
+                            defaultImage={imageAwardsUnhovered1}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="Cholo's Blend"
+                            clickPath="https://web.facebook.com/CholosBlendOfficial"
+                        />
+
+                        <BentoBlock
+                            textTitle="Rookie of the Year"
+                            fillColor={theme.colors.brand.red}
+                            rImage={brandLogos[5]}
+                            defaultImage={imageAwardsUnhovered1}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="IQ Puff Master"
+                        />
+                    </DynaContainer>
+                    <DynaContainer>
+                        <BentoBlock
+                            textTitle="Best in Flavor"
+                            fillColor={theme.colors.brand.orange}
+                            rImage={brandLogos[4]}
+                            defaultImage={imageAwardsUnhovered2}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="FLABAR"
+                            clickPath="https://www.flabarlab.com"
+                        />
+                        <BentoBlock
+                            textTitle="Best Tobacco Flavor"
+                            fillColor={theme.colors.primaryBackground}
+                            rImage={brandLogos[7]}
+                            defaultImage={imageAwardsUnhovered2}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="Liquido"
+                        />
+                        <BentoBlock
+                            textTitle="Best Fruity Flavor"
+                            fillColor={theme.colors.primaryBackground}
+                            rImage={brandLogos[9]}
+                            defaultImage={imageAwardsUnhovered2}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="Nevoks"
+                        />
+                    </DynaContainer>
+                    <DynaContainer>
+                        <BentoBlock
+                            textTitle="Best Pastry Flavor"
+                            fillColor={theme.colors.primaryBackground}
+                            rImage={brandLogos[10]}
+                            defaultImage={imageAwardsUnhovered2}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="Pastry Vapors"
+                        />
+                        <BentoBlock
+                            textTitle="Best Menthol Flavor"
+                            fillColor={theme.colors.primaryBackground}
+                            rImage={brandLogos[1]}
+                            defaultImage={imageAwardsUnhovered2}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="Boss"
+                        />
+                        <BentoBlock
+                            textTitle="Best Free Base Juice"
+                            fillColor={theme.colors.primaryBackground}
+                            rImage={brandLogos[8]}
+                            defaultImage={imageAwardsUnhovered2}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="MO Flavor"
+                        />
+                    </DynaContainer>
+                    <DynaContainer>
+
+                        <BentoBlock
+                            textTitle="Best Closed Pod"
+                            fillColor={theme.colors.primaryBackground}
+                            rImage={brandLogos[13]}
+                            defaultImage={imageAwardsUnhovered2}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="UZOQ"
+                        />
+                        <BentoBlock
+                            textTitle="Best Disposable"
+                            fillColor={theme.colors.primaryBackground}
+                            rImage={brandLogos[0]}
+                            defaultImage={imageAwardsUnhovered2}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="Aerogin"
+                        />
+                        <BentoBlock
+                            textTitle="Best Branding and Marketing"
+                            fillColor={theme.colors.primaryBackground}
+                            rImage={brandLogos[3]}
+                            defaultImage={imageAwardsUnhovered2}
+                            mWidth={400}
+                            mHeight={400}
+                            hoverText="ELF BAR"
+                        />
+                    </DynaContainer>
+                </ColumnContainer>
+
             </ContentContainer>
         </MainContainer>
     );

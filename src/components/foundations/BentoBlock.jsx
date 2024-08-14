@@ -38,31 +38,33 @@ const Text = styled.div`
   color: ${(props) => props.textColor};
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: 2px 2px 6px #000000;
+  text-shadow: 1px 3px 14px #000000;
 `;
 
 const Image = styled.img`
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: ${(props) => props.offsetY}%;
+  left: ${(props) => props.offsetX}%;
+  width: calc(100% + ${(props) => Math.abs(props.offsetX * 2)}%);
+  height: calc(100% + ${(props) => Math.abs(props.offsetY * 2)}%);
   object-fit: cover;
+  transform: translate(-${(props) => props.offsetX}%, -${(props) => props.offsetY}%);
   opacity: ${(props) => (props.isHovered ? '1' : '0')};
   transition: opacity 0.3s ease;
-  z-index: 1; /* Ensure it's above the default image */
+  z-index: 1;
 `;
 
 const DefaultImage = styled.img`
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: ${(props) => props.offsetY}%;
+  left: ${(props) => props.offsetX}%;
+  width: calc(100% + ${(props) => Math.abs(props.offsetX * 2)}%);
+  height: calc(100% + ${(props) => Math.abs(props.offsetY * 2)}%);
   object-fit: cover;
+  transform: translate(-${(props) => props.offsetX}%, -${(props) => props.offsetY}%);
   opacity: ${(props) => (props.isHovered ? '0' : '1')};
   transition: opacity 0.3s ease;
-  z-index: 0; /* Ensure it's below the reveal image */
+  z-index: 0;
 `;
 
 const RevealComponent = styled.div`
@@ -90,7 +92,9 @@ const BentoBlock = ({
   hoverText,
   clickPath,
   textColor = theme.colors.textPrimary,
-  defaultImage = null // New prop with a default value of null
+  defaultImage = null,
+  offsetX = 0,
+  offsetY = 0
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -126,8 +130,22 @@ const BentoBlock = ({
       </Text>
       {rType === "image" && (
         <>
-          {defaultImage && <DefaultImage src={defaultImage} alt="Default Image" isHovered={isHovered} />}
-          <Image src={rImage} alt="Reveal Image" isHovered={isHovered} />
+          {defaultImage && (
+            <DefaultImage
+              src={defaultImage}
+              alt="Default Image"
+              isHovered={isHovered}
+              offsetX={offsetX}
+              offsetY={offsetY}
+            />
+          )}
+          <Image
+            src={rImage}
+            alt="Reveal Image"
+            isHovered={isHovered}
+            offsetX={offsetX}
+            offsetY={offsetY}
+          />
         </>
       )}
       {rType !== "image" && (

@@ -123,6 +123,7 @@ function AboutUs() {
                 rImage={imageAboutVenueHovered}
                 defaultImage={imageAboutVenueUnhovered}
                 mWidth={1080}
+                offsetY={25}
                 mHeight={335}
                 hoverText="The Tent - Las Pinas, Metro Manila"
                 clickPath="https://maps.app.goo.gl/66CogTtAU41upNsG6"
