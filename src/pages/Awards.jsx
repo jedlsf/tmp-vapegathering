@@ -24,7 +24,7 @@ const MainContainer = styled.div`
 
 const TopBanner = styled.img`
   width: 100%;
-  height: 450px;
+  height: 40vh;
   object-fit: cover;
   border-radius: 10px;
   @media (max-width: 768px) {
