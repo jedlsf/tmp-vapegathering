@@ -88,12 +88,8 @@ function EventLayout() {
           gColor3={theme.colors.brand.yellow}
         />
       </BgOverlay>
-      <ContentContainer>
-        <BodyContainer>
-          <Zoom>
-            <PlaceholderImage src={eLayoutImage} alt="Event Layout" />
-          </Zoom>
-        </BodyContainer>
+      <ContentContainer> <PlaceholderImage src={eLayoutImage} alt="Event Layout" />
+
       </ContentContainer>
     </MainContainer>
   );
