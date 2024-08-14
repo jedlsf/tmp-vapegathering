@@ -44,8 +44,17 @@ import homeScroller from "./home/homescroll.png";
 import homeBanner from "./home/homeBanner.jpg";
 
 //Import About us assets
-import aboutVenueHovered from "./about/aboutVenueHovered.jpg";
-import aboutVenueUnhovered from "./about/aboutVenueUnhovered.jpg";
+import aboutVenueHovered from "./about/venue/aboutVenueHovered.jpg";
+import aboutVenueUnhovered from "./about/venue/aboutVenueUnhovered.jpg";
+
+import aboutPastEventsHovered from "./about/pastevents/aboutPastEventsHovered.jpg";
+import aboutPastEventsUnhovered from "./about/pastevents/aboutPastEventsUnhovered.jpg";
+
+
+import aboutOurTeamHovered from "./about/ourteam/aboutOurTeamHovered.jpg";
+import aboutOurTeamUnhovered from "./about/ourteam/aboutOurTeamUnhovered.jpg";
+
+
 
 //Import Brand Logo images
 
@@ -73,6 +82,13 @@ export const imageHomeScroller = homeScroller;
 
 export const imageAboutVenueHovered = aboutVenueHovered;
 export const imageAboutVenueUnhovered = aboutVenueUnhovered;
+
+export const imageAboutPastEventsHovered = aboutPastEventsHovered;
+export const imageAboutPastEventsUnhovered = aboutPastEventsUnhovered;
+
+
+export const imageAboutOurTeamHovered = aboutOurTeamHovered;
+export const imageAboutOurTeamUnhovered = aboutOurTeamUnhovered;
 
 
 export const brandLogos = [

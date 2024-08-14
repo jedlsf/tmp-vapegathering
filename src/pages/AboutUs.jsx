@@ -4,7 +4,15 @@ import BentoBlock from '../components/foundations/BentoBlock';
 import ImageSliderScroll from '../components/functional/ImageSliderScroll';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
-import { imageAboutVenueHovered, imageAboutVenueUnhovered, listSlidePastEvents } from '../assets-imported/assets.js';
+import {
+  imageAboutVenueHovered,
+  imageAboutVenueUnhovered,
+  imageAboutPastEventsHovered,
+  imageAboutPastEventsUnhovered,
+  imageAboutOurTeamHovered,
+  imageAboutOurTeamUnhovered,
+  listSlidePastEvents
+} from '../assets-imported/assets.js';
 
 const MainContainer = styled.div`
   padding: 30px;
@@ -15,7 +23,7 @@ const MainContainer = styled.div`
   align-items: center;
   background-color: transparent;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: hidden;
 `;
 
 const BodyContainer = styled.div`
@@ -119,13 +127,14 @@ function AboutUs() {
                 <FullWidthBentoBlock
                   textTitle="Our Team"
                   fillColor={theme.colors.brand.yellow}
-                  rImage="path/to/your/another_image.jpg"
+                  rImage={imageAboutOurTeamHovered}
+                  defaultImage={imageAboutOurTeamUnhovered}
                   mWidth={600}
                   mHeight={370}
                 />
                 <ColumnContainer mHeight={600}>
                   <BentoBlock
-                    textTitle="Mission"
+                    textTitle="Video Highlight"
                     fillColor={theme.colors.brand.blue}
                     rImage="path/to/your/another_image.jpg"
                     mWidth={500}
@@ -133,9 +142,10 @@ function AboutUs() {
                     hoverText=" "
                   />
                   <BentoBlock
-                    textTitle="Vision"
+                    textTitle="Past Events"
                     fillColor={theme.colors.brand.green}
-                    rImage="path/to/your/another_image.jpg"
+                    rImage={imageAboutPastEventsHovered}
+                    defaultImage={imageAboutPastEventsUnhovered}
                     mWidth={500}
                     mHeight={175}
                     hoverText=" "
@@ -144,10 +154,10 @@ function AboutUs() {
               </DynaContainer>
             </ColumnContainer>
             <BentoBlock
-              textTitle="Past Events"
+              textTitle="Photo Gallery"
               fillColor={theme.colors.brand.orange}
               rType="component"
-              mWidth={700}
+              mWidth={800}
               mHeight={640}
             >
               <ImageSliderScroll
