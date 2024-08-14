@@ -93,6 +93,7 @@ const ContentContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+    height: 350px; 
   }
 `;
 
@@ -110,106 +111,106 @@ const path1 = 'M 350 1050 Q 0 500 200 300 Q 450 0 600 300 C 1050 1050 1900 150 1
 const targetDate = '2024-09-16T00:00:00Z';
 
 const meshPaths = [
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape0.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCalendar.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbTicket.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbWorld.glb',
-    'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbQMark.glb',
+  'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape0.glb',
+  'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbCalendar.glb',
+  'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbTicket.glb',
+  'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbWorld.glb',
+  'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbQMark.glb',
 ];
 
 function Home() {
-    const [hovered, setHovered] = useState(false);
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    const handleHovered = (index) => {
-        setHovered(true);
-        setCurrentIndex(index);
-        console.log("Hovered Index: ", index);
-    };
+  const handleHovered = (index) => {
+    setHovered(true);
+    setCurrentIndex(index);
+    console.log("Hovered Index: ", index);
+  };
 
-    const handleHoverEnd = () => {
-        setHovered(false);
-        console.log("Hovered Out");
-    };
+  const handleHoverEnd = () => {
+    setHovered(false);
+    console.log("Hovered Out");
+  };
 
-    const getImageSource = () => {
-        // Return the appropriate image based on the current index
-        switch (currentIndex) {
-            case 0:
-                return imageHomeBanner; // Default image for index 0
-            case 1:
-                return imageHomeBanner; // Add the URL for image 1 if available
-            case 2:
-                return eLayoutImage; // Add the URL for image 2 if available
-            case 3:
-                return imageHomeBanner; // Add the URL for image 3 if available
-            default:
-                return imageHomeBanner; // Default image for index 0
-        }
-    };
+  const getImageSource = () => {
+    // Return the appropriate image based on the current index
+    switch (currentIndex) {
+      case 0:
+        return imageHomeBanner; // Default image for index 0
+      case 1:
+        return imageHomeBanner; // Add the URL for image 1 if available
+      case 2:
+        return eLayoutImage; // Add the URL for image 2 if available
+      case 3:
+        return imageHomeBanner; // Add the URL for image 3 if available
+      default:
+        return imageHomeBanner; // Default image for index 0
+    }
+  };
 
-    return (
-        <Container>
-            <Background>
-                <AnimatedSplinePath
-                    path={path1}
-                    gColor1={theme.colors.brand.red}
-                    gColor2={theme.colors.brand.orange}
-                    gColor3={theme.colors.brand.yellow}
-                    lineColor={theme.colors.brand.yellow}
-                    sWidth={155}
-                    speed={15}
-                />
-            </Background>
-            <ColumnContainer>
-                <DynaContainer>
-                    <ContentContainer>
-                        <ImageBanner src={getImageSource()} alt="Home Banner" />
-                        <CountdownTimer targetDate={targetDate} />
-                    </ContentContainer>
-                    <Stack3DContainer>
-                        <Block3D
-                            onHovered={handleHovered}
-                            onHoverOut={handleHoverEnd}
-                            file={meshPaths[0]}
-                            speed={0.2}
-                            index={0}
-                            clamp={45}
-                            color={theme.colors.brand.red}
-                        />
-                        <Block3D
-                            onHovered={handleHovered}
-                            onHoverOut={handleHoverEnd}
-                            file={meshPaths[2]}
-                            speed={0.2}
-                            index={1}
-                            clamp={45}
-                            color={theme.colors.brand.blue}
-                        />
-                        <Block3D
-                            onHovered={handleHovered}
-                            onHoverOut={handleHoverEnd}
-                            file={meshPaths[1]}
-                            speed={0.2}
-                            index={2}
-                            clamp={45}
-                            color={theme.colors.brand.yellow}
-                        />
-                        <Block3D
-                            onHovered={handleHovered}
-                            onHoverOut={handleHoverEnd}
-                            file={meshPaths[4]}
-                            speed={0.2}
-                            index={3}
-                            clamp={45}
-                            color={theme.colors.brand.orange}
-                        />
-                    </Stack3DContainer>
-                </DynaContainer>
-                <ScrollBanner imageUrl={imageHomeScroller} />
-            </ColumnContainer>
-        </Container>
-    );
+  return (
+    <Container>
+      <Background>
+        <AnimatedSplinePath
+          path={path1}
+          gColor1={theme.colors.brand.red}
+          gColor2={theme.colors.brand.orange}
+          gColor3={theme.colors.brand.yellow}
+          lineColor={theme.colors.brand.yellow}
+          sWidth={155}
+          speed={15}
+        />
+      </Background>
+      <ColumnContainer>
+        <DynaContainer>
+          <ContentContainer>
+            <ImageBanner src={getImageSource()} alt="Home Banner" />
+            <CountdownTimer targetDate={targetDate} />
+          </ContentContainer>
+          <Stack3DContainer>
+            <Block3D
+              onHovered={handleHovered}
+              onHoverOut={handleHoverEnd}
+              file={meshPaths[0]}
+              speed={0.2}
+              index={0}
+              clamp={45}
+              color={theme.colors.brand.red}
+            />
+            <Block3D
+              onHovered={handleHovered}
+              onHoverOut={handleHoverEnd}
+              file={meshPaths[2]}
+              speed={0.2}
+              index={1}
+              clamp={45}
+              color={theme.colors.brand.blue}
+            />
+            <Block3D
+              onHovered={handleHovered}
+              onHoverOut={handleHoverEnd}
+              file={meshPaths[1]}
+              speed={0.2}
+              index={2}
+              clamp={45}
+              color={theme.colors.brand.yellow}
+            />
+            <Block3D
+              onHovered={handleHovered}
+              onHoverOut={handleHoverEnd}
+              file={meshPaths[4]}
+              speed={0.2}
+              index={3}
+              clamp={45}
+              color={theme.colors.brand.orange}
+            />
+          </Stack3DContainer>
+        </DynaContainer>
+        <ScrollBanner imageUrl={imageHomeScroller} />
+      </ColumnContainer>
+    </Container>
+  );
 }
 
 export default Home;

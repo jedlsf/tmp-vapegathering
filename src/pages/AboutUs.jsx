@@ -24,6 +24,11 @@ const MainContainer = styled.div`
   background-color: transparent;
   box-sizing: border-box;
   overflow: hidden;
+
+   @media (max-width: 768px) {
+     overflow: auto;
+      height: 95vh;
+  }
 `;
 
 const BodyContainer = styled.div`
