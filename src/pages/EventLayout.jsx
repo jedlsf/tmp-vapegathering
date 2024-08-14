@@ -80,12 +80,12 @@ function EventLayout() {
       <BgOverlay>
         <AnimatedSplinePath
           path={path3}
-          lineColor={theme.colors.brand.yellow}
+          lineColor={theme.colors.brand.orange}
           sWidth={155}
           speed={15}
-          gColor1={theme.colors.brand.red}
-          gColor2={theme.colors.brand.orange}
-          gColor3={theme.colors.brand.yellow}
+          gColor1={theme.colors.brand.green}
+          gColor2={theme.colors.brand.blue}
+          gColor3={theme.colors.brand.pink}
         />
       </BgOverlay>
       <ContentContainer> <PlaceholderImage src={eLayoutImage} alt="Event Layout" />
