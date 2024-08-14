@@ -4,10 +4,10 @@ import BentoBlock from '../components/foundations/BentoBlock';
 import ImageSliderScroll from '../components/functional/ImageSliderScroll';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
-import { imageVenue, listSlidePastEvents } from '../assets-imported/assets.js';
+import { imageAboutVenueHovered, imageAboutVenueUnhovered, listSlidePastEvents } from '../assets-imported/assets.js';
 
 const MainContainer = styled.div`
-  padding: 20px;
+  padding: 30px;
   width: 100vw;
   height: 80vh;
   display: flex;
@@ -20,18 +20,16 @@ const MainContainer = styled.div`
 
 const BodyContainer = styled.div`
   width: 100%;
-  max-width: 1400px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.3);
-  background-color: ${({ theme }) => theme.colors.primaryBackground};
+  background-color: transparent
   gap: 15px;
   box-sizing: border-box;
   height: auto; /* Allow height to adjust based on content */
   border-radius: 15px;
-  opacity: 0.9;
+  opacity: 0.97;
 `;
 
 const DynaContainer = styled.div`
@@ -40,7 +38,7 @@ const DynaContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 30px;
   box-sizing: border-box;
 
   @media (max-width: 768px) {
@@ -52,9 +50,9 @@ const ColumnContainer = styled.div`
   width: 100%;
   max-height: ${({ mHeight }) => mHeight}px;
   display: flex;
-  gap: 15px;
+  gap: 30px;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 
   @media (max-width: 768px) {
@@ -80,12 +78,10 @@ const ContentContainer = styled.div`
   position: relative;
   z-index: 10;
    width: 100%;
-  max-width: 1400px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 `;
 
@@ -107,13 +103,14 @@ function AboutUs() {
       <ContentContainer>
         <BodyContainer>
           <DynaContainer>
-            <ColumnContainer mHeight={550}>
+            <ColumnContainer mHeight={640}>
               <BentoBlock
                 textTitle="The Venue"
                 fillColor={theme.colors.brand.red}
-                rImage={imageVenue}
-                mWidth={1190}
-                mHeight={500}
+                rImage={imageAboutVenueHovered}
+                defaultImage={imageAboutVenueUnhovered}
+                mWidth={1080}
+                mHeight={300}
                 hoverText="The Tent - Las Pinas, Metro Manila"
                 clickPath="https://maps.app.goo.gl/66CogTtAU41upNsG6"
               />
@@ -123,24 +120,24 @@ function AboutUs() {
                   textTitle="Our Team"
                   fillColor={theme.colors.brand.yellow}
                   rImage="path/to/your/another_image.jpg"
-                  mWidth={50000}
-                  mHeight={310}
+                  mWidth={600}
+                  mHeight={370}
                 />
-                <ColumnContainer mHeight={460}>
+                <ColumnContainer mHeight={600}>
                   <BentoBlock
                     textTitle="Mission"
                     fillColor={theme.colors.brand.blue}
                     rImage="path/to/your/another_image.jpg"
-                    mWidth={400}
-                    mHeight={150}
+                    mWidth={500}
+                    mHeight={175}
                     hoverText=" "
                   />
                   <BentoBlock
                     textTitle="Vision"
                     fillColor={theme.colors.brand.green}
                     rImage="path/to/your/another_image.jpg"
-                    mWidth={400}
-                    mHeight={150}
+                    mWidth={500}
+                    mHeight={175}
                     hoverText=" "
                   />
                 </ColumnContainer>
@@ -150,8 +147,8 @@ function AboutUs() {
               textTitle="Past Events"
               fillColor={theme.colors.brand.orange}
               rType="component"
-              mWidth={500}
-              mHeight={550}
+              mWidth={700}
+              mHeight={640}
             >
               <ImageSliderScroll
                 listImages={listSlidePastEvents}

@@ -30,7 +30,7 @@ const BodyContainer = styled.div`
   box-sizing: border-box;
   height: auto; /* Allow height to adjust based on content */
   border-radius: 15px;
-  opacity: 0.97;
+  opacity: 1;
 `;
 
 const DynaContainer = styled.div`

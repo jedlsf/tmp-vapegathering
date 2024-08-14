@@ -8,7 +8,7 @@ const Container = styled.div`
   max-height: 100%;
   height: ${(props) => props.mHeight}px;
   padding: 20px;
-  background-color: ${(props) => props.fillColor};
+  background-color: ${(props) => (props.defaultImage ? 'transparent' : props.fillColor)};
   overflow: hidden;
   position: relative;
   transition: transform 0.3s ease;
@@ -18,11 +18,6 @@ const Container = styled.div`
 
   &:hover {
     transform: scale(1.03);
-  }
-
-  &:hover img,
-  &:hover .reveal-component {
-    opacity: 0.8;
   }
 
   @media (max-width: 768px) {
@@ -43,7 +38,7 @@ const Text = styled.div`
   color: ${(props) => props.textColor};
   -webkit-background-clip: text;
   background-clip: text;
- text-shadow: 2px 2px 6px #000000;
+  text-shadow: 2px 2px 6px #000000;
 `;
 
 const Image = styled.img`
@@ -53,8 +48,21 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
+  opacity: ${(props) => (props.isHovered ? '1' : '0')};
   transition: opacity 0.3s ease;
+  z-index: 1; /* Ensure it's above the default image */
+`;
+
+const DefaultImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: ${(props) => (props.isHovered ? '0' : '1')};
+  transition: opacity 0.3s ease;
+  z-index: 0; /* Ensure it's below the reveal image */
 `;
 
 const RevealComponent = styled.div`
@@ -66,11 +74,24 @@ const RevealComponent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
+  opacity: ${(props) => (props.isHovered ? '0.8' : '0')};
   transition: opacity 0.3s ease;
+  z-index: 2;
 `;
 
-const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight, rType = "image", children, hoverText, clickPath, textColor = theme.colors.textPrimary }) => {
+const BentoBlock = ({
+  textTitle,
+  fillColor,
+  rImage,
+  mWidth,
+  mHeight,
+  rType = "image",
+  children,
+  hoverText,
+  clickPath,
+  textColor = theme.colors.textPrimary,
+  defaultImage = null // New prop with a default value of null
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -98,14 +119,19 @@ const BentoBlock = ({ textTitle, fillColor, rImage, mWidth, mHeight, rType = "im
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       clickable={Boolean(clickPath)}
+      defaultImage={defaultImage}
     >
-      <Text textColor={textColor} >
+      <Text textColor={textColor}>
         {isHovered && rType === "image" && hoverText ? defaultHoverText : textTitle}
       </Text>
-      {rType === "image" ? (
-        <Image src={rImage} alt="Reveal Image" />
-      ) : (
-        <RevealComponent className="reveal-component">
+      {rType === "image" && (
+        <>
+          {defaultImage && <DefaultImage src={defaultImage} alt="Default Image" isHovered={isHovered} />}
+          <Image src={rImage} alt="Reveal Image" isHovered={isHovered} />
+        </>
+      )}
+      {rType !== "image" && (
+        <RevealComponent className="reveal-component" isHovered={isHovered}>
           {children}
         </RevealComponent>
       )}

@@ -8,6 +8,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.3rem;
+  padding: 10px;
   @media (max-width: 768px) {
     transform: scale(0.6);
   }
@@ -32,9 +33,13 @@ const Character = styled.div`
   background-color: ${({ theme }) => theme.colors.secondaryBackground};
   color: ${({ theme }) => theme.colors.textPrimary};
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
   margin: 0 2px;
+  display: flex;
   user-select: none;
+    align-items: center;
+      justify-content: center;
+  width: 30px;
   transition: transform 0.3s ease, background-color 0.3s ease;
 
   font-family: 'Akkordeon Seven', sans-serif;
@@ -52,12 +57,11 @@ const Label = styled.div`
   margin-top: 5px;
   font-family: 'Akkordeon Three', sans-serif;
   letter-spacing: 0.2em; 
-  font-size: ${({ theme }) => theme.typography.sizes.body};
+  font-size: ${({ theme }) => theme.typography.sizes.subject};
   font-weight: ${({ theme }) => theme.typography.weights.subject};: ${({ theme }) => theme.typography.sizes.mini};
   color: ${({ theme }) => theme.colors.primaryBackground};
   user-select: none;
 `;
-
 const CountdownTimer = ({ targetDate }) => {
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
 

@@ -43,6 +43,10 @@ import slidePastEventsImg30 from "./slidePastEvents/img30.jpg";
 import homeScroller from "./home/homescroll.png";
 import homeBanner from "./home/homeBanner.jpg";
 
+//Import About us assets
+import aboutVenueHovered from "./about/aboutVenueHovered.jpg";
+import aboutVenueUnhovered from "./about/aboutVenueUnhovered.jpg";
+
 //Import Brand Logo images
 
 import bLogo_Aerogin from "./logoBrands/bLogo1_AEROGIN.jpg";
@@ -66,6 +70,9 @@ import bLogo_Placeholder2 from "./logoBrands/bLogo17_VG sample 2.jpg";
 
 export const imageHomeBanner = homeBanner;
 export const imageHomeScroller = homeScroller;
+
+export const imageAboutVenueHovered = aboutVenueHovered;
+export const imageAboutVenueUnhovered = aboutVenueUnhovered;
 
 
 export const brandLogos = [
