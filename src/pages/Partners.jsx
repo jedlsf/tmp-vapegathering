@@ -74,6 +74,7 @@ const ColumnContainer = styled.div`
 
   @media (max-width: 768px) {
     max-height: 100%; 
+      align-items: center;
   }
 `;
 
@@ -105,6 +106,9 @@ width: 100%;
   border-radius: 10px;
   padding: 15px;
     box-shadow: inset 0px 4px 14px rgba(0, 0, 0, 0.3);
+      @media (max-width: 768px) {
+width: 95%;
+  }
 `;
 
 const TrimmedPreHeader = styled(PreHeader)`

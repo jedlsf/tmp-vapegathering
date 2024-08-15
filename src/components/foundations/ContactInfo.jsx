@@ -11,7 +11,14 @@ const Container = styled.div`
   padding: 20px;
   background-color: ${({ theme }) => theme.colors.primaryBackground};
   border-radius: 12px;
+    transition: transform 0.3s ease;
   box-shadow: ${({ theme }) => theme.shadows.medium};
+    @media (max-width: 768px) {
+  width: 100%;
+  }
+    &:hover {
+    transform: scale(1.03);
+  }
 `;
 
 const RowWithIcon = styled.div`
