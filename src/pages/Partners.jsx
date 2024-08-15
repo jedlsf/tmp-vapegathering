@@ -5,6 +5,7 @@ import ContactInfo from '../components/foundations/ContactInfo';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
 import { brandLogos, imageAwardsBanner, imageAwardsUnhovered1, imageAwardsUnhovered2 } from '../assets-imported/assets.js';
+import Newsletter from '../components/functional/Newsletter.jsx';
 
 const MainContainer = styled.div`
   padding: 30px;
@@ -155,6 +156,7 @@ function AboutUs() {
                                         textSize="4em"
                                         textAlign='center'
                                         fillColor={theme.colors.brand.purple}
+                                        defaultImage={imageAwardsUnhovered2}
                                         mWidth={16}
                                         mHeight={32}
                                         hoverText="Partner 1"
@@ -164,6 +166,7 @@ function AboutUs() {
                                         textSize="4em"
                                         textAlign='center'
                                         fillColor={theme.colors.brand.red}
+                                        defaultImage={imageAwardsUnhovered2}
                                         mWidth={16}
                                         mHeight={32}
                                         hoverText="Partner 2"
@@ -173,6 +176,7 @@ function AboutUs() {
                                         textSize="4em"
                                         textAlign='center'
                                         fillColor={theme.colors.brand.yellow}
+                                        defaultImage={imageAwardsUnhovered2}
                                         mWidth={16}
                                         mHeight={32}
                                         hoverText="Partner 3"
@@ -255,14 +259,7 @@ function AboutUs() {
 
 
                             </ColumnContainer>
-                            <BentoBlock
-                                textTitle="Newsletter"
-                                fillColor={theme.colors.brand.green}
-                                mWidth={25}
-                                mHeight={130}
-                                hoverText="Join Us"
-                                textSize="5em"
-                            />
+                            <Newsletter />
                         </DynaContainer>
                         <PreHeader fill={theme.colors.brand.red}>
                             <Text>Contact Us</Text>
