@@ -114,7 +114,6 @@ width: 95%;
 
 const Text = styled.div`
   user-select: none;
-
   font-size: 4.4em;
   color: ${({ theme }) => theme.colors.textPrimary};
   -webkit-background-clip: text;
@@ -122,6 +121,10 @@ const Text = styled.div`
    text-align: left;
   white-space: nowrap;
   text-overflow: ellipsis;
+`;
+
+const TitleSubHeader = styled(Text)`
+font-family: 'Akkordeon Seven', sans-serif;
 `;
 
 
@@ -146,7 +149,7 @@ function AboutUs() {
                         <DynaContainer>
                             <ColumnContainer mHeight={150}>
                                 <TrimmedPreHeader fill={theme.colors.brand.blue}>
-                                    <Text>Media Partners</Text>
+                                    <TitleSubHeader>Media Partners</TitleSubHeader>
                                 </TrimmedPreHeader>
                                 <DynaContainer
                                     className="dyna-container-partners"
@@ -183,7 +186,7 @@ function AboutUs() {
                                     />
                                 </DynaContainer>
                                 <TrimmedPreHeader fill={theme.colors.brand.orange}>
-                                    <Text>Sponsors</Text>
+                                    <TitleSubHeader>Sponsors</TitleSubHeader>
                                 </TrimmedPreHeader>
                                 <DynaContainer
                                     className="dyna-container-sponsors"
@@ -262,7 +265,7 @@ function AboutUs() {
                             <Newsletter />
                         </DynaContainer>
                         <PreHeader fill={theme.colors.brand.red}>
-                            <Text>Contact Us</Text>
+                            <TitleSubHeader>Contact Us</TitleSubHeader>
                         </PreHeader>
                         <DynaContainer>
                             <ContactInfo

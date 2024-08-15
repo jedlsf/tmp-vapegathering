@@ -39,7 +39,7 @@ const Text = styled.div`
   color: ${(props) => props.textColor};
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: 1px 2px 9px #000000;
+  text-shadow: 2px 6px 12px rgba(0,0,0,0.5);
   text-align: ${(props) => props.textAlign || 'left'};
   ${(props) => {
     if (props.textAlign === 'center') {
