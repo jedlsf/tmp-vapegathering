@@ -114,7 +114,7 @@ width: 95%;
 
 const Text = styled.div`
   user-select: none;
-  font-family: 'Akkordeon Seven', sans-serif;
+
   font-size: 4.4em;
   color: ${({ theme }) => theme.colors.textPrimary};
   -webkit-background-clip: text;

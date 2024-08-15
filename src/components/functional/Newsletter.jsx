@@ -44,7 +44,7 @@ const Title = styled.div`
 
 const SubText = styled.div`
     font-family: 'Poppins-Regular', sans-serif;
-  font-size: 36px;
+  font-size: 1em;
   color: ${({ color }) => color || theme.colors.textPrimary};
   text-align: center;
 `;
@@ -119,7 +119,7 @@ const Newsletter = () => {
               </ProceedButton>
               {status === "sending" && <SubText color={theme.colors.brand.yellow}>Sending...</SubText>}
               {status === "error" && <SubText color={theme.colors.brand.yellow}>{errorMessage}</SubText>}
-              {status === "success" && <SubText color={theme.colors.textPrimary}>Subscribed!</SubText>}
+              {status === "success" && <SubText color={theme.colors.textPrimary}>Subscribed</SubText>}
             </ColumnContainer>
           );
         }}
