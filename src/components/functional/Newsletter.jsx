@@ -33,16 +33,23 @@ const Title = styled.div`
 
 const InputField = styled.input`
   padding: 10px;
-  font-size: 16px;
+  font-family: 'Poppins-Regular';
+  font-size: 1.2em;
   width: 90%;
   margin-bottom: 15px;
-  border: 1px solid;
+  border: 1px solid ${({ theme }) => theme.colors.primaryBackground};
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.primaryBackground};
   outline: none;
+  color: ${({ theme }) => theme.colors.textPrimary};
+
+  &:hover {
+     color: ${({ theme }) => theme.colors.brand.yellow};
+  }
 
   &:focus {
-    border-color: #007bff;
+    border-color: ${({ theme }) => theme.colors.brand.yellow};
+     color: ${({ theme }) => theme.colors.brand.yellow};
   }
 `;
 
@@ -65,26 +72,26 @@ const ProceedButton = styled.button`
 `;
 
 const Newsletter = () => {
-    const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');
 
-    const handleClickProceed = () => {
-        // Handle proceed click, e.g., validate email, send to API, etc.
-        console.log('Proceed with email:', email);
-    };
+  const handleClickProceed = () => {
+    // Handle proceed click, e.g., validate email, send to API, etc.
+    console.log('Proceed with email:', email);
+  };
 
-    return (
-        <NewsletterContainer>
-            <Title>Join the Newsletter</Title>
+  return (
+    <NewsletterContainer>
+      <Title>Join the Newsletter</Title>
 
-            <InputField
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <ProceedButton onClick={handleClickProceed}>Join</ProceedButton>
-        </NewsletterContainer>
-    );
+      <InputField
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <ProceedButton onClick={handleClickProceed}>Join</ProceedButton>
+    </NewsletterContainer>
+  );
 };
 
 export default Newsletter;

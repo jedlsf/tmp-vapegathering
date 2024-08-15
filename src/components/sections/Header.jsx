@@ -30,20 +30,12 @@ const Logo = styled.img`
 
 function Header() {
 
-  const [showNavMenu, setShowNavMenu] = useState(false);
 
-  useEffect(() => {
-    const currentDomain = window.location.hostname;
-    console.log("Domain: ", currentDomain);
-    if (currentDomain !== 'vapegathering.com' && currentDomain !== 'www.vapegathering.com') {
-      setShowNavMenu(true);
-    }
-  }, []);
 
   return (
     <HeaderContainer>
       <Logo src={logoVG} className="App-logo" alt="logo" />
-      {showNavMenu && <NavMenuTab />}
+      <NavMenuTab />
     </HeaderContainer>
   );
 }

@@ -133,6 +133,14 @@ function Home() {
     console.log("Hovered Out");
   };
 
+
+  const handleClickTickets = (index) => {
+
+    console.log("Clicked: ", index);
+    window.location.href = "https://tickets.vapegathering.com";
+
+  };
+
   const getImageSource = () => {
     // Return the appropriate image based on the current index
     switch (currentIndex) {
@@ -186,6 +194,7 @@ function Home() {
               index={1}
               clamp={45}
               color={theme.colors.brand.blue}
+              onClicked={handleClickTickets}
             />
             <Block3D
               onHovered={handleHovered}

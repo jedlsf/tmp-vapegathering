@@ -73,7 +73,7 @@ const RotatingModel = ({ model, speed, clamp, hovered }) => {
     );
 };
 
-const Block3D = ({ file, speed = 2, clamp = 15, onHovered, onHoverOut, color, index = 0 }) => {
+const Block3D = ({ file, speed = 2, clamp = 15, onHovered, onHoverOut, color, index = 0, onClicked }) => {
     const [model, setModel] = useState(null);
     const [hovered, setHovered] = useState(false);
     const loader = useMemo(() => new GLTFLoader(), []);
@@ -103,6 +103,9 @@ const Block3D = ({ file, speed = 2, clamp = 15, onHovered, onHoverOut, color, in
             onPointerOut={() => {
                 setHovered(false);
                 if (onHoverOut) onHoverOut(index);
+            }}
+            onClick={() => {
+                if (onClicked) onClicked(index);
             }}
 
 

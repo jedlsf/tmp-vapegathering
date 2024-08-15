@@ -101,7 +101,15 @@ function NavMenuTab() {
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled hoverColor={theme.colors.brand.orange} to="/partners">
+
+            </Nav>
+        </MenuContainer>
+    );
+}
+
+export default NavMenuTab;
+/*
+  <NavLinkStyled hoverColor={theme.colors.brand.orange} to="/partners">
                     {({ isActive }) => (
                         <MenuTabButton
                             icon={<PartnerExhibitorKitIcon />}
@@ -112,9 +120,5 @@ function NavMenuTab() {
                         />
                     )}
                 </NavLinkStyled>
-            </Nav>
-        </MenuContainer>
-    );
-}
 
-export default NavMenuTab;
+*/
