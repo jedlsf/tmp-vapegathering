@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import FormMailchimp from './FormMailchimp';
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+import theme from '../../theme';
+
+// Setup Mailchimp
+const mailchimpURL = "https://gmail.us5.list-manage.com/subscribe/post?u=39d072031621950914a71dafb&id=1096f04df6";
 
 const NewsletterContainer = styled.div`
   display: flex;
@@ -16,41 +22,31 @@ const NewsletterContainer = styled.div`
   gap: 25px;
 `;
 
-
+const ColumnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  gap: 25px;
+`;
 
 const Title = styled.div`
   user-select: none;
   font-family: 'Akkordeon Seven', sans-serif;
-  font-size: 4.4em;
+  font-size: 4.2em;
   color: ${({ theme }) => theme.colors.textPrimary};
   -webkit-background-clip: text;
   background-clip: text;
-   text-align: left;
+  text-align: left;
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
 
-
-const InputField = styled.input`
-  padding: 10px;
-  font-family: 'Poppins-Regular';
-  font-size: 1.2em;
-  width: 90%;
-  margin-bottom: 15px;
-  border: 1px solid ${({ theme }) => theme.colors.primaryBackground};
-  border-radius: 5px;
-  background-color: ${({ theme }) => theme.colors.primaryBackground};
-  outline: none;
-  color: ${({ theme }) => theme.colors.textPrimary};
-
-  &:hover {
-     color: ${({ theme }) => theme.colors.brand.yellow};
-  }
-
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.brand.yellow};
-     color: ${({ theme }) => theme.colors.brand.yellow};
-  }
+const SubText = styled.div`
+    font-family: 'Poppins-Regular', sans-serif;
+  font-size: 36px;
+  color: ${({ color }) => color || theme.colors.textPrimary};
+  text-align: center;
 `;
 
 const ProceedButton = styled.button`
@@ -67,29 +63,67 @@ const ProceedButton = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.brand.yellow};
-     color: ${({ theme }) => theme.colors.primaryBackground};
+    color: ${({ theme }) => theme.colors.primaryBackground};
+  }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.textDisabled};
+    cursor: not-allowed;
   }
 `;
 
 const Newsletter = () => {
-  const [email, setEmail] = useState('');
+  const [formData, setFormData] = useState({ firstName: '', surname: '', email: '' });
+  const [isValidated, setIsValidated] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleClickProceed = () => {
-    // Handle proceed click, e.g., validate email, send to API, etc.
-    console.log('Proceed with email:', email);
+  const handleUpdate = (data) => {
+    setFormData(data);
+    console.log("Change from Newsletter: ", data);
+  };
+
+  const handleValidated = (isValid) => {
+    setIsValidated(isValid);
+    console.log("Validated from Newsletter: ", isValid);
+  };
+
+  const formatFormData = () => {
+    return {
+      FNAME: formData.firstName,
+      LNAME: formData.surname,
+      EMAIL: formData.email
+    };
   };
 
   return (
     <NewsletterContainer>
       <Title>Join the Newsletter</Title>
+      <MailchimpSubscribe
+        url={mailchimpURL}
+        render={({ subscribe, status, message }) => {
+          // Update the error message based on the status
+          if (status === "error") {
+            setErrorMessage("Invalid Email");
+          } else {
+            setErrorMessage('');
+          }
 
-      <InputField
-        type="email"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+          return (
+            <ColumnContainer>
+              <FormMailchimp onUpdate={handleUpdate} onValidated={handleValidated} />
+              <ProceedButton
+                onClick={() => isValidated && subscribe(formatFormData())}
+                disabled={!isValidated}
+              >
+                Join
+              </ProceedButton>
+              {status === "sending" && <SubText color={theme.colors.brand.yellow}>Sending...</SubText>}
+              {status === "error" && <SubText color={theme.colors.brand.yellow}>{errorMessage}</SubText>}
+              {status === "success" && <SubText color={theme.colors.textPrimary}>Subscribed!</SubText>}
+            </ColumnContainer>
+          );
+        }}
       />
-      <ProceedButton onClick={handleClickProceed}>Join</ProceedButton>
     </NewsletterContainer>
   );
 };

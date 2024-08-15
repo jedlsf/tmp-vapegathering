@@ -27,7 +27,7 @@ const PopupContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.primaryBackground};
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   z-index: 1000;
    background: linear-gradient(
     45deg, 
@@ -89,44 +89,56 @@ export const MainContainer = styled.main`
 const PopupContent = styled.div`
   display: flex;
   flex-direction: column;  
-  background: ${({ theme }) => theme.colors.brand.red};
+  background: transparent;
   padding: 50px;
   border-radius: 10px;
   text-align: center;
   gap: 25px;
-  width: 300px;
+  width: 35vw;
   align-items: center; /* Center children horizontally */
+
+  
+  @media (max-width: 768px) {
+      width: 320px;
+  }
 `;
 
 const Text = styled.div`
   user-select: none;
-  font-size: ${({ theme }) => theme.typography.sizes.body};
+  font-size: 1.3em;
   font-weight: ${({ theme }) => theme.typography.weights.body};
   color: ${({ theme }) => theme.colors.textPrimary};
+  font-family: 'Poppins-Regular';
+   @media (max-width: 768px) {
+        font-size: 1em;
+  }
 `;
 
 const Logo = styled.img`
-  width: 90px;
+  width: 25em;
   user-select: none;
+    @media (max-width: 768px) {
+        width: 20em;
+  }
 `;
 
 const AgeVerification = ({ onVerify }) => {
-    const handleVerify = (isAbove18) => {
-        if (isAbove18) {
-            localStorage.setItem('isAbove18', 'true');
-        }
-        onVerify(isAbove18);
-    };
+  const handleVerify = (isAbove18) => {
+    if (isAbove18) {
+      localStorage.setItem('isAbove18', 'true');
+    }
+    onVerify(isAbove18);
+  };
 
-    return (
-        <PopupContainer>
-            <PopupContent>
-                <Logo src={logoVG} alt="logo" />
-                <Text>The events on this website are age-restricted and intended for adults of legal vaping age only.</Text>
-                <ProceedButton onClick={() => handleVerify(true)}>Yes, I am 18 or older</ProceedButton>
-            </PopupContent>
-        </PopupContainer>
-    );
+  return (
+    <PopupContainer>
+      <PopupContent>
+        <Logo src={logoVG} alt="logo" />
+        <Text>The events on this website are age-restricted and intended for adults of legal vaping age only.</Text>
+        <ProceedButton onClick={() => handleVerify(true)}>Yes, I am 18 or older</ProceedButton>
+      </PopupContent>
+    </PopupContainer>
+  );
 };
 
 export default AgeVerification;

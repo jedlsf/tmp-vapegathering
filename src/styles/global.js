@@ -84,6 +84,7 @@ export const ProceedButton = styled.button`
   color: ${({ theme }) => theme.colors.primaryBackground};
   border: 1px solid ${({ theme }) => theme.colors.brand.green};
   padding: 10px 20px;
+    font-family: 'Poppins-Regular';
   width: 100%;
   cursor: pointer;
   border-radius: ${({ theme }) => theme.borders?.radius?.medium || '8px'};

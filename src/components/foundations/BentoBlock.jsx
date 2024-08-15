@@ -19,6 +19,7 @@ const Container = styled.div`
     box-shadow: inset 0px 3px 9px rgba(0, 0, 0, 0.3);
   &:hover {
     transform: scale(1.03);
+    
   }
 
   @media (max-width: 768px) {
@@ -72,6 +73,7 @@ const Image = styled.img`
   opacity: ${(props) => (props.isHovered ? '1' : '0')};
   transition: opacity 0.3s ease;
   z-index: 1;
+
 `;
 
 const DefaultImage = styled.img`
@@ -85,6 +87,7 @@ const DefaultImage = styled.img`
   opacity: ${(props) => (props.isImageLoaded ? '1' : '0')};
   transition: opacity 0.3s ease;
   z-index: 1;
+
 `;
 
 const RevealComponent = styled.div`
