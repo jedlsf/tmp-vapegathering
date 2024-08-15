@@ -130,6 +130,8 @@ const Awards = () => {
                     >
                         <BentoBlock
                             textTitle="Brand of the Year"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.brand.blue}
                             rImage={brandLogos[11]}
                             defaultImage={imageAwardsUnhovered1}
@@ -141,6 +143,8 @@ const Awards = () => {
                         />
                         <BentoBlock
                             textTitle="Best Advocate"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.brand.blue}
                             rImage={brandLogos[6]}
                             defaultImage={imageAwardsUnhovered1}
@@ -152,6 +156,8 @@ const Awards = () => {
                         />
                         <BentoBlock
                             textTitle="Best Influencer"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.brand.yellow}
                             rImage={brandLogos[12]}
                             defaultImage={imageAwardsUnhovered1}
@@ -168,6 +174,8 @@ const Awards = () => {
                     >
                         <BentoBlock
                             textTitle="Outstanding Contributor to the Vaping Industry"
+                            textSize="2.4em"
+                            textAlign='center'
                             fillColor={theme.colors.brand.green}
                             rImage={brandLogos[11]}
                             defaultImage={imageAwardsUnhovered1}
@@ -179,6 +187,8 @@ const Awards = () => {
                         />
                         <BentoBlock
                             textTitle="Best Booth Activation"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.brand.pink}
                             rImage={brandLogos[2]}
                             defaultImage={imageAwardsUnhovered1}
@@ -190,6 +200,8 @@ const Awards = () => {
                         />
                         <BentoBlock
                             textTitle="Rookie of the Year"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.brand.red}
                             rImage={brandLogos[5]}
                             defaultImage={imageAwardsUnhovered1}
@@ -205,6 +217,8 @@ const Awards = () => {
                     >
                         <BentoBlock
                             textTitle="Best in Flavor"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.brand.orange}
                             rImage={brandLogos[4]}
                             defaultImage={imageAwardsUnhovered2}
@@ -216,6 +230,8 @@ const Awards = () => {
                         />
                         <BentoBlock
                             textTitle="Best Tobacco Flavor"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.primaryBackground}
                             rImage={brandLogos[7]}
                             defaultImage={imageAwardsUnhovered2}
@@ -226,6 +242,8 @@ const Awards = () => {
                         />
                         <BentoBlock
                             textTitle="Best Fruity Flavor"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.primaryBackground}
                             rImage={brandLogos[9]}
                             defaultImage={imageAwardsUnhovered2}
@@ -241,6 +259,8 @@ const Awards = () => {
                     >
                         <BentoBlock
                             textTitle="Best Pastry Flavor"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.primaryBackground}
                             rImage={brandLogos[10]}
                             defaultImage={imageAwardsUnhovered2}
@@ -251,16 +271,20 @@ const Awards = () => {
                         />
                         <BentoBlock
                             textTitle="Best Menthol Flavor"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.primaryBackground}
                             rImage={brandLogos[1]}
                             defaultImage={imageAwardsUnhovered2}
                             bhash={unhovered2Bhash}
                             mWidth={25}
                             mHeight={50}
-                            hoverText="MintyVape"
+                            hoverText="Boss Q"
                         />
                         <BentoBlock
                             textTitle="Best CBD Flavor"
+                            textSize="3em"
+                            textAlign='center'
                             fillColor={theme.colors.primaryBackground}
                             rImage={brandLogos[3]}
                             defaultImage={imageAwardsUnhovered2}

@@ -8,13 +8,15 @@ const Container = styled.div`
   max-height: 100%;
   height: ${(props) => props.mHeight}vh;
   padding: 20px;
-  background-color: ${(props) => (props.isImageLoaded ? 'transparent' : props.fillColor)};
+  background-color: ${(props) =>
+    props.defaultImage ? (props.isImageLoaded ? 'transparent' : 'transparent') : props.fillColor};
   overflow: hidden;
   position: relative;
   transition: transform 0.3s ease;
   border-radius: 20px;
   box-sizing: border-box;
   cursor: ${(props) => (props.clickable ? 'pointer' : 'default')};
+    box-shadow: inset 0px 3px 9px rgba(0, 0, 0, 0.3);
   &:hover {
     transform: scale(1.03);
   }
@@ -30,15 +32,34 @@ const Text = styled.div`
   position: absolute;
   bottom: 15px;
   padding: 10px;
-  left: 15px;
   z-index: 2;
-  font-size: ${({ theme }) => theme.typography.sizes.header};
+  font-size: ${(props) => props.textSize || theme.typography.sizes.header};
   font-weight: ${({ theme }) => theme.typography.weights.subject};
   color: ${(props) => props.textColor};
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: 1px 3px 14px #000000;
+  text-shadow: 1px 2px 9px #000000;
+  text-align: ${(props) => props.textAlign || 'left'};
+  ${(props) => {
+    if (props.textAlign === 'center') {
+      return `
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+      `;
+    } else if (props.textAlign === 'right') {
+      return `
+        right: 15px;
+        left: auto;
+      `;
+    } else {
+      return `
+        left: 15px;
+      `;
+    }
+  }}
 `;
+
 
 const Image = styled.img`
   position: absolute;
@@ -94,6 +115,8 @@ const BentoBlock = ({
   defaultImage = null,
   offsetX = 0,
   offsetY = 0,
+  textAlign = 'left', // New prop for text alignment
+  textSize, // New prop for text size
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -128,8 +151,9 @@ const BentoBlock = ({
       onClick={handleClick}
       clickable={Boolean(clickPath)}
       isImageLoaded={isImageLoaded}
+      defaultImage={defaultImage} // Pass the defaultImage prop here
     >
-      <Text textColor={textColor}>
+      <Text textColor={textColor} textAlign={textAlign} textSize={textSize}>
         {isHovered && rType === "image" && hoverText ? defaultHoverText : textTitle}
       </Text>
       {defaultImage && (

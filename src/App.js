@@ -15,6 +15,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import EventLayout from './pages/EventLayout';
 import Awards from './pages/Awards';
+import Partners from './pages/Partners';
 
 
 
@@ -69,7 +70,8 @@ function App() {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/awards" element={<Awards />} />
               <Route path="/layout" element={<EventLayout />} />
-          
+              <Route path="/partners" element={<Partners />} />
+
 
             </Routes>
           </MainContainer>
