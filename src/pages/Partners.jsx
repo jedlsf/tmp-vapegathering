@@ -143,7 +143,7 @@ function AboutUs() {
                 <BodyContainer>
                     <ColumnContainer>
                         <DynaContainer>
-                            <ColumnContainer mHeight={100}>
+                            <ColumnContainer mHeight={150}>
                                 <TrimmedPreHeader fill={theme.colors.brand.blue}>
                                     <Text>Media Partners</Text>
                                 </TrimmedPreHeader>
@@ -152,8 +152,8 @@ function AboutUs() {
                                 >
                                     <BentoBlock
                                         textTitle="Partner 1"
-                                        textSize="2em"
-                                        textAlign='left'
+                                        textSize="4em"
+                                        textAlign='center'
                                         fillColor={theme.colors.brand.purple}
                                         mWidth={16}
                                         mHeight={32}
@@ -161,21 +161,21 @@ function AboutUs() {
                                     />
                                     <BentoBlock
                                         textTitle="Partner 2"
-                                        textSize="2em"
-                                        textAlign='left'
+                                        textSize="4em"
+                                        textAlign='center'
                                         fillColor={theme.colors.brand.red}
                                         mWidth={16}
                                         mHeight={32}
                                         hoverText="Partner 2"
                                     />
                                     <BentoBlock
-                                        textTitle="Partner 2"
-                                        textSize="2em"
-                                        textAlign='left'
+                                        textTitle="Partner 3"
+                                        textSize="4em"
+                                        textAlign='center'
                                         fillColor={theme.colors.brand.yellow}
                                         mWidth={16}
                                         mHeight={32}
-                                        hoverText="Partner 2"
+                                        hoverText="Partner 3"
                                     />
                                 </DynaContainer>
                                 <TrimmedPreHeader fill={theme.colors.brand.orange}>
@@ -185,32 +185,72 @@ function AboutUs() {
                                     className="dyna-container-sponsors"
                                 >
                                     <BentoBlock
-                                        textTitle="Sponsor 1"
-                                        textSize="2em"
-                                        textAlign='left'
+                                        textTitle="Aspire"
+                                        textSize="4em"
+                                        textAlign='center'
                                         fillColor={theme.colors.brand.pink}
+                                        defaultImage={imageAwardsUnhovered1}
                                         mWidth={16}
                                         mHeight={32}
-                                        hoverText="Sponsor 1"
+                                        hoverText="Aspire"
                                     />
                                     <BentoBlock
-                                        textTitle="Sponsor 2"
-                                        textSize="2em"
-                                        textAlign='left'
+                                        textTitle="SMOK"
+                                        textSize="4em"
+                                        textAlign='center'
+                                        fillColor={theme.colors.brand.blue}
+                                        defaultImage={imageAwardsUnhovered1}
+                                        mWidth={16}
+                                        mHeight={32}
+                                        hoverText="SMOK"
+                                    />
+                                    <BentoBlock
+                                        textTitle="RELX"
+                                        textSize="4em"
+                                        textAlign='center'
+                                        fillColor={theme.colors.brand.orange}
+                                        defaultImage={imageAwardsUnhovered1}
+                                        rImage={brandLogos[11]}
+                                        mWidth={16}
+                                        mHeight={32}
+                                        hoverText="RELX"
+                                    />
+                                </DynaContainer>
+                                <DynaContainer
+                                    className="dyna-container-sponsors"
+                                >
+                                    <BentoBlock
+                                        textTitle="Forge"
+                                        textSize="4em"
+                                        textAlign='center'
+                                        fillColor={theme.colors.brand.pink}
+                                        defaultImage={imageAwardsUnhovered1}
+                                        mWidth={16}
+                                        mHeight={32}
+                                        hoverText="Forge"
+                                    />
+                                    <BentoBlock
+                                        textTitle="IQOS"
+                                        textSize="4em"
+                                        textAlign='center'
+                                        defaultImage={imageAwardsUnhovered1}
+                                        rImage={brandLogos[6]}
                                         fillColor={theme.colors.brand.blue}
                                         mWidth={16}
                                         mHeight={32}
-                                        hoverText="Sponsor 2"
+                                        hoverText="IQOS"
                                     />
                                     <BentoBlock
-                                        textTitle="Sponsor 2"
-                                        textSize="2em"
-                                        textAlign='left'
-                                        fillColor={theme.colors.brand.orange}
+                                        textTitle="JTI"
+                                        textSize="4em"
+                                        textAlign='center'
+                                        fillColor={theme.colors.brand.blue}
+                                        defaultImage={imageAwardsUnhovered1}
                                         mWidth={16}
                                         mHeight={32}
-                                        hoverText="Sponsor 2"
+                                        hoverText="JTI"
                                     />
+
                                 </DynaContainer>
 
 
@@ -219,7 +259,7 @@ function AboutUs() {
                                 textTitle="Newsletter"
                                 fillColor={theme.colors.brand.green}
                                 mWidth={25}
-                                mHeight={100}
+                                mHeight={130}
                                 hoverText="Join Us"
                                 textSize="5em"
                             />
