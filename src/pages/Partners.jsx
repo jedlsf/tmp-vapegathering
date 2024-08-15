@@ -4,15 +4,7 @@ import BentoBlock from '../components/foundations/BentoBlock';
 import ContactInfo from '../components/foundations/ContactInfo';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
-import {
-    imageAboutVenueHovered,
-    imageAboutVenueUnhovered,
-    imageAboutPastEventsHovered,
-    imageAboutPastEventsUnhovered,
-    imageAboutOurTeamHovered,
-    imageAboutOurTeamUnhovered,
-    listSlidePastEvents
-} from '../assets-imported/assets.js';
+import { brandLogos, imageAwardsBanner, imageAwardsUnhovered1, imageAwardsUnhovered2 } from '../assets-imported/assets.js';
 
 const MainContainer = styled.div`
   padding: 30px;
