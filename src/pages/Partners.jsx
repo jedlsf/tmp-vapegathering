@@ -266,29 +266,21 @@ function AboutUs() {
                         </PreHeader>
                         <DynaContainer>
                             <ContactInfo
-                                contactName="Person A"
-                                contactPosition="Director"
-                                contactEmail="test@gmail.com"
-                                contactPhoneNumber="099000134"
+                                contactPosition="Business"
+                                contactEmail="business@vapegathering.com"
+
                             />
                             <ContactInfo
-                                contactName="Person B"
-                                contactPosition="Director"
-                                contactEmail="test@gmail.com"
-                                contactPhoneNumber="099000134"
+
+                                contactPosition="Information"
+                                contactEmail="info@vapegathering.com"
+
                             />
                             <ContactInfo
-                                contactName="Person C"
-                                contactPosition="Director"
-                                contactEmail="test@gmail.com"
-                                contactPhoneNumber="099000134"
+                                contactPosition="Inquiry"
+                                contactEmail="inquiries@vapegathering.com"
                             />
-                            <ContactInfo
-                                contactName="Person D"
-                                contactPosition="Director"
-                                contactEmail="test@gmail.com"
-                                contactPhoneNumber="099000134"
-                            />
+
                         </DynaContainer>
 
                     </ColumnContainer>

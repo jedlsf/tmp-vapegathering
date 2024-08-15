@@ -7,7 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   font-family: 'Poppins-Regular';
-  width: 15em;
+  width: 18em;
   padding: 20px;
   background-color: ${({ theme }) => theme.colors.primaryBackground};
   border-radius: 12px;
@@ -42,16 +42,26 @@ const Text = styled.span`
     user-select: none;
 `;
 
-const ContactInfo = ({ contactName, contactPosition, contactPhoneNumber, contactEmail }) => {
-    return (
-        <Container>
-            <RowWithIcon>
-                <NonButtonIcon>
-                    <FaUser />
-                </NonButtonIcon>
-                <Text>{contactName}</Text>
-            </RowWithIcon>
 
+
+const ContactInfo = ({ contactName, contactPosition, contactPhoneNumber, contactEmail }) => {
+
+    const handleClick = () => {
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}`;
+        window.open(gmailLink, '_blank');
+    };
+
+
+    return (
+        <Container onClick={handleClick}>
+            {contactName && (
+                <RowWithIcon>
+                    <NonButtonIcon>
+                        <FaUser />
+                    </NonButtonIcon>
+                    <Text>{contactName}</Text>
+                </RowWithIcon>
+            )}
             {contactPosition && (
                 <RowWithIcon>
                     <NonButtonIcon>
