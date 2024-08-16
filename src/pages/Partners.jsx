@@ -4,7 +4,7 @@ import BentoBlock from '../components/foundations/BentoBlock';
 import ContactInfo from '../components/foundations/ContactInfo';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
-import { brandLogos, imageAwardsBanner, imageAwardsUnhovered1, imageAwardsUnhovered2 } from '../assets-imported/assets.js';
+import { brandLogos, partnerLogos, imageAwardsUnhovered1, imageAwardsUnhovered2 } from '../assets-imported/assets.js';
 import Newsletter from '../components/functional/Newsletter.jsx';
 
 const MainContainer = styled.div`
@@ -207,6 +207,7 @@ function AboutUs() {
                                         textAlign='center'
                                         fillColor={theme.colors.brand.blue}
                                         defaultImage={imageAwardsUnhovered1}
+                                        rImage={partnerLogos[3]}
                                         mWidth={16}
                                         mHeight={32}
                                         hoverText="SMOK"
@@ -232,6 +233,7 @@ function AboutUs() {
                                         textAlign='center'
                                         fillColor={theme.colors.brand.pink}
                                         defaultImage={imageAwardsUnhovered1}
+                                        rImage={partnerLogos[0]}
                                         mWidth={16}
                                         mHeight={32}
                                         hoverText="Forge"
@@ -253,6 +255,7 @@ function AboutUs() {
                                         textAlign='center'
                                         fillColor={theme.colors.brand.blue}
                                         defaultImage={imageAwardsUnhovered1}
+                                        rImage={partnerLogos[1]}
                                         mWidth={16}
                                         mHeight={32}
                                         hoverText="JTI"

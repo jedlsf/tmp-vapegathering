@@ -42,6 +42,10 @@ import slidePastEventsImg30 from "./slidePastEvents/img30.jpg";
 //Import home assets
 import homeScroller from "./home/homescroll.png";
 import homeBanner from "./home/homeBanner.jpg";
+import banner1Home from "./home/banner1Home.jpg";
+import banner2Tickets from "./home/banner2Tickets.jpg";
+import banner3Where from "./home/banner3Where.jpg";
+
 
 //Import About us assets
 import aboutVenueHovered from "./about/venue/aboutVenueHovered.jpg";
@@ -81,8 +85,31 @@ import bLogo_VaporNerds from "./logoBrands/bLogo15_Vapor Nerds.jpg";
 import bLogo_Placeholder1 from "./logoBrands/bLogo16_VG sample 1.jpg";
 import bLogo_Placeholder2 from "./logoBrands/bLogo17_VG sample 2.jpg";
 
+import partnersForge from "./partners/partnersForge.png";
+import partnersJTI from "./partners/partnersJTI.png";
+import partnersPV from "./partners/partnersPV.png";
+import partnersSMOK from "./partners/partnersSMOK.png";
+import partnersXVAPE from "./partners/partnersXVAPE.png";
+
+
+export const partnerLogos = [
+    partnersForge,
+    partnersJTI,
+    partnersPV,
+    partnersSMOK,
+    partnersXVAPE,
+];
 
 export const imageHomeBanner = homeBanner;
+
+
+export const homeBanners = [
+    banner1Home,
+    banner2Tickets,
+    banner3Where
+];
+
+
 export const imageHomeScroller = homeScroller;
 
 export const imageAboutVenueHovered = aboutVenueHovered;

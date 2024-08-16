@@ -7,7 +7,7 @@ import ScrollBanner from '../components/functional/ScrollBanner';
 import Block3D from '../components/3d/Block3D';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme';
-import { imageHomeBanner, imageHomeScroller, eLayoutImage } from '../assets-imported/assets';
+import { imageHomeBanner, imageHomeScroller, eLayoutImage, homeBanners } from '../assets-imported/assets';
 
 const imagesHome = []; // Add any additional images here if needed
 
@@ -82,30 +82,88 @@ const Background = styled.div`
 
 const ContentContainer = styled.div`
   width: 100%;
-  height: 600px; /* Fixed height for the container */
-  border-radius: ${({ theme }) => theme.borders.radius.large};
+  height: 65vh; 
+  border-radius: 16px;
   display: flex;
-  flex-direction: column; /* Ensure column layout */
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   gap: 25px;
 
   @media (max-width: 768px) {
-    width: 100%;
-    height: 350px; 
+    height: 300px;
   }
 `;
 
 const ImageBanner = styled.img`
-  width: 100%;
+  width: 90%;
   height: auto; /* Ensure the image scales correctly */
   object-fit: contain;
   border-radius: 25px;
   overflow: hidden;
+   @media (max-width: 768px) {
+    width: 100%;
+      border-radius: 12px;
+  }
 `;
 
+const TimerOverlay = styled.div`
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: ${({ hide }) => (hide ? 'none' : 'block')};
 
+  @media (max-width: 768px) {
+    bottom: 05px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+`;
+
+const PurchaseLink = styled.div`
+  position: absolute;
+  bottom: 40px;
+  left: 20%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: ${({ hide }) => (hide ? 'none' : 'block')};
+
+  @media (max-width: 768px) {
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+`;
+
+// Styled component for Proceed button
+export const ProceedButton = styled.button`
+  background-color: ${({ theme }) => theme.colors.brand.yellow};
+  color: ${({ theme }) => theme.colors.primaryBackground};
+  border: 1px solid transparent;
+  padding: 10px 20px;
+    font-family: 'Poppins-Semibold';
+  width: 10em;
+  cursor: pointer;
+  border-radius: ${({ theme }) => theme.borders?.radius?.medium || '8px'};
+  font-size: 1.6em;
+  font-weight: ${({ theme }) => theme.typography.weights.title};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.brand.blue};
+     color: ${({ theme }) => theme.colors.brand.yellow};
+     border-color: ${({ theme }) => theme.colors.brand.yellow};
+  }
+
+   @media (max-width: 768px) {
+      width: 9em;
+       font-size: 0.8em;
+  }
+
+
+`;
 
 const path1 = 'M 350 1050 Q 0 500 200 300 Q 450 0 600 300 C 1050 1050 1900 150 1900 1000 A 50 50 0 1 1 1350 200 Q 1600 0 1800 400 Q 1850 700 1550 800 Q 550 1050 0 0 ';
 const targetDate = '2024-09-16T00:00:00Z';
@@ -133,25 +191,22 @@ function Home() {
     console.log("Hovered Out");
   };
 
-
   const handleClickTickets = (index) => {
-
     console.log("Clicked: ", index);
     window.location.href = "https://tickets.vapegathering.com";
-
   };
 
   const getImageSource = () => {
     // Return the appropriate image based on the current index
     switch (currentIndex) {
       case 0:
-        return imageHomeBanner; // Default image for index 0
+        return homeBanners[0]; // Default image for index 0
       case 1:
-        return imageHomeBanner; // Add the URL for image 1 if available
+        return homeBanners[1]; // Add the URL for image 1 if available
       case 2:
         return eLayoutImage; // Add the URL for image 2 if available
       case 3:
-        return imageHomeBanner; // Add the URL for image 3 if available
+        return homeBanners[2]; // Add the URL for image 3 if available
       default:
         return imageHomeBanner; // Default image for index 0
     }
@@ -174,7 +229,12 @@ function Home() {
         <DynaContainer>
           <ContentContainer>
             <ImageBanner src={getImageSource()} alt="Home Banner" />
-            <CountdownTimer targetDate={targetDate} />
+            <TimerOverlay hide={currentIndex === 2}>
+              <CountdownTimer targetDate={targetDate} />
+            </TimerOverlay>
+            <PurchaseLink hide={currentIndex !== 1}>
+              <ProceedButton onClick={handleClickTickets}>Purchase</ProceedButton>
+            </PurchaseLink>
           </ContentContainer>
           <Stack3DContainer>
             <Block3D
