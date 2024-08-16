@@ -33,7 +33,7 @@ const ColumnContainer = styled.div`
 const Title = styled.div`
   user-select: none;
   font-family: 'Akkordeon Seven', sans-serif;
-  font-size: 4.2em;
+  font-size: 48px;
   color: ${({ theme }) => theme.colors.textPrimary};
   -webkit-background-clip: text;
   background-clip: text;

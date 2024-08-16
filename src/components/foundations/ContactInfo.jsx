@@ -9,6 +9,7 @@ const Container = styled.div`
   font-family: 'Poppins-Regular';
   width: 18em;
   padding: 20px;
+  cursor: pointer;
   background-color: ${({ theme }) => theme.colors.primaryBackground};
   border-radius: 12px;
     transition: transform 0.3s ease;
