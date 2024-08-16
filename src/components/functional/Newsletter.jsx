@@ -43,10 +43,10 @@ const Title = styled.div`
 `;
 
 const SubText = styled.div`
-    font-family: 'Poppins-Regular', sans-serif;
-  font-size: 1em;
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 0.7em;
   color: ${({ color }) => color || theme.colors.textPrimary};
-  text-align: center;
+  text-align: right;
 `;
 
 const ProceedButton = styled.button`
@@ -67,24 +67,68 @@ const ProceedButton = styled.button`
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.textDisabled};
+    background-color: ${({ theme }) => theme.colors.secondaryBackground};
+    color: ${({ theme }) => theme.colors.textSecondary};
     cursor: not-allowed;
+    opacity: 0.6;
   }
 `;
 
 const Newsletter = () => {
   const [formData, setFormData] = useState({ firstName: '', surname: '', email: '' });
   const [isValidated, setIsValidated] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
+  const [mailchimpMessage, setMailchimpMessage] = useState('');
 
   const handleUpdate = (data) => {
     setFormData(data);
     console.log("Change from Newsletter: ", data);
   };
 
-  const handleValidated = (isValid) => {
-    setIsValidated(isValid);
-    console.log("Validated from Newsletter: ", isValid);
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const forbiddenEmails = ['test@gmail.com', 'test@example.com']; // Add more test emails if needed
+    if (!emailRegex.test(email)) {
+      return "Invalid Email";
+    }
+    if (forbiddenEmails.includes(email.toLowerCase())) {
+      return "This email cannot be used. Please enter a different email address.";
+    }
+    return null; // No validation error
+  };
+
+  const handleValidated = () => {
+    const validationError = validateEmail(formData.email);
+    if (validationError) {
+      setIsValidated(false);
+      setValidationMessage(validationError);
+    } else {
+      setIsValidated(true);
+      setValidationMessage('');
+    }
+  };
+
+  const handleSubscribe = (subscribe) => {
+    handleValidated(); // Call validation before subscribing
+    if (!isValidated) return; // Don't proceed if validation fails
+
+    subscribe(formatFormData());
+  };
+
+  const handleResponse = (status, responseMsg) => {
+    if (status === "error") {
+      if (responseMsg.includes("This email cannot be added to this list")) {
+        setMailchimpMessage("This email cannot be added to the list. Please try a different email address.");
+      } else if (responseMsg.includes("is an invalid email address")) {
+        setMailchimpMessage("Invalid Email Address. Please check the email and try again.");
+      } else {
+        setMailchimpMessage("An unexpected error occurred. Please try again later.");
+      }
+    } else if (status === "success") {
+      setMailchimpMessage("Thank you for subscribing!");
+    } else {
+      setMailchimpMessage('');
+    }
   };
 
   const formatFormData = () => {
@@ -100,26 +144,22 @@ const Newsletter = () => {
       <Title>Join the Newsletter</Title>
       <MailchimpSubscribe
         url={mailchimpURL}
-        render={({ subscribe, status, message }) => {
-          // Update the error message based on the status
-          if (status === "error") {
-            setErrorMessage("Invalid Email");
-          } else {
-            setErrorMessage('');
-          }
+        render={({ subscribe, status, message: responseMsg }) => {
+          // Handle the response message and status
+          handleResponse(status, responseMsg);
 
           return (
             <ColumnContainer>
               <FormMailchimp onUpdate={handleUpdate} onValidated={handleValidated} />
               <ProceedButton
-                onClick={() => isValidated && subscribe(formatFormData())}
+                onClick={() => handleSubscribe(subscribe)}
                 disabled={!isValidated}
               >
                 Join
               </ProceedButton>
+              {validationMessage && <SubText color={theme.colors.brand.yellow}>{validationMessage}</SubText>}
               {status === "sending" && <SubText color={theme.colors.brand.yellow}>Sending...</SubText>}
-              {status === "error" && <SubText color={theme.colors.brand.yellow}>{errorMessage}</SubText>}
-              {status === "success" && <SubText color={theme.colors.textPrimary}>Subscribed</SubText>}
+              {isValidated && mailchimpMessage && <SubText color={status === "success" ? theme.colors.textPrimary : theme.colors.brand.yellow}>{mailchimpMessage}</SubText>}
             </ColumnContainer>
           );
         }}
