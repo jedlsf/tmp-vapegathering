@@ -150,6 +150,25 @@ export const brandLogos = [
 ];
 
 
+export const brandLogosNoPlaceholder = [
+    bLogo_Aerogin,
+    bLogo_Boss,
+    bLogo_CholoBlend,
+    bLogo_Elfbar,
+    bLogo_Flabar,
+    bLogo_PuffMaster,
+    bLogo_IQOS,
+    bLogo_Liquido,
+    bLogo_MOFlavors,
+    bLogo_Nevoks,
+    bLogo_PastryVapors,
+    bLogo_RELX,
+    bLogo_Shift,
+    bLogo_UZOQ,
+    bLogo_VaporNerds
+];
+
+
 
 export const logoVG = logoEmblem;
 export const faviconRound = faviconRoundAlpha;

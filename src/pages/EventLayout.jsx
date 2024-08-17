@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import AnimatedSplinePath from '../components/vfx/AnimatedSplinePath';
 import theme from '../theme.js';
-import { eLayoutImage } from '../assets-imported/assets.js';
+import { eLayoutImage, brandLogosNoPlaceholder, partnerLogos } from '../assets-imported/assets.js';
 import Zoom from 'react-medium-image-zoom';
+import PhotoGallery from '../components/functional/PhotoGallery.jsx';
+
+const allLogos = partnerLogos.concat(brandLogosNoPlaceholder);
 
 const MainContainer = styled.div`
   padding: 20px;
@@ -51,15 +54,33 @@ const BgOverlay = styled.div`
 const ContentContainer = styled.div`
   position: relative;
   z-index: 10;
-   width: 100%;
-  max-width: 1400px;
+   width: 70vw;
+   height: 65vh;
+overflow: auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  height: auto;
+ scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+.hidden-scrollbar {
+  overflow: auto; /* or overflow: scroll; */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+ @media (max-width: 768px) {
+     height: 80vh;
+       box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+
+
 
 `;
 
@@ -69,6 +90,7 @@ height: auto;
   max-height: 65vh;
   object-fit: contain;
   border-radius: 15px;
+  margin-bottom: 5em;
 
 `;
 
@@ -88,7 +110,14 @@ function EventLayout() {
           gColor3={theme.colors.brand.pink}
         />
       </BgOverlay>
-      <ContentContainer> <PlaceholderImage src={eLayoutImage} alt="Event Layout" />
+      <ContentContainer>
+        <PlaceholderImage src={eLayoutImage} alt="Event Layout" />
+        <PhotoGallery
+          listImages={allLogos}
+          columns={3}
+          spacing={45}
+          orientation='square'
+        />
 
       </ContentContainer>
     </MainContainer>
