@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { HomeIcon, AboutUsIcon, AwardsIcon, EventLayoutIcon, PartnerExhibitorKitIcon } from '../../icons';
+import { HomeIcon, AboutUsIcon, AwardsIcon, EventLayoutIcon, PartnerExhibitorKitIcon, PhotoGalleryIcon } from '../../icons';
 import MenuTabButton from '../foundations/MenuTabButton';
 import theme from '../../theme';
 
@@ -101,7 +101,17 @@ function NavMenuTab() {
                         />
                     )}
                 </NavLinkStyled>
-
+                <NavLinkStyled hoverColor={theme.colors.textPrimary} to="/gallery">
+                    {({ isActive }) => (
+                        <MenuTabButton
+                            icon={<PhotoGalleryIcon />}
+                            text="Gallery"
+                            selected={isActive}
+                            iconColor={theme.colors.textPrimary}
+                            hoverColor={theme.colors.primaryBackground}
+                        />
+                    )}
+                </NavLinkStyled>
             </Nav>
         </MenuContainer>
     );

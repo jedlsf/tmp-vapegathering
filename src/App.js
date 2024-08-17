@@ -16,6 +16,7 @@ import AboutUs from './pages/AboutUs';
 import EventLayout from './pages/EventLayout';
 import Awards from './pages/Awards';
 import Partners from './pages/Partners';
+import Gallery from './pages/Gallery';
 
 
 
@@ -71,6 +72,7 @@ function App() {
               <Route path="/awards" element={<Awards />} />
               <Route path="/layout" element={<EventLayout />} />
               <Route path="/partners" element={<Partners />} />
+              <Route path="/gallery" element={<Gallery />} />
 
 
             </Routes>

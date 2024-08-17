@@ -24,6 +24,11 @@ const Logo = styled.img`
   z-index: 1;
   user-select: none;
 
+   
+  @media (max-width: 768px) {
+    display: none;
+  }
+
 `;
 
 

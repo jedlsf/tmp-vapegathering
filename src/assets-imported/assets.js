@@ -90,6 +90,7 @@ import partnersJTI from "./partners/partnersJTI.png";
 import partnersPV from "./partners/partnersPV.png";
 import partnersSMOK from "./partners/partnersSMOK.png";
 import partnersXVAPE from "./partners/partnersXVAPE.png";
+import partnersAspire from "./partners/partnersAspire.jpg"
 
 
 export const partnerLogos = [
@@ -98,6 +99,7 @@ export const partnerLogos = [
     partnersPV,
     partnersSMOK,
     partnersXVAPE,
+    partnersAspire
 ];
 
 export const imageHomeBanner = homeBanner;

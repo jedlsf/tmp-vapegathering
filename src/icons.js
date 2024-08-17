@@ -12,7 +12,8 @@ import {
     FaInfoCircle,
     FaTrophy,
     FaProjectDiagram,
-    FaBriefcase
+    FaBriefcase,
+    FaImage
 } from 'react-icons/fa';
 
 export const HomeIcon = FaHome;
@@ -31,3 +32,4 @@ export const AwardsIcon = FaTrophy;
 export const StarIcon = FaStar;
 export const EventLayoutIcon = FaProjectDiagram;
 export const PartnerExhibitorKitIcon = FaBriefcase;
+export const PhotoGalleryIcon = FaImage;
