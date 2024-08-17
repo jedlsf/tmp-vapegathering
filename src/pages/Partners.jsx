@@ -197,6 +197,7 @@ function AboutUs() {
                                         textAlign='center'
                                         fillColor={theme.colors.brand.pink}
                                         defaultImage={imageAwardsUnhovered1}
+                                        rImage={partnerLogos[5]}
                                         mWidth={16}
                                         mHeight={32}
                                         hoverText="Aspire"
