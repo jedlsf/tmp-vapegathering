@@ -150,6 +150,7 @@ function AboutUs() {
               mWidth={50}
               mHeight={70}
               hoverText="Gallery"
+              clickPath="/gallery"
             />
           </DynaContainer>
         </BodyContainer>
