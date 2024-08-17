@@ -13,8 +13,17 @@ const Container = styled.div`
    @media (max-width: 768px) {
     flex-direction: column;
     display: flex;
+     grid-template-columns: repeat(${(props) => props.columns - 2}, 1fr);
   }
   
+   
+   @media (max-width: 950px) {
+ grid-template-columns: repeat(${(props) => props.columns - 2}, 1fr);
+  }
+
+   @media (max-width: 1400px) {
+ grid-template-columns: repeat(${(props) => props.columns - 1}, 1fr);
+  }
 `;
 
 const ImageWrapper = styled.div`
