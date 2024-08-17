@@ -91,7 +91,9 @@ height: auto;
   object-fit: contain;
   border-radius: 15px;
   margin-bottom: 5em;
-
+ @media (max-width: 768px) {
+  margin-bottom: 1em;
+  }
 `;
 
 const path3 = "M 300 0 Q 500 1100 1000 950 C 1900 400 0 200 1900 250 ";
