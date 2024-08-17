@@ -20,6 +20,11 @@ const NewsletterContainer = styled.div`
   max-width: 400px;
   margin: 0 auto;
   gap: 25px;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+      padding: 10px;
+  }
 `;
 
 const ColumnContainer = styled.div`
@@ -28,6 +33,9 @@ const ColumnContainer = styled.div`
   align-items: center;
   width: 90%;
   gap: 25px;
+   @media (max-width: 768px) {
+    width: 60%;
+  }
 `;
 
 const Title = styled.div`
@@ -40,6 +48,10 @@ const Title = styled.div`
   text-align: left;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+    @media (max-width: 768px) {
+   font-size: 36px;
+  }
 `;
 
 const SubText = styled.div`
