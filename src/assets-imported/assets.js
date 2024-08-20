@@ -1,4 +1,5 @@
 import logoEmblem from './logo_VG.png';
+import logoEmblemCropped from './logo_VG_cropped.png';
 import faviconRoundAlpha from './FavIcon_RoundAlpha.png';
 import pceiaPng from './LogoPCEIA.png';
 import age18pPng from './Logo18p.png';
@@ -171,6 +172,7 @@ export const brandLogosNoPlaceholder = [
 
 
 export const logoVG = logoEmblem;
+export const logoVGcropped = logoEmblemCropped;
 export const faviconRound = faviconRoundAlpha;
 export const logoPCEIA = pceiaPng;
 export const logo18p = age18pPng;

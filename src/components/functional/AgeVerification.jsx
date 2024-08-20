@@ -3,7 +3,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { ProceedButton } from '../../styles/global';
-import { logoVG, logoPCEIA, logo18p } from '../../assets-imported/assets';
+import { logoVGcropped, logoPCEIA, logo18p } from '../../assets-imported/assets';
 
 
 
@@ -117,8 +117,9 @@ const Text = styled.div`
 `;
 
 const Logo = styled.img`
+ margin-top: 30px;
 position: relative;
-  width: 22em;
+  width:28em;
   user-select: none;
     @media (max-width: 768px) {
         width: 18em;
@@ -134,6 +135,7 @@ const WarningLogo = styled.img`
 `;
 
 export const RowContainer = styled.main`
+  margin-top: 50px;
   flex-grow: 1;
   width: 30vw;
   display: flex;
@@ -153,7 +155,7 @@ const AgeVerification = ({ onVerify }) => {
   return (
     <PopupContainer>
       <PopupContent>
-        <Logo src={logoVG} alt="logo" />
+        <Logo src={logoVGcropped} alt="logo" />
         <RowContainer>
           <WarningLogo src={logoPCEIA} alt="WarningLogo" />
           <WarningLogo src={logo18p} alt="WarningLogo" />
