@@ -205,7 +205,8 @@ function Home() {
       case 1:
         return homeBanners[1]; // Add the URL for image 1 if available
       case 2:
-        return eLayoutImage; // Add the URL for image 2 if available
+        return homeBanners[0]; // Default image for index 0
+      //return eLayoutImage; // Add the URL for image 2 if available
       case 3:
         return homeBanners[2]; // Add the URL for image 3 if available
       default:
