@@ -3,7 +3,9 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { ProceedButton } from '../../styles/global';
-import { logoVG } from '../../assets-imported/assets';
+import { logoVG, logoPCEIA, logo18p } from '../../assets-imported/assets';
+
+
 
 
 const gradientAnimation = keyframes`
@@ -82,9 +84,9 @@ export const MainContainer = styled.main`
   align-items: left;
   border-radius: ${({ theme }) => theme.borders?.radius?.medium || '8px'};
   z-index: 15;
-
- 
 `;
+
+
 
 const PopupContent = styled.div`
   display: flex;
@@ -115,11 +117,29 @@ const Text = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 25em;
+position: relative;
+  width: 22em;
+  user-select: none;
+    @media (max-width: 768px) {
+        width: 18em;
+  }
+`;
+
+const WarningLogo = styled.img`
+  width: 8em;
   user-select: none;
     @media (max-width: 768px) {
         width: 20em;
   }
+`;
+
+export const RowContainer = styled.main`
+  flex-grow: 1;
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const AgeVerification = ({ onVerify }) => {
@@ -134,6 +154,10 @@ const AgeVerification = ({ onVerify }) => {
     <PopupContainer>
       <PopupContent>
         <Logo src={logoVG} alt="logo" />
+        <RowContainer>
+          <WarningLogo src={logoPCEIA} alt="WarningLogo" />
+          <WarningLogo src={logo18p} alt="WarningLogo" />
+        </RowContainer>
         <Text>The events on this website are age-restricted and intended for adults of legal vaping age only.</Text>
         <ProceedButton onClick={() => handleVerify(true)}>Yes, I am 18 or older</ProceedButton>
       </PopupContent>
