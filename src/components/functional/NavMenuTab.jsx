@@ -90,17 +90,7 @@ function NavMenuTab() {
                         />
                     )}
                 </NavLinkStyled>
-                <NavLinkStyled hoverColor={theme.colors.brand.yellow} to="/layout">
-                    {({ isActive }) => (
-                        <MenuTabButton
-                            icon={<EventLayoutIcon />}
-                            text="Event Layout"
-                            selected={isActive}
-                            iconColor={theme.colors.brand.yellow}
-                            hoverColor={theme.colors.primaryBackground}
-                        />
-                    )}
-                </NavLinkStyled>
+
                 <NavLinkStyled hoverColor={theme.colors.textPrimary} to="/gallery">
                     {({ isActive }) => (
                         <MenuTabButton
@@ -126,6 +116,19 @@ export default NavMenuTab;
                             text="Partners"
                             selected={isActive}
                             iconColor={theme.colors.brand.orange}
+                            hoverColor={theme.colors.primaryBackground}
+                        />
+                    )}
+                </NavLinkStyled>
+
+
+                 <NavLinkStyled hoverColor={theme.colors.brand.yellow} to="/layout">
+                    {({ isActive }) => (
+                        <MenuTabButton
+                            icon={<EventLayoutIcon />}
+                            text="Event Layout"
+                            selected={isActive}
+                            iconColor={theme.colors.brand.yellow}
                             hoverColor={theme.colors.primaryBackground}
                         />
                     )}
