@@ -167,7 +167,7 @@ export const ProceedButton = styled.button`
 `;
 
 const path1 = 'M 350 1050 Q 0 500 200 300 Q 450 0 600 300 C 1050 1050 1900 150 1900 1000 A 50 50 0 1 1 1350 200 Q 1600 0 1800 400 Q 1850 700 1550 800 Q 550 1050 0 0 ';
-const targetDate = '2024-09-28T00:00:00Z';
+const targetDate = '2024-09-28T12:00:00Z';
 
 const meshPaths = [
   'https://tmp-vg-appfiles.s3.ap-southeast-2.amazonaws.com/glb/glbVape0.glb',
